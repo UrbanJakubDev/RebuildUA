@@ -4,8 +4,8 @@ import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 
 const themes = [
-  { id: 'light', name: 'Professional Red', icon: '🔴' },
   { id: 'dark', name: 'Dark Professional', icon: '⚫' },
+  { id: 'light', name: 'Professional Red', icon: '🔴' },
   { id: 'ukrainian', name: 'Ukrainian Hope', icon: '🇺🇦' },
   { id: 'energy', name: 'Energy Green', icon: '🌱' },
   { id: 'corporate', name: 'Corporate Steel', icon: '⚙️' }
@@ -21,7 +21,7 @@ export default function ThemeSwitch() {
     return (
       <div className='flex items-center gap-2'>
         <select
-          className='text-muted-foreground border-border focus:ring-accent/20 rounded-lg border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 disabled:cursor-not-allowed disabled:opacity-50'
+          className='text-muted-foreground focus:ring-accent/20 rounded-lg border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 disabled:cursor-not-allowed disabled:opacity-50'
           disabled
         >
           <option>Načítání...</option>
@@ -37,7 +37,7 @@ export default function ThemeSwitch() {
     <select
       value={resolvedTheme}
       onChange={e => setTheme(e.target.value)}
-      className='text-muted-foreground border-border focus:ring-accent/20 hover:border-border-hover rounded-lg border bg-background px-3 py-2 text-sm transition-colors duration-200 focus:outline-none focus:ring-2'
+      className='text-muted-foreground focus:ring-accent/20 rounded-lg border border-border bg-background px-3 py-2 text-sm transition-colors duration-200 hover:border-border-hover focus:outline-none focus:ring-2'
       aria-label='Vyberte téma'
     >
       {themes.map(theme => (

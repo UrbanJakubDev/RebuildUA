@@ -4,33 +4,7 @@
 
 @layer base {
   :root {
-    /* Light theme - Professional off-white-gray with red brand accent */
-    --primary: #1f2937; /* Dark gray for text */
-    --secondary: #6b7280; /* Medium gray for secondary text */
-    --background: #fafbfc; /* Soft off-white background */
-    --background-secondary: #f1f5f9; /* Very light gray */
-    --button: #dc2626; /* Professional red - brand color */
-    --button-text: #ffffff; /* White text on buttons */
-    --text-secondary: #6b7280; /* Medium gray for secondary text */
-    --dropdown: #ffffff; /* Pure white dropdown */
-    --dropdown-hover: #f1f5f9; /* Very light gray on hover */
-    --button-secondary: #e5e7eb; /* Light gray secondary buttons */
-    --selected: #fecaca; /* Light red selection */
-    --logo-shadow: #991b1b; /* Dark red shadow */
-    --logo-body: #dc2626; /* Professional red - brand color */
-    --span-bg: linear-gradient(to right, #dc2626, #b91c1c, #991b1b);
-
-    /* Enhanced professional colors */
-    --accent: #dc2626; /* Red accent */
-    --accent-hover: #b91c1c; /* Darker red on hover */
-    --border: #e5e7eb; /* Light gray borders */
-    --border-hover: #d1d5db; /* Medium gray borders on hover */
-    --card-bg: #ffffff; /* Pure white cards */
-    --card-shadow: rgba(0, 0, 0, 0.05); /* Subtle card shadows */
-    --card-shadow-hover: rgba(0, 0, 0, 0.1); /* Stronger shadows on hover */
-  }
-  .dark {
-    /* Dark theme - Professional neutral dark with red accent and softer colors */
+    /* Dark theme as default - Professional neutral dark with red accent and softer colors */
     --primary: #e5e5e5; /* Light neutral gray text (not pure white) */
     --secondary: #a3a3a3; /* Medium neutral gray for secondary text */
     --background: #171717; /* Very dark neutral gray (not pure black) */
@@ -59,6 +33,32 @@
       0,
       0.5
     ); /* Stronger dark shadows on hover */
+  }
+  .light {
+    /* Light theme - Professional off-white-gray with red brand accent */
+    --primary: #1f2937; /* Dark gray for text */
+    --secondary: #6b7280; /* Medium gray for secondary text */
+    --background: #fafbfc; /* Soft off-white background */
+    --background-secondary: #f1f5f9; /* Very light gray */
+    --button: #dc2626; /* Professional red - brand color */
+    --button-text: #ffffff; /* White text on buttons */
+    --text-secondary: #6b7280; /* Medium gray for secondary text */
+    --dropdown: #ffffff; /* Pure white dropdown */
+    --dropdown-hover: #f1f5f9; /* Very light gray on hover */
+    --button-secondary: #e5e7eb; /* Light gray secondary buttons */
+    --selected: #fecaca; /* Light red selection */
+    --logo-shadow: #991b1b; /* Dark red shadow */
+    --logo-body: #dc2626; /* Professional red - brand color */
+    --span-bg: linear-gradient(to right, #dc2626, #b91c1c, #991b1b);
+
+    /* Enhanced professional colors */
+    --accent: #dc2626; /* Red accent */
+    --accent-hover: #b91c1c; /* Darker red on hover */
+    --border: #e5e7eb; /* Light gray borders */
+    --border-hover: #d1d5db; /* Medium gray borders on hover */
+    --card-bg: #ffffff; /* Pure white cards */
+    --card-shadow: rgba(0, 0, 0, 0.05); /* Subtle card shadows */
+    --card-shadow-hover: rgba(0, 0, 0, 0.1); /* Stronger shadows on hover */
   }
 
   /* Theme 2: Ukrainian Hope - Blue & Yellow */

@@ -69,7 +69,7 @@ export default function LocaleLayout({
         <ThemeProvider
           enableSystem
           attribute='class'
-          defaultTheme='light'
+          defaultTheme='dark'
           themes={['light', 'dark', 'ukrainian', 'energy', 'corporate']}
         >
           <NextIntlClientProvider
