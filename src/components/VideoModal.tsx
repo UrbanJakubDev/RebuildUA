@@ -3,6 +3,7 @@
 import { useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { IoClose } from 'react-icons/io5'
+import { useTranslations } from 'next-intl'
 import { VideoCard } from './VideoCard'
 
 interface Video {
@@ -19,52 +20,22 @@ interface VideoModalProps {
   onClose: () => void
 }
 
-// Placeholder videa
-const placeholderVideos: Video[] = [
-  {
-    id: '1',
-    title: 'Obnova infrastruktury v Kyjevě',
-    duration: '3:45',
-    description:
-      'Dokumentace obnovy klíčové infrastruktury ve hlavním městě Ukrajiny.'
-  },
-  {
-    id: '2',
-    title: 'Rekonstrukce mostů v Charkově',
-    duration: '5:12',
-    description: 'Proces rekonstrukce strategicky důležitých mostních spojení.'
-  },
-  {
-    id: '3',
-    title: 'Obnova energetické sítě',
-    duration: '7:23',
-    description:
-      'Modernizace a obnova energetické infrastruktury po válečných škodách.'
-  },
-  {
-    id: '4',
-    title: 'Rekonstrukce nemocnic',
-    duration: '4:56',
-    description:
-      'Obnova zdravotnických zařízení pro zajištění péče o civilní obyvatelstvo.'
-  },
-  {
-    id: '5',
-    title: 'Obnova školských zařízení',
-    duration: '6:18',
-    description:
-      'Rekonstrukce škol a vzdělávacích institucí pro budoucí generace.'
-  },
-  {
-    id: '6',
-    title: 'Dopravní infrastruktura',
-    duration: '8:34',
-    description:
-      'Obnova silniční a železniční sítě pro obnovení mobility obyvatel.'
-  }
-]
+// Placeholder video durations (these remain the same)
+const videoDurations = ['3:45', '5:12', '7:23', '4:56', '6:18', '8:34']
 
 export function VideoModal({ isOpen, onClose }: VideoModalProps) {
+  const t = useTranslations('videos')
+
+  // Get localized video data
+  const placeholderVideos: Video[] = t
+    .raw('placeholders')
+    .map((video: any, index: number) => ({
+      id: (index + 1).toString(),
+      title: video.title,
+      duration: videoDurations[index],
+      description: video.description
+    }))
+
   // Handle keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -90,7 +61,7 @@ export function VideoModal({ isOpen, onClose }: VideoModalProps) {
 
   const handleVideoClick = (video: Video) => {
     console.log('Video clicked:', video.title)
-    // Zde bude později logika pro přehrání videa
+    // Video playback logic will be implemented here later
   }
 
   const handleBackdropClick = (e: React.MouseEvent) => {
@@ -107,11 +78,13 @@ export function VideoModal({ isOpen, onClose }: VideoModalProps) {
       <div className='border-border bg-card-bg shadow-card-shadow-hover relative h-[95vh] w-[95vw] max-w-7xl overflow-hidden rounded-xl border'>
         {/* Header */}
         <div className='border-border bg-background-secondary/50 flex items-center justify-between border-b p-6'>
-          <h2 className='text-2xl font-bold text-primary'>Video Galerie</h2>
+          <h2 className='text-2xl font-bold text-primary'>
+            {t('modal.title')}
+          </h2>
           <button
             onClick={onClose}
             className='hover:bg-accent/10 rounded-full p-2 text-secondary transition-colors hover:text-primary'
-            aria-label='Zavřít'
+            aria-label={t('modal.close')}
           >
             <IoClose size={24} />
           </button>

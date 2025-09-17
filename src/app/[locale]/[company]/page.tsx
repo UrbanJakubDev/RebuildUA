@@ -1,3 +1,5 @@
+'use client'
+
 import { SimplePageWrapper } from '@/src/components/PageWrapper'
 import {
   AnimatedSection,
@@ -6,12 +8,47 @@ import {
   AnimatedText
 } from '@/src/components/AnimatedSection'
 import React from 'react'
+import { useTranslations } from 'next-intl'
 
 export default function CompanyPage({
   params
 }: {
   params: { company: string; locale: string }
 }): JSX.Element {
+  const t = useTranslations('pages.company')
+  const companyKey = params.company.toLowerCase()
+
+  // Get company-specific content or fallback to generic content
+  const getCompanyContent = (path: string, fallback?: string) => {
+    const companyPath = `companies.${companyKey}.${path}`
+    const genericPath = fallback || path
+
+    // Try company-specific first, then fallback to generic
+    try {
+      return t(companyPath)
+    } catch {
+      return t(genericPath)
+    }
+  }
+
+  const getCompanyStats = () => {
+    try {
+      const stats = {
+        projects: t(`companies.${companyKey}.statistics.projects`),
+        capacity: t(`companies.${companyKey}.statistics.capacity`),
+        experience: t(`companies.${companyKey}.statistics.experience`)
+      }
+      return stats
+    } catch {
+      return {
+        projects: '150+',
+        capacity: '25 MW',
+        experience: '15 let'
+      }
+    }
+  }
+
+  const stats = getCompanyStats()
   return (
     <SimplePageWrapper showBreadcrumbs={false}>
       <div>
@@ -22,9 +59,7 @@ export default function CompanyPage({
               {params.company}
             </h1>
             <p className='mx-auto max-w-4xl text-xl leading-relaxed text-gray-600 md:text-2xl'>
-              Inovativní řešení pro moderní energetiku. Spojujeme tradici s
-              budoucností, vytváříme udržitelné energetické systémy pro příští
-              generace.
+              {getCompanyContent('hero.description', 'hero.description')}
             </p>
           </div>
         </AnimatedHero>
@@ -39,21 +74,27 @@ export default function CompanyPage({
             <div className='grid grid-cols-1 gap-8 text-center md:grid-cols-3'>
               <div className='rounded-lg bg-white p-8 shadow-lg'>
                 <div className='mb-2 text-4xl font-bold text-blue-600'>
-                  150+
+                  {stats.projects}
                 </div>
-                <div className='text-gray-600'>Projektů realizováno</div>
+                <div className='text-gray-600'>
+                  {t('statistics.projectsCompleted')}
+                </div>
               </div>
               <div className='rounded-lg bg-white p-8 shadow-lg'>
                 <div className='mb-2 text-4xl font-bold text-green-600'>
-                  25 MW
+                  {stats.capacity}
                 </div>
-                <div className='text-gray-600'>Celková kapacita</div>
+                <div className='text-gray-600'>
+                  {t('statistics.totalCapacity')}
+                </div>
               </div>
               <div className='rounded-lg bg-white p-8 shadow-lg'>
                 <div className='mb-2 text-4xl font-bold text-purple-600'>
-                  15 let
+                  {stats.experience}
                 </div>
-                <div className='text-gray-600'>Zkušeností v oboru</div>
+                <div className='text-gray-600'>
+                  {t('statistics.yearsExperience')}
+                </div>
               </div>
             </div>
           </div>
@@ -69,19 +110,22 @@ export default function CompanyPage({
             <div className='grid grid-cols-1 items-center gap-12 lg:grid-cols-2'>
               <div>
                 <div className='mb-4 text-sm font-semibold text-blue-600'>
-                  01
+                  {t('sections.mission.number')}
                 </div>
-                <h2 className='mb-6 text-4xl font-bold'>Naše mise</h2>
+                <h2 className='mb-6 text-4xl font-bold'>
+                  {getCompanyContent('mission.title', 'sections.mission.title')}
+                </h2>
                 <p className='mb-6 text-lg leading-relaxed text-gray-600'>
-                  Jsme průkopníci v oblasti obnovitelných zdrojů energie. Naše
-                  mise je vytvořit udržitelnou energetickou budoucnost
-                  prostřednictvím inovativních technologií a inteligentních
-                  řešení.
+                  {getCompanyContent(
+                    'mission.description1',
+                    'sections.mission.description1'
+                  )}
                 </p>
                 <p className='text-lg leading-relaxed text-gray-600'>
-                  Kombinujeme letité zkušenosti s nejmodernějšími technologiemi,
-                  abychom poskytovali našim klientům nejlepší možné řešení pro
-                  jejich energetické potřeby.
+                  {getCompanyContent(
+                    'mission.description2',
+                    'sections.mission.description2'
+                  )}
                 </p>
               </div>
               <div className='relative'>
@@ -108,18 +152,25 @@ export default function CompanyPage({
               </div>
               <div className='order-1 lg:order-2'>
                 <div className='mb-4 text-sm font-semibold text-green-600'>
-                  02
+                  {t('sections.sustainability.number')}
                 </div>
-                <h2 className='mb-6 text-4xl font-bold'>Udržitelnost</h2>
+                <h2 className='mb-6 text-4xl font-bold'>
+                  {getCompanyContent(
+                    'sustainability.title',
+                    'sections.sustainability.title'
+                  )}
+                </h2>
                 <p className='mb-6 text-lg leading-relaxed text-gray-600'>
-                  Věříme v sílu obnovitelných zdrojů energie. Naše řešení jsou
-                  navržena tak, aby minimalizovala dopad na životní prostředí a
-                  maximalizovala energetickou účinnost.
+                  {getCompanyContent(
+                    'sustainability.description1',
+                    'sections.sustainability.description1'
+                  )}
                 </p>
                 <p className='text-lg leading-relaxed text-gray-600'>
-                  Každý projekt realizujeme s ohledem na dlouhodobou
-                  udržitelnost a pozitivní dopad na komunitu a životní
-                  prostředí.
+                  {getCompanyContent(
+                    'sustainability.description2',
+                    'sections.sustainability.description2'
+                  )}
                 </p>
               </div>
             </div>
@@ -136,17 +187,16 @@ export default function CompanyPage({
             <div className='grid grid-cols-1 items-center gap-12 lg:grid-cols-2'>
               <div>
                 <div className='mb-4 text-sm font-semibold text-purple-600'>
-                  03
+                  {t('sections.innovation.number')}
                 </div>
-                <h2 className='mb-6 text-4xl font-bold'>Inovace</h2>
+                <h2 className='mb-6 text-4xl font-bold'>
+                  {t('sections.innovation.title')}
+                </h2>
                 <p className='mb-6 text-lg leading-relaxed text-gray-600'>
-                  Neustále investujeme do výzkumu a vývoje nových technologií.
-                  Naše týmy pracují na řešeních, která posouvají hranice toho,
-                  co je v energetice možné.
+                  {t('sections.innovation.description1')}
                 </p>
                 <p className='text-lg leading-relaxed text-gray-600'>
-                  Používáme nejmodernější technologie včetně umělé inteligence a
-                  machine learningu pro optimalizaci energetických systémů.
+                  {t('sections.innovation.description2')}
                 </p>
               </div>
               <div className='relative'>
@@ -173,17 +223,16 @@ export default function CompanyPage({
               </div>
               <div className='order-1 lg:order-2'>
                 <div className='mb-4 text-sm font-semibold text-orange-600'>
-                  04
+                  {t('sections.partnership.number')}
                 </div>
-                <h2 className='mb-6 text-4xl font-bold'>Partnerství</h2>
+                <h2 className='mb-6 text-4xl font-bold'>
+                  {t('sections.partnership.title')}
+                </h2>
                 <p className='mb-6 text-lg leading-relaxed text-gray-600'>
-                  Věříme v sílu spolupráce. Naši klienti jsou pro nás partnery,
-                  se kterými budujeme dlouhodobé vztahy založené na důvěře a
-                  vzájemném prospěchu.
+                  {t('sections.partnership.description1')}
                 </p>
                 <p className='text-lg leading-relaxed text-gray-600'>
-                  Poskytujeme komplexní podporu od počátečního plánování až po
-                  dlouhodobý provoz a údržbu energetických systémů.
+                  {t('sections.partnership.description2')}
                 </p>
               </div>
             </div>
@@ -194,9 +243,9 @@ export default function CompanyPage({
         <AnimatedSection animation='fadeUp' delay={200} className='px-4 py-20'>
           <div className='mx-auto max-w-6xl'>
             <div className='mb-16 text-center'>
-              <h2 className='mb-6 text-4xl font-bold'>Naše služby</h2>
+              <h2 className='mb-6 text-4xl font-bold'>{t('services.title')}</h2>
               <p className='mx-auto max-w-3xl text-xl text-gray-600'>
-                Poskytujeme komplexní energetická řešení pro různé typy projektů
+                {t('services.subtitle')}
               </p>
             </div>
             <div className='grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3'>
@@ -205,10 +254,11 @@ export default function CompanyPage({
                 className='rounded-lg bg-white p-8 shadow-lg transition-shadow hover:shadow-xl'
               >
                 <div className='mb-4 text-4xl'>🔧</div>
-                <h3 className='mb-4 text-xl font-bold'>Instalace systémů</h3>
+                <h3 className='mb-4 text-xl font-bold'>
+                  {t('services.installation.title')}
+                </h3>
                 <p className='text-gray-600'>
-                  Kompletní instalace energetických systémů s garancí kvality a
-                  spolehlivosti.
+                  {t('services.installation.description')}
                 </p>
               </AnimatedCard>
               <AnimatedCard
@@ -216,10 +266,11 @@ export default function CompanyPage({
                 className='rounded-lg bg-white p-8 shadow-lg transition-shadow hover:shadow-xl'
               >
                 <div className='mb-4 text-4xl'>📊</div>
-                <h3 className='mb-4 text-xl font-bold'>Monitoring</h3>
+                <h3 className='mb-4 text-xl font-bold'>
+                  {t('services.monitoring.title')}
+                </h3>
                 <p className='text-gray-600'>
-                  Nepřetržité sledování výkonu a optimalizace energetických
-                  systémů.
+                  {t('services.monitoring.description')}
                 </p>
               </AnimatedCard>
               <AnimatedCard
@@ -227,10 +278,11 @@ export default function CompanyPage({
                 className='rounded-lg bg-white p-8 shadow-lg transition-shadow hover:shadow-xl'
               >
                 <div className='mb-4 text-4xl'>🛠️</div>
-                <h3 className='mb-4 text-xl font-bold'>Údržba</h3>
+                <h3 className='mb-4 text-xl font-bold'>
+                  {t('services.maintenance.title')}
+                </h3>
                 <p className='text-gray-600'>
-                  Preventivní a opravárenská údržba pro maximální životnost
-                  systémů.
+                  {t('services.maintenance.description')}
                 </p>
               </AnimatedCard>
             </div>
@@ -244,28 +296,27 @@ export default function CompanyPage({
           className='bg-gray-50 px-4 py-20'
         >
           <div className='mx-auto max-w-4xl text-center'>
-            <h2 className='mb-6 text-4xl font-bold'>Zaujali jsme vás?</h2>
+            <h2 className='mb-6 text-4xl font-bold'>{t('contact.title')}</h2>
             <p className='mb-8 text-xl text-gray-600'>
-              Kontaktujte nás a společně najdeme nejlepší řešení pro vaše
-              energetické potřeby
+              {t('contact.subtitle')}
             </p>
             <div className='grid grid-cols-1 gap-8 md:grid-cols-3'>
               <div className='rounded-lg bg-white p-6 shadow-lg'>
                 <div className='mb-4 text-3xl'>📞</div>
-                <h3 className='mb-2 font-bold'>Telefon</h3>
+                <h3 className='mb-2 font-bold'>{t('contact.phone')}</h3>
                 <p className='text-gray-600'>+420 123 456 789</p>
               </div>
               <div className='rounded-lg bg-white p-6 shadow-lg'>
                 <div className='mb-4 text-3xl'>✉️</div>
-                <h3 className='mb-2 font-bold'>Email</h3>
+                <h3 className='mb-2 font-bold'>{t('contact.email')}</h3>
                 <p className='text-gray-600'>
                   info@{params.company.toLowerCase()}.cz
                 </p>
               </div>
               <div className='rounded-lg bg-white p-6 shadow-lg'>
                 <div className='mb-4 text-3xl'>📍</div>
-                <h3 className='mb-2 font-bold'>Adresa</h3>
-                <p className='text-gray-600'>Praha, Česká republika</p>
+                <h3 className='mb-2 font-bold'>{t('contact.address')}</h3>
+                <p className='text-gray-600'>{t('contact.location')}</p>
               </div>
             </div>
           </div>

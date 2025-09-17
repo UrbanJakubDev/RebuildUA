@@ -33,6 +33,7 @@
   "common": {
     "navigation": {
       "home": "Home",
+      "videos": "Videos",
       "about": "About",
       "support": "Support",
       "examples": "Examples",
@@ -78,6 +79,180 @@
         "goHome": "Go Back Home",
         "contactSupport": "If this error continues to occur, please contact our support team with the error details above."
       }
+    },
+    "company": {
+      "hero": {
+        "description": "Innovative solutions for modern energy. We connect tradition with the future, creating sustainable energy systems for future generations."
+      },
+      "statistics": {
+        "projectsCompleted": "Projects completed",
+        "totalCapacity": "Total capacity",
+        "yearsExperience": "Years of experience"
+      },
+      "sections": {
+        "mission": {
+          "number": "01",
+          "title": "Our Mission",
+          "description1": "We are pioneers in the field of renewable energy sources. Our mission is to create a sustainable energy future through innovative technologies and intelligent solutions.",
+          "description2": "We combine years of experience with the most modern technologies to provide our clients with the best possible solutions for their energy needs."
+        },
+        "sustainability": {
+          "number": "02",
+          "title": "Sustainability",
+          "description1": "We believe in the power of renewable energy sources. Our solutions are designed to minimize environmental impact and maximize energy efficiency.",
+          "description2": "We implement every project with regard to long-term sustainability and positive impact on the community and environment."
+        },
+        "innovation": {
+          "number": "03",
+          "title": "Innovation",
+          "description1": "We constantly invest in research and development of new technologies. Our teams work on solutions that push the boundaries of what is possible in energy.",
+          "description2": "We use the most modern technologies including artificial intelligence and machine learning to optimize energy systems."
+        },
+        "partnership": {
+          "number": "04",
+          "title": "Partnership",
+          "description1": "We believe in the power of cooperation. Our clients are partners for us, with whom we build long-term relationships based on trust and mutual benefit.",
+          "description2": "We provide comprehensive support from initial planning to long-term operation and maintenance of energy systems."
+        }
+      },
+      "services": {
+        "title": "Our Services",
+        "subtitle": "We provide comprehensive energy solutions for various types of projects",
+        "installation": {
+          "title": "System Installation",
+          "description": "Complete installation of energy systems with guarantee of quality and reliability."
+        },
+        "monitoring": {
+          "title": "Monitoring",
+          "description": "Continuous performance monitoring and optimization of energy systems."
+        },
+        "maintenance": {
+          "title": "Maintenance",
+          "description": "Preventive and repair maintenance for maximum system lifespan."
+        }
+      },
+      "contact": {
+        "title": "Are you interested?",
+        "subtitle": "Contact us and together we will find the best solution for your energy needs",
+        "phone": "Phone",
+        "email": "Email",
+        "address": "Address",
+        "location": "Prague, Czech Republic"
+      },
+      "companies": {
+        "aggr": {
+          "hero": {
+            "description": "Leading provider of aggregate and construction materials with focus on sustainable mining and environmental responsibility."
+          },
+          "statistics": {
+            "projects": "200+",
+            "capacity": "50 MW",
+            "experience": "20 years"
+          },
+          "mission": {
+            "title": "Sustainable Mining",
+            "description1": "We are committed to responsible extraction of natural resources while minimizing environmental impact and maximizing community benefits.",
+            "description2": "Our advanced mining techniques and restoration programs ensure long-term sustainability and environmental protection."
+          },
+          "sustainability": {
+            "title": "Environmental Stewardship",
+            "description1": "Every operation is conducted with strict environmental standards, focusing on land restoration and biodiversity conservation.",
+            "description2": "We implement comprehensive rehabilitation programs that transform mining sites into valuable community assets."
+          }
+        },
+        "gentec": {
+          "hero": {
+            "description": "Advanced technology solutions for industrial automation and smart manufacturing processes."
+          },
+          "statistics": {
+            "projects": "300+",
+            "capacity": "100 MW",
+            "experience": "25 years"
+          },
+          "mission": {
+            "title": "Industrial Innovation",
+            "description1": "We develop cutting-edge automation solutions that transform traditional manufacturing into smart, efficient operations.",
+            "description2": "Our expertise spans from robotics to AI-driven process optimization, delivering measurable improvements in productivity."
+          },
+          "sustainability": {
+            "title": "Smart Manufacturing",
+            "description1": "Our solutions reduce waste, optimize energy consumption, and improve overall operational efficiency.",
+            "description2": "We help manufacturers achieve their sustainability goals while maintaining competitive advantage."
+          }
+        },
+        "repower": {
+          "hero": {
+            "description": "Renewable energy solutions and grid modernization for a sustainable energy future."
+          },
+          "statistics": {
+            "projects": "400+",
+            "capacity": "200 MW",
+            "experience": "18 years"
+          },
+          "mission": {
+            "title": "Energy Transformation",
+            "description1": "We lead the transition to clean energy through innovative renewable solutions and smart grid technologies.",
+            "description2": "Our comprehensive approach covers everything from solar and wind installations to energy storage and grid integration."
+          },
+          "sustainability": {
+            "title": "Clean Energy Future",
+            "description1": "Every project contributes to reducing carbon emissions and building resilient energy infrastructure.",
+            "description2": "We focus on community-centered solutions that provide long-term environmental and economic benefits."
+          }
+        },
+        "multicont": {
+          "hero": {
+            "description": "Integrated logistics and supply chain solutions for complex industrial projects worldwide."
+          },
+          "statistics": {
+            "projects": "500+",
+            "capacity": "Global Network",
+            "experience": "30 years"
+          },
+          "mission": {
+            "title": "Global Logistics Excellence",
+            "description1": "We provide end-to-end logistics solutions that connect suppliers, manufacturers, and customers across continents.",
+            "description2": "Our expertise in complex project logistics ensures timely delivery and cost-effective solutions for the most challenging requirements."
+          },
+          "sustainability": {
+            "title": "Sustainable Supply Chains",
+            "description1": "We optimize transportation routes and methods to minimize environmental impact while maximizing efficiency.",
+            "description2": "Our green logistics initiatives help clients achieve their sustainability targets through innovative supply chain management."
+          }
+        }
+      }
     }
+  },
+  "videos": {
+    "modal": {
+      "title": "Video Gallery",
+      "close": "Close"
+    },
+    "placeholders": [
+      {
+        "title": "Infrastructure Restoration in Kyiv",
+        "description": "Documentation of key infrastructure restoration in Ukraine's capital."
+      },
+      {
+        "title": "Bridge Reconstruction in Kharkiv",
+        "description": "Process of reconstructing strategically important bridge connections."
+      },
+      {
+        "title": "Energy Grid Restoration",
+        "description": "Modernization and restoration of energy infrastructure after war damage."
+      },
+      {
+        "title": "Hospital Reconstruction",
+        "description": "Restoration of healthcare facilities to ensure care for civilian population."
+      },
+      {
+        "title": "Educational Facility Restoration",
+        "description": "Reconstruction of schools and educational institutions for future generations."
+      },
+      {
+        "title": "Transportation Infrastructure",
+        "description": "Restoration of road and rail networks to restore population mobility."
+      }
+    ]
   }
 }

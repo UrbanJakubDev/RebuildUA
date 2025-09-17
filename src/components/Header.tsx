@@ -112,7 +112,7 @@ export const Header: FC<Props> = ({ locale }) => {
               className='flex items-center gap-2 rounded-lg px-3 py-2 text-secondary transition-all duration-200 hover:bg-background-secondary hover:text-primary'
             >
               <IoHome size={18} />
-              <span className='text-sm font-medium'>Domů</span>
+              <span className='text-sm font-medium'>{t('home')}</span>
             </Link>
 
             <button
@@ -120,7 +120,7 @@ export const Header: FC<Props> = ({ locale }) => {
               className='flex items-center gap-2 rounded-lg px-3 py-2 text-secondary transition-all duration-200 hover:bg-background-secondary hover:text-primary'
             >
               <IoVideocam size={18} />
-              <span className='text-sm font-medium'>Videa</span>
+              <span className='text-sm font-medium'>{t('videos')}</span>
             </button>
           </nav>
         </div>
@@ -132,7 +132,7 @@ export const Header: FC<Props> = ({ locale }) => {
             <Link
               href={`/${locale}`}
               className='rounded-lg p-2 text-secondary transition-all duration-200 hover:bg-background-secondary hover:text-primary'
-              title='Domů'
+              title={t('home')}
             >
               <IoHome size={20} />
             </Link>
@@ -140,7 +140,7 @@ export const Header: FC<Props> = ({ locale }) => {
             <button
               onClick={toggleVideoModal}
               className='rounded-lg p-2 text-secondary transition-all duration-200 hover:bg-background-secondary hover:text-primary'
-              title='Videa'
+              title={t('videos')}
             >
               <IoVideocam size={20} />
             </button>
