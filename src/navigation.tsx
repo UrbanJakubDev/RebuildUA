@@ -6,7 +6,7 @@ import { appConfig } from './config/app'
 
 export const routing = defineRouting({
   locales,
-  defaultLocale: 'cs',
+  defaultLocale: 'en',
   localePrefix: appConfig.multiLang.enabled ? 'always' : 'never'
 })
 

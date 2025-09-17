@@ -35,7 +35,15 @@ const config = {
         selected: 'var(--selected)',
         dropdown: 'var(--dropdown)',
         dropdownHover: 'var(--dropdown-hover)',
-        buttonSecondary: 'var(--button-secondary)'
+        buttonSecondary: 'var(--button-secondary)',
+        // New theme colors
+        accent: 'var(--accent)',
+        'accent-hover': 'var(--accent-hover)',
+        border: 'var(--border)',
+        'border-hover': 'var(--border-hover)',
+        'card-bg': 'var(--card-bg)',
+        'card-shadow': 'var(--card-shadow)',
+        'card-shadow-hover': 'var(--card-shadow-hover)'
       },
 
       fontFamily: {

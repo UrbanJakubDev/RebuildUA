@@ -8,30 +8,12 @@ import {
 import { Inter, Rubik, Space_Grotesk } from 'next/font/google'
 import NextTopLoader from 'nextjs-toploader'
 import { Header } from '@/src/components/Header'
-import {
-  JsonLd,
-  websiteSchema,
-  organizationSchema
-} from '@/src/components/JsonLd'
-import { GoogleAnalytics } from '@/src/components/GoogleAnalytics'
-import { WebVitals } from '@/src/components/WebVitals'
-import { CookiesConsent } from '@/src/components/CookiesConsent'
+
 import { Footer } from '@/src/components/Footer'
-import { SocialBar } from '@/src/components/SocialBar'
 import { BackToTop } from '@/src/components/BackToTop'
 import './globals.css'
 import { Suspense } from 'react'
-
-// Configure Cloudinary globally
-if (process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME) {
-  // This ensures the environment variable is available
-  console.log(
-    'Cloudinary cloud name configured:',
-    process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
-  )
-} else {
-  console.error('NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME is not set')
-}
+import { BackgroundSlideshow } from '../../components/BackgroundSlideshow'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -83,16 +65,12 @@ export default function LocaleLayout({
           crossOrigin='anonymous'
         />
       </head>
-      <body className='flex min-h-screen flex-col'>
-        <JsonLd data={websiteSchema} />
-        <JsonLd data={organizationSchema} />
-        <GoogleAnalytics />
-        <WebVitals />
+      <body className='flex h-screen flex-col'>
         <ThemeProvider
           enableSystem
           attribute='class'
-          defaultTheme='system'
-          themes={['light', 'dark']}
+          defaultTheme='light'
+          themes={['light', 'dark', 'ukrainian', 'energy', 'corporate']}
         >
           <NextIntlClientProvider
             locale={locale}
@@ -109,30 +87,32 @@ export default function LocaleLayout({
               color='var(--primary)'
               showSpinner={false}
             />
+            {/* NavBar */}
             <Header locale={locale} />
-            <main className='mx-auto w-full max-w-screen-2xl flex-1'>
-              <Suspense
-                fallback={
-                  <div className='flex h-32 items-center justify-center'>
-                    Loading...
-                  </div>
-                }
-              >
-                {children}
-              </Suspense>
+
+            {/* Main - vyplní zbývající místo */}
+            <main className='relative flex-1'>
+              {/* Background slideshow */}
+              <BackgroundSlideshow />
+
+              {/* Content */}
+              <div className='relative z-10 h-full px-10 py-10'>
+                <Suspense
+                  fallback={
+                    <div className='flex h-full items-center justify-center'>
+                      Loading...
+                    </div>
+                  }
+                >
+                  {children}
+                </Suspense>
+              </div>
             </main>
+
+            {/* Footer */}
             <Footer />
-            <SocialBar
-              whatsappNumber='+420123456789'
-              instagramUrl='https://instagram.com'
-              facebookUrl='https://facebook.com'
-              linkedinUrl='https://linkedin.com'
-              twitterUrl='https://twitter.com'
-            />
+
             <BackToTop />
-            <Suspense fallback={null}>
-              <CookiesConsent />
-            </Suspense>
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>

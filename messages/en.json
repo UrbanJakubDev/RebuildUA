@@ -23,18 +23,6 @@
         "description": "A powerful, performant, and versatile Next.js starter kit with internationalization, TypeScript, Tailwind CSS, and modern development features.",
         "ogTitle": "Next.js Starter Kit - Home",
         "ogDescription": "A powerful, performant, and versatile Next.js starter kit with internationalization, TypeScript, Tailwind CSS, and modern development features."
-      },
-      "about": {
-        "title": "About",
-        "description": "This is a simple about page just to show how you can use the internationalization in different pages",
-        "ogTitle": "About | Next.js Starter Kit",
-        "ogDescription": "This is a simple about page just to show how you can use the internationalization in different pages"
-      },
-      "support": {
-        "title": "Support",
-        "description": "Find support for our Next.js starter kit here",
-        "ogTitle": "Support | Next.js Starter Kit",
-        "ogDescription": "Find support for our Next.js starter kit here"
       }
     },
     "defaults": {
@@ -73,119 +61,23 @@
           "useTemplate": "Use Template",
           "learnMore": "Learn More!"
         }
-      },
-      "features": {
-        "approachable": {
-          "title": "Approachable",
-          "description": "Add components without sending additional client-side JavaScript. Built on the latest React features."
-        },
-        "versatile": {
-          "title": "Versatile",
-          "description": "Automatic Image, Font, and Script Optimizations for improved UX and Core Web Vitals."
-        },
-        "performant": {
-          "title": "Performant",
-          "description": "A rich, incredibly adoptable template that scales between a small showcase website and a full-size app."
-        }
       }
     },
-    "about": {
-      "title": "About",
-      "description": "This is a simple about page just to show how you can use the internationalization in different pages"
-    },
-    "support": {
-      "title": "Support",
-      "description": "Find support for our Next.js starter kit here"
-    },
-    "examples": {
-      "title": "Examples",
-      "description": "Here you can find examples of how to use our Next.js starter kit"
+    "errors": {
+      "notFound": {
+        "title": "Page Not Found",
+        "description": "Sorry, we couldn't find the page you're looking for. It might have been moved, deleted, or you entered the wrong URL.",
+        "goHome": "Go Back Home",
+        "getSupport": "Get Support",
+        "contactSupport": "If you believe this is an error, please contact our support team."
+      },
+      "general": {
+        "title": "Something went wrong!",
+        "description": "An unexpected error occurred. Please try again or contact support if the problem persists.",
+        "tryAgain": "Try Again",
+        "goHome": "Go Back Home",
+        "contactSupport": "If this error continues to occur, please contact our support team with the error details above."
+      }
     }
-  },
-  "cookies": {
-    "btnLabel": "🍪 Cookies",
-    "title": "Cookies & Privacy",
-    "description": "We use cookies to enhance your browsing experience. You can choose which cookies to allow.",
-    "customize": "Customize",
-    "acceptAll": "Accept All",
-    "rejectAll": "Reject All",
-    "preferences": "Cookie Preferences",
-    "back": "Back",
-    "savePreferences": "Save Preferences",
-    "always": "Always",
-    "necessary": {
-      "title": "Necessary Cookies",
-      "description": "These cookies are essential for basic website functionality and cannot be disabled."
-    },
-    "analytics": {
-      "title": "Analytics Cookies",
-      "description": "Help us understand how visitors use the website and improve its functionality."
-    },
-    "marketing": {
-      "title": "Marketing Cookies",
-      "description": "Used to display relevant advertisements and content."
-    },
-    "functional": {
-      "title": "Functional Cookies",
-      "description": "Enable advanced features and content personalization."
-    },
-    "settings": "Settings",
-    "reset": "Reset",
-    "close": "Close"
-  },
-  "errors": {
-    "notFound": {
-      "title": "Page Not Found",
-      "description": "Sorry, we couldn't find the page you're looking for. It might have been moved, deleted, or you entered the wrong URL.",
-      "goHome": "Go Back Home",
-      "getSupport": "Get Support",
-      "contactSupport": "If you believe this is an error, please contact our support team."
-    },
-    "general": {
-      "title": "Something went wrong!",
-      "description": "An unexpected error occurred. Please try again or contact support if the problem persists.",
-      "tryAgain": "Try Again",
-      "goHome": "Go Back Home",
-      "contactSupport": "If this error continues to occur, please contact our support team with the error details above."
-    }
-  },
-  "whatsapp": {
-    "message": "Hello, I would like to ask about your services.",
-    "button": "Contact via WhatsApp"
-  },
-  "callToAction": {
-    "title": "Need help?",
-    "description": "Contact us directly",
-    "phone": "Call us",
-    "email": "Email us",
-    "copy": "Copy email",
-    "copied": "Copied!"
-  },
-  "pricingTable": {
-    "defaultTitle": "Our Service Pricing",
-    "defaultSubtitle": "Choose the service that best suits your needs",
-    "popular": "Most Popular",
-    "selectService": "Select Service",
-    "downloadPdf": "Download Pricing (PDF)",
-    "selected": "You selected:",
-    "cancelSelection": "Cancel Selection"
-  },
-  "testimonials": {
-    "defaultTitle": "What Our Clients Say",
-    "defaultSubtitle": "References and reviews from satisfied customers",
-    "previousLabel": "Previous testimonial",
-    "nextLabel": "Next testimonial",
-    "slideLabel": "Go to testimonial {number}"
-  },
-  "faq": {
-    "defaultTitle": "Frequently Asked Questions",
-    "defaultSubtitle": "Answers to our clients' most common questions",
-    "expandAll": "Expand All",
-    "collapseAll": "Collapse All",
-    "defaultCategory": "General",
-    "notFoundTitle": "Didn't find an answer?",
-    "notFoundDescription": "If you have more questions, don't hesitate to contact us. We're happy to help.",
-    "contactUs": "Contact Us",
-    "askQuestion": "Ask a Question"
   }
 }

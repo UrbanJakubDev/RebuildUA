@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { usePathname } from 'next/navigation'
 
 interface ScrollRevealProps {
   children: React.ReactNode
@@ -26,6 +27,13 @@ export function ScrollReveal({
   const [isVisible, setIsVisible] = useState(false)
   const [hasAnimated, setHasAnimated] = useState(false)
   const elementRef = useRef<HTMLDivElement>(null)
+  const pathname = usePathname()
+
+  // Reset animation state when pathname changes (for navigation)
+  useEffect(() => {
+    setIsVisible(false)
+    setHasAnimated(false)
+  }, [pathname])
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -97,6 +105,12 @@ export function ScrollReveal({
 // Hook pro bulk animace více elementů
 export function useScrollReveal() {
   const [visibleElements, setVisibleElements] = useState<Set<string>>(new Set())
+  const pathname = usePathname()
+
+  // Reset visible elements when pathname changes
+  useEffect(() => {
+    setVisibleElements(new Set())
+  }, [pathname])
 
   const observeElement = (
     id: string,
@@ -107,10 +121,10 @@ export function useScrollReveal() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setVisibleElements(prev => {
-            const newSet = new Set(prev);
-            newSet.add(id);
-            return newSet;
-          });
+            const newSet = new Set(prev)
+            newSet.add(id)
+            return newSet
+          })
         }
       },
       {

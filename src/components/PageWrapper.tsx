@@ -3,8 +3,6 @@
 import { ReactNode } from 'react'
 import { usePathname } from 'next/navigation'
 import { Breadcrumbs } from './Breadcrumbs'
-import { PageSchema } from './PageSchema'
-import { SocialMeta } from './SocialMeta'
 
 interface PageWrapperProps {
   children: ReactNode
@@ -52,25 +50,7 @@ export function PageWrapper({
 
   return (
     <>
-      {/* Automaticky generované meta tagy */}
-      <SocialMeta
-        title={autoTitle}
-        description={autoDescription}
-        url={url}
-        image={image}
-        type={type}
-      />
-
-      {/* Automaticky generované structured data */}
-      <PageSchema
-        title={autoTitle}
-        description={autoDescription}
-        url={url}
-        author={author}
-        publishedTime={publishedTime}
-        modifiedTime={modifiedTime}
-        image={image}
-      />
+  
 
       {/* Breadcrumbs pokud jsou povoleny */}
       {showBreadcrumbs && <Breadcrumbs />}
@@ -123,24 +103,6 @@ export function PageWrapperWithMetadata({
 
   return (
     <>
-      <SocialMeta
-        title={title}
-        description={description}
-        url={url}
-        image={image}
-        type={type}
-      />
-
-      <PageSchema
-        title={title}
-        description={description}
-        url={url}
-        author={author}
-        publishedTime={publishedTime}
-        modifiedTime={modifiedTime}
-        image={image}
-      />
-
       {showBreadcrumbs && <Breadcrumbs />}
 
       <div className={className}>{children}</div>

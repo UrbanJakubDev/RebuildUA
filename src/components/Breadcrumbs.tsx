@@ -2,7 +2,6 @@
 
 import { usePathname } from 'next/navigation'
 import { useTranslations } from 'next-intl'
-import { JsonLd, breadcrumbSchema } from './JsonLd'
 import Link from 'next/link'
 import { useMemo } from 'react'
 
@@ -51,11 +50,6 @@ export function Breadcrumbs() {
 
   return (
     <>
-      <JsonLd
-        data={breadcrumbSchema(
-          breadcrumbs.map(item => ({ name: item.name, url: item.href }))
-        )}
-      />
       <nav aria-label='Breadcrumb' className='mb-4'>
         <ol className='flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-400 ps-4 pt-1'>
           {breadcrumbs.map((breadcrumb, index) => (

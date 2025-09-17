@@ -1,7 +1,7 @@
 'use client'
 
 import { useMemo, useState } from 'react'
-import CloudinaryImage from './CloudinaryImage'
+import LocalImage from './LocalImage'
 import ImageModal from './ImageModal'
 
 interface GalleryProps {
@@ -36,9 +36,9 @@ export function Gallery({ images, columns, className = '' }: GalleryProps) {
     <>
       <div className={`grid gap-3 sm:gap-4 ${getGridCols()} ${className}`}>
         {images.map((image, index) => (
-          <CloudinaryImage
+          <LocalImage
             key={image}
-            publicId={image}
+            src={image}
             alt='Gallery image'
             clickable={true}
             quality={90}

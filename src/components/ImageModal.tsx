@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { IoClose, IoChevronBack, IoChevronForward } from 'react-icons/io5'
-import CloudinaryImage from './CloudinaryImage'
+import LocalImage from './LocalImage'
 
 interface ImageModalProps {
   images: string[]
@@ -109,13 +109,12 @@ export default function ImageModal({
 
         {/* Image */}
         <div className='relative max-h-full max-w-full'>
-          <CloudinaryImage
-            publicId={currentImage}
+          <LocalImage
+            src={currentImage}
             alt={`Gallery image ${currentImageIndex + 1}`}
             width={1200}
             height={800}
             quality={90}
-            crop='fit'
             className='max-h-full max-w-full object-contain'
           />
         </div>

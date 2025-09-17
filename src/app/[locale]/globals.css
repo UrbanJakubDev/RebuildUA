@@ -19,6 +19,15 @@
     --logo-shadow: #991b1b; /* Dark red shadow */
     --logo-body: #dc2626; /* Professional red - brand color */
     --span-bg: linear-gradient(to right, #dc2626, #b91c1c, #991b1b);
+
+    /* Enhanced professional colors */
+    --accent: #dc2626; /* Red accent */
+    --accent-hover: #b91c1c; /* Darker red on hover */
+    --border: #e5e7eb; /* Light gray borders */
+    --border-hover: #d1d5db; /* Medium gray borders on hover */
+    --card-bg: #ffffff; /* Pure white cards */
+    --card-shadow: rgba(0, 0, 0, 0.05); /* Subtle card shadows */
+    --card-shadow-hover: rgba(0, 0, 0, 0.1); /* Stronger shadows on hover */
   }
   .dark {
     /* Dark theme - Professional neutral dark with red accent and softer colors */
@@ -36,6 +45,95 @@
     --logo-shadow: #991b1b; /* Dark red shadow */
     --logo-body: #dc2626; /* Professional red */
     --span-bg: linear-gradient(to right, #dc2626, #b91c1c, #991b1b);
+
+    /* Enhanced dark theme colors */
+    --accent: #dc2626; /* Red accent */
+    --accent-hover: #ef4444; /* Lighter red on hover for dark theme */
+    --border: #404040; /* Dark gray borders */
+    --border-hover: #525252; /* Lighter gray borders on hover */
+    --card-bg: #262626; /* Dark gray cards */
+    --card-shadow: rgba(0, 0, 0, 0.3); /* Dark card shadows */
+    --card-shadow-hover: rgba(
+      0,
+      0,
+      0,
+      0.5
+    ); /* Stronger dark shadows on hover */
+  }
+
+  /* Theme 2: Ukrainian Hope - Blue & Yellow */
+  .theme-ukrainian {
+    --primary: #1e3a8a; /* Deep blue */
+    --secondary: #64748b; /* Slate gray */
+    --background: #f8fafc; /* Light blue-gray */
+    --background-secondary: #e2e8f0; /* Light slate */
+    --button: #f59e0b; /* Amber yellow */
+    --button-text: #ffffff;
+    --text-secondary: #64748b;
+    --dropdown: #ffffff;
+    --dropdown-hover: #e2e8f0;
+    --button-secondary: #e2e8f0;
+    --selected: #fef3c7; /* Light amber */
+    --logo-shadow: #d97706;
+    --logo-body: #f59e0b;
+    --span-bg: linear-gradient(to right, #3b82f6, #f59e0b);
+    --accent: #3b82f6; /* Blue accent */
+    --accent-hover: #2563eb;
+    --border: #e2e8f0;
+    --border-hover: #cbd5e1;
+    --card-bg: #ffffff;
+    --card-shadow: rgba(59, 130, 246, 0.05);
+    --card-shadow-hover: rgba(59, 130, 246, 0.1);
+  }
+
+  /* Theme 3: Energy Green - Green & Dark */
+  .theme-energy {
+    --primary: #064e3b; /* Dark green */
+    --secondary: #6b7280;
+    --background: #f0fdf4; /* Light green */
+    --background-secondary: #dcfce7; /* Very light green */
+    --button: #059669; /* Emerald green */
+    --button-text: #ffffff;
+    --text-secondary: #6b7280;
+    --dropdown: #ffffff;
+    --dropdown-hover: #dcfce7;
+    --button-secondary: #dcfce7;
+    --selected: #a7f3d0; /* Light green */
+    --logo-shadow: #047857;
+    --logo-body: #059669;
+    --span-bg: linear-gradient(to right, #059669, #047857);
+    --accent: #059669; /* Green accent */
+    --accent-hover: #047857;
+    --border: #dcfce7;
+    --border-hover: #bbf7d0;
+    --card-bg: #ffffff;
+    --card-shadow: rgba(5, 150, 105, 0.05);
+    --card-shadow-hover: rgba(5, 150, 105, 0.1);
+  }
+
+  /* Theme 4: Corporate Steel - Gray & Silver */
+  .theme-corporate {
+    --primary: #374151; /* Dark gray */
+    --secondary: #6b7280;
+    --background: #f9fafb; /* Light gray */
+    --background-secondary: #f3f4f6; /* Very light gray */
+    --button: #6b7280; /* Medium gray */
+    --button-text: #ffffff;
+    --text-secondary: #6b7280;
+    --dropdown: #ffffff;
+    --dropdown-hover: #f3f4f6;
+    --button-secondary: #f3f4f6;
+    --selected: #e5e7eb; /* Light gray */
+    --logo-shadow: #4b5563;
+    --logo-body: #6b7280;
+    --span-bg: linear-gradient(to right, #6b7280, #4b5563);
+    --accent: #6b7280; /* Gray accent */
+    --accent-hover: #4b5563;
+    --border: #e5e7eb;
+    --border-hover: #d1d5db;
+    --card-bg: #ffffff;
+    --card-shadow: rgba(107, 114, 128, 0.05);
+    --card-shadow-hover: rgba(107, 114, 128, 0.1);
   }
 }
 
