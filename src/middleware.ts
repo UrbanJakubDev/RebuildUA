@@ -29,7 +29,7 @@ function getPreferredLocale(
 
   // Find the first supported language
   for (const { language } of languages) {
-    if (routing.locales.includes(language)) {
+    if (routing.locales.includes(language as any)) {
       return language
     }
   }
