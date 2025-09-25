@@ -2,6 +2,6 @@ export const appConfig = {
   multiLang: {
     enabled: true
   },
-  defaultLocale: 'cs',
-  supportedLocales: ['cs', 'en', 'de']
+  defaultLocale: 'en',
+  supportedLocales: ['en', 'ua']
 } as const

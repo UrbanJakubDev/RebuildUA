@@ -1,12 +1,12 @@
 'use client'
 import { createNavigation } from 'next-intl/navigation'
 import { defineRouting } from 'next-intl/routing'
-import { locales } from './i18n'
+import { locales, defaultLocale } from './i18n'
 import { appConfig } from './config/app'
 
 export const routing = defineRouting({
   locales,
-  defaultLocale: 'en',
+  defaultLocale,
   localePrefix: appConfig.multiLang.enabled ? 'always' : 'never'
 })
 

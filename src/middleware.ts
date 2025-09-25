@@ -1,6 +1,7 @@
 import createMiddleware from 'next-intl/middleware'
 import { NextRequest, NextResponse } from 'next/server'
 import { routing } from './navigation'
+import { defaultLocale } from './i18n'
 
 // Function to detect preferred language from Accept-Language header
 function getPreferredLocale(
@@ -8,11 +9,11 @@ function getPreferredLocale(
   storedLanguage?: string
 ): string {
   // First priority: stored language preference
-  if (storedLanguage && routing.locales.includes(storedLanguage)) {
+  if (storedLanguage && routing.locales.includes(storedLanguage as any)) {
     return storedLanguage
   }
 
-  if (!acceptLanguage) return routing.defaultLocale
+  if (!acceptLanguage) return defaultLocale
 
   // Parse Accept-Language header (e.g., "cs-CZ,cs;q=0.9,en;q=0.8,de;q=0.7")
   const languages = acceptLanguage
@@ -33,7 +34,7 @@ function getPreferredLocale(
     }
   }
 
-  return routing.defaultLocale // fallback to default locale
+  return defaultLocale // fallback to default locale
 }
 
 type CustomMiddleware = (req: NextRequest) => Promise<NextRequest>
@@ -59,7 +60,7 @@ export default async function middleware(
     )
 
     // Redirect to preferred locale if it's different from default
-    if (preferredLocale !== routing.defaultLocale) {
+    if (preferredLocale !== defaultLocale) {
       const url = req.nextUrl.clone()
       url.pathname = `/${preferredLocale}`
       return NextResponse.redirect(url)

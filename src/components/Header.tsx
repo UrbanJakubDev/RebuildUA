@@ -92,7 +92,7 @@ export const Header: FC<Props> = ({ locale }) => {
       ref={headerRef}
       className='bg-card-bg/95 supports-[backdrop-filter]:bg-card-bg/90 sticky top-0 z-50 border-b border-border shadow-sm backdrop-blur-sm'
     >
-      <div className='mx-auto flex max-w-screen-2xl items-center justify-between px-4 py-2 lg:px-6 lg:py-3'>
+      <div className='mx-auto flex items-center justify-between px-4 py-2 lg:px-6 lg:py-3'>
         {/* Left Section - Logo and Navigation */}
         <div className='flex items-center gap-4'>
           {/* Logo */}

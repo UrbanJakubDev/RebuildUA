@@ -1,10 +1,6 @@
 import { ThemeProvider } from '@/src/components/ThemeProvider'
 import type { Metadata } from 'next'
-import {
-  AbstractIntlMessages,
-  NextIntlClientProvider,
-  useMessages
-} from 'next-intl'
+import { AbstractIntlMessages, NextIntlClientProvider } from 'next-intl'
 import { Inter, Rubik, Space_Grotesk } from 'next/font/google'
 import NextTopLoader from 'nextjs-toploader'
 import { Header } from '@/src/components/Header'
@@ -36,14 +32,15 @@ export async function generateMetadata({
   return generateLocalizedMetadata({ locale: params.locale })
 }
 
-export default function LocaleLayout({
+export default async function LocaleLayout({
   children,
   params: { locale }
 }: {
   children: React.ReactNode
   params: { locale: string }
 }) {
-  const messages = useMessages()
+  // Import messages directly instead of using useMessages hook
+  const messages = (await import(`../../../messages/${locale}.json`)).default
   return (
     <html
       lang={locale}
