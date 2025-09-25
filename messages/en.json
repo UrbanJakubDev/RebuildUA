@@ -38,7 +38,8 @@
       "support": "Support",
       "examples": "Examples",
       "toggleMenu": "Toggle menu",
-      "themeAndLanguage": "Theme & Language"
+      "themeAndLanguage": "Theme & Language",
+      "exploreMore": "Explore More"
     },
     "footer": {
       "copyright": "Next.js Starter Kit",

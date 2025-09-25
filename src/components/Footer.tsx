@@ -9,14 +9,14 @@ export const Footer = () => {
 
   return (
     <footer className='border-t border-background-secondary bg-background'>
-      <div className='mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8'>
-        <div className='flex flex-col items-center justify-center space-y-4 md:flex-row md:space-y-0'>
+      <div className='mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8'>
+        <div className='flex flex-col items-center justify-center space-y-2 md:flex-row md:space-y-0'>
           {/* Left side - Copyright and Author */}
-          <div className='flex flex-col items-center space-y-2 md:flex-row md:space-x-6 md:space-y-0'>
+          <div className='flex flex-col items-center space-y-1 md:flex-row md:space-x-4 md:space-y-0'>
             <p className='text-sm text-text-secondary'>
               © {currentYear} {t('copyright')}
             </p>
-            <div className='flex items-center space-x-2'>
+            <div className='flex items-center space-x-1'>
               <span className='text-sm text-text-secondary'>
                 {t('author')}:
               </span>
@@ -37,7 +37,6 @@ export const Footer = () => {
               </a>
             </div>
           </div>
-
         </div>
       </div>
     </footer>

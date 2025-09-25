@@ -90,11 +90,11 @@ export const Header: FC<Props> = ({ locale }) => {
   return (
     <header
       ref={headerRef}
-      className='border-border bg-card-bg/95 supports-[backdrop-filter]:bg-card-bg/90 sticky top-0 z-50 border-b shadow-sm backdrop-blur-sm'
+      className='bg-card-bg/95 supports-[backdrop-filter]:bg-card-bg/90 sticky top-0 z-50 border-b border-border shadow-sm backdrop-blur-sm'
     >
-      <div className='mx-auto flex max-w-screen-2xl items-center justify-between px-6 py-4 lg:px-8 lg:py-5'>
+      <div className='mx-auto flex max-w-screen-2xl items-center justify-between px-4 py-2 lg:px-6 lg:py-3'>
         {/* Left Section - Logo and Navigation */}
-        <div className='flex items-center gap-6'>
+        <div className='flex items-center gap-4'>
           {/* Logo */}
           <Link
             lang={locale}
@@ -105,11 +105,11 @@ export const Header: FC<Props> = ({ locale }) => {
           </Link>
 
           {/* Navigation Links */}
-          <nav className='hidden items-center gap-4 md:flex'>
+          <nav className='hidden items-center gap-2 md:flex'>
             <Link
               lang={locale}
               href='/'
-              className='flex items-center gap-2 rounded-lg px-3 py-2 text-secondary transition-all duration-200 hover:bg-background-secondary hover:text-primary'
+              className='flex items-center gap-1 rounded-lg px-2 py-1 text-secondary transition-all duration-200 hover:bg-background-secondary hover:text-primary'
             >
               <IoHome size={18} />
               <span className='text-sm font-medium'>{t('home')}</span>
@@ -117,7 +117,7 @@ export const Header: FC<Props> = ({ locale }) => {
 
             <button
               onClick={toggleVideoModal}
-              className='flex items-center gap-2 rounded-lg px-3 py-2 text-secondary transition-all duration-200 hover:bg-background-secondary hover:text-primary'
+              className='flex items-center gap-1 rounded-lg px-2 py-1 text-secondary transition-all duration-200 hover:bg-background-secondary hover:text-primary'
             >
               <IoVideocam size={18} />
               <span className='text-sm font-medium'>{t('videos')}</span>
@@ -126,12 +126,12 @@ export const Header: FC<Props> = ({ locale }) => {
         </div>
 
         {/* Right Section - Language & Theme */}
-        <div className='flex items-center gap-4'>
+        <div className='flex items-center gap-2'>
           {/* Mobile menu for navigation */}
-          <div className='flex items-center gap-2 md:hidden'>
+          <div className='flex items-center gap-1 md:hidden'>
             <Link
               href={`/${locale}`}
-              className='rounded-lg p-2 text-secondary transition-all duration-200 hover:bg-background-secondary hover:text-primary'
+              className='rounded-lg p-1 text-secondary transition-all duration-200 hover:bg-background-secondary hover:text-primary'
               title={t('home')}
             >
               <IoHome size={20} />
@@ -139,7 +139,7 @@ export const Header: FC<Props> = ({ locale }) => {
 
             <button
               onClick={toggleVideoModal}
-              className='rounded-lg p-2 text-secondary transition-all duration-200 hover:bg-background-secondary hover:text-primary'
+              className='rounded-lg p-1 text-secondary transition-all duration-200 hover:bg-background-secondary hover:text-primary'
               title={t('videos')}
             >
               <IoVideocam size={20} />

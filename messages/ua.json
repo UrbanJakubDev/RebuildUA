@@ -38,7 +38,8 @@
       "support": "Підтримка",
       "examples": "Приклади",
       "toggleMenu": "Перемкнути меню",
-      "themeAndLanguage": "Тема та мова"
+      "themeAndLanguage": "Тема та мова",
+      "exploreMore": "Дослідити більше"
     },
     "footer": {
       "copyright": "Next.js Starter Kit",

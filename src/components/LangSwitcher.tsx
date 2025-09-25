@@ -3,7 +3,6 @@
 import { usePathname, useSelectedLayoutSegments } from 'next/navigation'
 import React from 'react'
 import { useTranslations } from 'next-intl'
-import GlassIcon from './GlassIcon'
 
 const LangSwitcher: React.FC = () => {
   const pathname = usePathname()
@@ -11,8 +10,8 @@ const LangSwitcher: React.FC = () => {
   const t = useTranslations('common.ui')
 
   const languages = [
-    { code: 'en', variant: 'eng' as const },
-    { code: 'ua', variant: 'ua' as const }
+    { code: 'en', label: 'EN' },
+    { code: 'ua', label: 'UA' }
   ]
 
   const currentLang = pathname.split('/')[1] || 'en'
@@ -24,17 +23,18 @@ const LangSwitcher: React.FC = () => {
         const href = `/${lang.code}/${urlSegments.join('/')}`
 
         return (
-          <GlassIcon
+          <a
             key={lang.code}
-            variant={lang.variant}
             href={href}
-            size='md'
-            className={
+            className={`text-primary hover:text-background flex h-10 min-h-[40px] w-10 min-w-[40px] items-center justify-center rounded-xl border text-sm font-medium shadow-md transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95 active:shadow-sm ${
               isActive
-                ? 'bg-accent border-accent hover:bg-accent-hover scale-105 text-button-text shadow-lg transition-all duration-200'
-                : 'opacity-70 transition-all duration-200 hover:opacity-100'
-            }
-          />
+                ? 'scale-105 border-accent bg-accent text-button-text shadow-lg hover:bg-accent-hover'
+                : 'border-border bg-card-bg text-primary opacity-70 hover:border-border-hover hover:opacity-100'
+            }`}
+            title={lang.code === 'en' ? 'English' : 'Українська'}
+          >
+            {lang.label}
+          </a>
         )
       })}
     </div>
