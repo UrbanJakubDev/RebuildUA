@@ -38,7 +38,7 @@ export function CompanyGrid({ companies }: CompanyGridProps) {
   }, [companies.length])
 
   return (
-    <div className='grid h-full w-full grid-cols-2 grid-rows-2 gap-10'>
+    <div className='grid h-full w-full grid-cols-2 grid-rows-2 gap-10 px-10 py-10'>
       {companies.map((company, index) => (
         <CompanyCard
           key={company.slug}

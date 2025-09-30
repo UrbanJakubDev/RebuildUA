@@ -93,7 +93,7 @@ export default async function LocaleLayout({
               <BackgroundSlideshow />
 
               {/* Content */}
-              <div className='relative z-10 h-full px-10 py-10'>
+              <div className='relative z-10 h-full'>
                 <Suspense
                   fallback={
                     <div className='flex h-full items-center justify-center'>

@@ -85,10 +85,23 @@
   }
 }
 
+@keyframes scroll-infinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
 .ripple-effect {
   animation: ripple-expand 600ms ease-out forwards;
 }
 
 .energy-pulse {
   animation: energy-pulse 2s ease-in-out infinite;
+}
+
+.animate-scroll-infinite {
+  animation: scroll-infinite 15s linear infinite;
 }

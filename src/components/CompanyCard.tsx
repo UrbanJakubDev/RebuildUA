@@ -80,7 +80,7 @@ export function CompanyCard({
             width={500}
             height={500}
             className={`max-h-full max-w-full object-contain transition-transform duration-300 ${
-              isGlowing ? 'scale-105' : ''
+              isGlowing ? 'scale-105 drop-shadow-lg' : ''
             }`}
           />
         </div>

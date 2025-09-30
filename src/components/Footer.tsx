@@ -8,7 +8,7 @@ export const Footer = () => {
   const t = useTranslations('common.footer')
 
   return (
-    <footer className='border-t border-background-secondary bg-background'>
+    <footer className='border-t border-background-secondary bg-black'>
       <div className='mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8'>
         <div className='flex flex-col items-center justify-center space-y-2 md:flex-row md:space-y-0'>
           {/* Left side - Copyright and Author */}

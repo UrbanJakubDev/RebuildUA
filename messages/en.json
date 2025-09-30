@@ -141,26 +141,6 @@
         "location": "Prague, Czech Republic"
       },
       "companies": {
-        "aggr": {
-          "hero": {
-            "description": "Leading provider of aggregate and construction materials with focus on sustainable mining and environmental responsibility."
-          },
-          "statistics": {
-            "projects": "200+",
-            "capacity": "50 MW",
-            "experience": "20 years"
-          },
-          "mission": {
-            "title": "Sustainable Mining",
-            "description1": "We are committed to responsible extraction of natural resources while minimizing environmental impact and maximizing community benefits.",
-            "description2": "Our advanced mining techniques and restoration programs ensure long-term sustainability and environmental protection."
-          },
-          "sustainability": {
-            "title": "Environmental Stewardship",
-            "description1": "Every operation is conducted with strict environmental standards, focusing on land restoration and biodiversity conservation.",
-            "description2": "We implement comprehensive rehabilitation programs that transform mining sites into valuable community assets."
-          }
-        },
         "gentec": {
           "hero": {
             "description": "Advanced technology solutions for industrial automation and smart manufacturing processes."
@@ -203,22 +183,108 @@
         },
         "multicont": {
           "hero": {
-            "description": "Integrated logistics and supply chain solutions for complex industrial projects worldwide."
+            "title": "Technological containers turnkey",
+            "description": "Technological containers that we manufacture to measure for the diverse needs of our customers."
           },
           "statistics": {
             "projects": "500+",
             "capacity": "Global Network",
             "experience": "30 years"
           },
-          "mission": {
-            "title": "Global Logistics Excellence",
-            "description1": "We provide end-to-end logistics solutions that connect suppliers, manufacturers, and customers across continents.",
-            "description2": "Our expertise in complex project logistics ensures timely delivery and cost-effective solutions for the most challenging requirements."
+          "company": {
+            "title": "Introduction of MULTICONT CONTAINERS s.r.o.",
+            "description": "The company was established in connection with the increased demand for quality processed technological containers on the Czech market. This motivated us to start manufacturing custom containers with the highest quality and excellent delivery time. We are part of the AKURAT GROUP. And we can meet even the most demanding requirements. Contact us and see our quality and reliability."
           },
-          "sustainability": {
-            "title": "Sustainable Supply Chains",
-            "description1": "We optimize transportation routes and methods to minimize environmental impact while maximizing efficiency.",
-            "description2": "Our green logistics initiatives help clients achieve their sustainability targets through innovative supply chain management."
+          "specifications": {
+            "title": "Technological possibilities of our containers",
+            "maxDimensions": {
+              "title": "Maximum dimensions",
+              "value": "12 m x 3.5 m x 3.5 m (lxwxh)"
+            },
+            "weightAssembled": {
+              "title": "Weight after assembly",
+              "value": "20 t"
+            },
+            "weightEmpty": {
+              "title": "Weight of empty container",
+              "value": "8 t"
+            },
+            "capabilities1": "We have a welding shop, paint shop and we are able to ensure final assembly of technologies.",
+            "capabilities2": "We have our own design and technology department."
+          },
+          "projects": {
+            "twinPack": {
+              "title": "Twin pack 14 meters long",
+              "description": "For a customer in the UK, we manufactured a custom twin pack - two containers connected into one. This is a container with a unique length of more than 14 meters, in which cogeneration units for natural gas are installed: KE-MNG 140 eco and KE-MNG 450 from GENTEC."
+            },
+            "biogas": {
+              "title": "Container for biogas plant",
+              "description": "As part of one of our orders, we manufactured a container for placing a biogas cogeneration unit for a biogas plant in the Czech Republic. Compact dimensions ensure trouble-free placement in the BPS area."
+            }
+          }
+        },
+        "aggregaat": {
+          "hero": {
+            "title": "We aggregate flexibility",
+            "description": "We connect energy with digitalization. Knowledge of market functioning with knowledge of source operation. We connect decentralized sources into virtual power plants."
+          },
+          "statistics": {
+            "projects": "200+",
+            "capacity": "50 MW",
+            "experience": "20 years"
+          },
+          "sections": {
+            "title": "What do we do?",
+            "flexibility": {
+              "title": "Flexibility aggregation",
+              "description": "A modern solution that connects decentralized sources and energy consumers into one system. This reduces dependence on traditional energy sources and increases the stability of the energy grid. It also allows our partners to maximize revenue from energy production and participate in building modern energy."
+            },
+            "operation": {
+              "title": "Operation of aggregated blocks and virtual power plants",
+              "description": "To control aggregated blocks, we use the Virtuel system, which uses elements of artificial intelligence and machine learning. Thanks to the combination of our experience with a smart control system, we are able to perfectly optimize the operation of aggregation blocks and maximize their yield. We specialize in aggregated blocks that mainly combine sources with cogeneration units. Within the group, we deal with their production and service and have long-term experience with their operation in energy systems."
+            },
+            "management": {
+              "title": "Management of our own sources and sources of our partners",
+              "description": "To control aggregated blocks, we use the Virtuel system, which uses elements of artificial intelligence and machine learning. Thanks to the combination of our experience with a smart control system, we are able to perfectly optimize the operation of aggregation blocks and maximize their yield. We specialize in aggregated blocks that mainly combine sources with cogeneration units. Within the group, we deal with their production and service and have long-term experience with their operation in energy systems."
+            },
+            "investment": {
+              "title": "Investment in the construction of flexible energy sources",
+              "description": "We add both sources of our partners and customers, as well as our own production facilities to aggregation blocks. We have built the system from the beginning to be as sophisticated as possible and allow us to optimally manage the portfolio of our sources. This is also a guarantee of quality for our partners and customers. We manage your sources as carefully as ours."
+            }
+          },
+          "stats": {
+            "title": "22 MW we aggregate 17 sources we operate we operate",
+            "description": "Our group aggregates the flexibility of our partners and customers. We connect their sources into virtual power plants and optimize their operation."
+          },
+          "services": {
+            "title": "Our services and solutions",
+            "description1": "We provide comprehensive services in the field of flexibility aggregation and energy source management. Our solutions combine modern technologies with many years of experience in energy.",
+            "description2": "We specialize in optimizing the operation of decentralized energy sources and their integration into energy markets.",
+            "accordion": {
+              "flexibility": {
+                "title": "Flexibility aggregation",
+                "content": "We connect decentralized energy sources into virtual power plants and optimize their operation on energy markets."
+              },
+              "management": {
+                "title": "Source management",
+                "content": "We use advanced algorithms and artificial intelligence for optimal management of your energy sources."
+              },
+              "monitoring": {
+                "title": "Monitoring and analysis",
+                "content": "We provide continuous monitoring of source performance and detailed analyses to maximize yields."
+              },
+              "investment": {
+                "title": "Investment and development",
+                "content": "We invest in the construction of new flexible energy sources and support the development of sustainable energy."
+              }
+            }
+          },
+          "projects": {
+            "title": "Our projects in action"
+          },
+          "company": {
+            "title": "Introduction of aggregaat s.r.o.",
+            "description": "We are part of the AKURAT GROUP. We are here to manage the irregular production of small decentralized sources and to ensure that energy is produced from them when it is most needed. We thus contribute to the stabilization of energy and the development of RES. We deal fairly with our clients and at the same time let them earn fairly from aggregation and modern energy."
           }
         }
       }
@@ -255,5 +321,10 @@
         "description": "Restoration of road and rail networks to restore population mobility."
       }
     ]
+  },
+  "qrCode": {
+    "title": "Contact Us",
+    "subtitle": "Visit our website for more information",
+    "instructionText": "Scan the QR code to visit our website"
   }
 }

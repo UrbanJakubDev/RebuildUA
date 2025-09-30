@@ -34,7 +34,7 @@ export default function DashboardPage() {
     {
       slug: 'Repower',
       name: 'Repower',
-      logoUrl: '/images/logo-repower.svg', // Logo Repower
+      logoUrl: '/images/Group_5-removebg-preview.png', // Logo Repower
       description: 'Popis firmy D'
     }
   ]

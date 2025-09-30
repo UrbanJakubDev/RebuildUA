@@ -1,5 +1,6 @@
 'use client'
 
+import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
 
 const backgroundImages = [
@@ -10,6 +11,8 @@ const backgroundImages = [
 
 export function BackgroundSlideshow() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const pathname = usePathname()
+  
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -20,6 +23,11 @@ export function BackgroundSlideshow() {
 
     return () => clearInterval(interval)
   }, [])
+
+  // If pathname is not /locale then don't show the background slideshow
+  if (pathname !== '/en' && pathname !== '/cs' && pathname !== '/de') {
+    return null
+  }
 
   return (
     <div className='absolute inset-0'>
