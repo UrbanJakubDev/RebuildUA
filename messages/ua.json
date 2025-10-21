@@ -39,7 +39,7 @@
       "examples": "Приклади",
       "toggleMenu": "Перемкнути меню",
       "themeAndLanguage": "Тема та мова",
-      "exploreMore": "Дослідити більше"
+      "exploreMore": "Дізнатися більше"
     },
     "footer": {
       "copyright": "Next.js Starter Kit",
@@ -295,6 +295,12 @@
       "title": "Відео Галерея",
       "close": "Закрити"
     },
+    "realVideos": {
+      "gentec": {
+        "title": "Технологічні рішення GENTEC",
+        "description": "Передові технологічні рішення для промислової автоматизації та розумних виробничих процесів."
+      }
+    },
     "placeholders": [
       {
         "title": "Відновлення інфраструктури в Києві",
@@ -326,5 +332,10 @@
     "title": "Зв'яжіться з нами",
     "subtitle": "Відвідайте наш веб-сайт для отримання більше інформації",
     "instructionText": "Скануйте QR-код для відвідування нашого веб-сайту"
+  },
+  "inactivityVideo": {
+    "touchMeButton": "Дізнатися більше",
+    "closeInstruction": "Натисніть ESC або Пробіл для закриття",
+    "closeInstructionSub": "Або натисніть кнопку вище"
   }
 }

@@ -39,7 +39,7 @@
       "examples": "Examples",
       "toggleMenu": "Toggle menu",
       "themeAndLanguage": "Theme & Language",
-      "exploreMore": "Explore More"
+      "exploreMore": "Discover More"
     },
     "footer": {
       "copyright": "Next.js Starter Kit",
@@ -295,6 +295,12 @@
       "title": "Video Gallery",
       "close": "Close"
     },
+    "realVideos": {
+      "gentec": {
+        "title": "GENTEC Technology Solutions",
+        "description": "Advanced technology solutions for industrial automation and smart manufacturing processes."
+      }
+    },
     "placeholders": [
       {
         "title": "Infrastructure Restoration in Kyiv",
@@ -326,5 +332,10 @@
     "title": "Contact Us",
     "subtitle": "Visit our website for more information",
     "instructionText": "Scan the QR code to visit our website"
+  },
+  "inactivityVideo": {
+    "touchMeButton": "Discover More",
+    "closeInstruction": "Press ESC or Space to close",
+    "closeInstructionSub": "Or click the button above"
   }
 }

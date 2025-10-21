@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import { CompanyGrid } from '@/src/components/CompanyGrid'
+import { InactivityVideoOverlay } from '@/src/components/InactivityVideoOverlay'
 
 export async function generateMetadata({
   params: { locale }
@@ -39,5 +40,14 @@ export default function DashboardPage() {
     }
   ]
 
-  return <CompanyGrid companies={companies} />
+  return (
+    <>
+      <CompanyGrid companies={companies} />
+      <InactivityVideoOverlay
+        videoUrl='/videos/GENTEC_EN_720p-LQ-30-s.mp4'
+        timeout={60000}
+        enabled={true}
+      />
+    </>
+  )
 }

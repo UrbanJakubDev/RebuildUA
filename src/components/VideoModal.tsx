@@ -1,10 +1,11 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { IoClose } from 'react-icons/io5'
 import { useTranslations } from 'next-intl'
 import { VideoCard } from './VideoCard'
+import { FullscreenVideoPlayer } from './FullscreenVideoPlayer'
 
 interface Video {
   id: string
@@ -25,18 +26,30 @@ const videoDurations = ['3:45', '5:12', '7:23', '4:56', '6:18', '8:34']
 
 export function VideoModal({ isOpen, onClose }: VideoModalProps) {
   const t = useTranslations('videos')
+  const [selectedVideo, setSelectedVideo] = useState<Video | null>(null)
+  const [isAnimating, setIsAnimating] = useState(false)
 
-  // Get localized video data
-  const placeholderVideos: Video[] = t
-    .raw('placeholders')
-    .map((video: any, index: number) => ({
-      id: (index + 1).toString(),
-      title: video.title,
-      duration: videoDurations[index],
-      description: video.description
-    }))
+  // Get real video data
+  const realVideos: Video[] = [
+    {
+      id: '1',
+      title: t('realVideos.gentec.title'),
+      duration: '0:30',
+      description: t('realVideos.gentec.description'),
+      videoUrl: '/videos/GENTEC_EN_720p-LQ-30-s.mp4'
+    }
+  ]
 
-  // Handle keyboard navigation
+  // Handle animations and keyboard navigation
+  useEffect(() => {
+    if (isOpen) {
+      setIsAnimating(true)
+      // Small delay to ensure smooth animation
+      const timer = setTimeout(() => setIsAnimating(false), 50)
+      return () => clearTimeout(timer)
+    }
+  }, [isOpen])
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!isOpen) return
@@ -60,8 +73,13 @@ export function VideoModal({ isOpen, onClose }: VideoModalProps) {
   if (!isOpen) return null
 
   const handleVideoClick = (video: Video) => {
-    console.log('Video clicked:', video.title)
-    // Video playback logic will be implemented here later
+    if (video.videoUrl) {
+      setSelectedVideo(video)
+    }
+  }
+
+  const handleCloseVideo = () => {
+    setSelectedVideo(null)
   }
 
   const handleBackdropClick = (e: React.MouseEvent) => {
@@ -72,12 +90,20 @@ export function VideoModal({ isOpen, onClose }: VideoModalProps) {
 
   const modalContent = (
     <div
-      className='bg-background/95 fixed inset-0 z-[9999] flex items-center justify-center p-4 backdrop-blur-sm'
+      className={`bg-background/95 fixed inset-0 z-[9999] flex items-center justify-center p-4 backdrop-blur-sm transition-all duration-500 ease-out ${
+        isAnimating ? 'opacity-0' : 'opacity-100'
+      }`}
       onClick={handleBackdropClick}
     >
-      <div className='border-border bg-card-bg shadow-card-shadow-hover relative h-[95vh] w-[95vw] max-w-7xl overflow-hidden rounded-xl border'>
+      <div
+        className={`relative h-[95vh] w-[95vw] max-w-7xl overflow-hidden rounded-xl border border-border bg-background shadow-card-shadow-hover transition-all duration-500 ease-out ${
+          isAnimating
+            ? 'translate-y-4 scale-95 opacity-0'
+            : 'translate-y-0 scale-100 opacity-100'
+        }`}
+      >
         {/* Header */}
-        <div className='border-border bg-background-secondary/50 flex items-center justify-between border-b p-6'>
+        <div className='flex items-center justify-between border-b border-border bg-background p-6'>
           <h2 className='text-2xl font-bold text-primary'>
             {t('modal.title')}
           </h2>
@@ -91,9 +117,9 @@ export function VideoModal({ isOpen, onClose }: VideoModalProps) {
         </div>
 
         {/* Video Grid */}
-        <div className='h-full overflow-y-auto p-6 pb-20'>
+        <div className='h-full overflow-y-auto bg-background p-6 pb-20'>
           <div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2'>
-            {placeholderVideos.map(video => (
+            {realVideos.map(video => (
               <div key={video.id} className='h-80'>
                 <VideoCard
                   title={video.title}
@@ -115,8 +141,22 @@ export function VideoModal({ isOpen, onClose }: VideoModalProps) {
     </div>
   )
 
-  // Use portal to render modal outside of header hierarchy
-  return typeof window !== 'undefined'
-    ? createPortal(modalContent, document.body)
-    : null
+  return (
+    <>
+      {/* Main Video Modal */}
+      {typeof window !== 'undefined'
+        ? createPortal(modalContent, document.body)
+        : null}
+
+      {/* Fullscreen Video Player */}
+      {selectedVideo && selectedVideo.videoUrl && (
+        <FullscreenVideoPlayer
+          isOpen={!!selectedVideo}
+          onClose={handleCloseVideo}
+          videoUrl={selectedVideo.videoUrl}
+          title={selectedVideo.title}
+        />
+      )}
+    </>
+  )
 }
