@@ -90,7 +90,7 @@ export default async function LocaleLayout({
             {/* Main - vyplní zbývající místo */}
             <main className='relative flex-1'>
               {/* Background slideshow */}
-              <BackgroundSlideshow />
+              {/* <BackgroundSlideshow /> */}
 
               {/* Content */}
               <div className='relative z-10 h-full'>

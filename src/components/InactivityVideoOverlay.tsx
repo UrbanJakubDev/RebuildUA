@@ -100,7 +100,6 @@ export function InactivityVideoOverlay({
       >
         <video
           ref={videoRef}
-          src={videoUrl}
           className='h-full w-full object-cover'
           autoPlay
           onEnded={handleClose}
@@ -110,6 +109,11 @@ export function InactivityVideoOverlay({
           preload='metadata'
           crossOrigin='anonymous'
         >
+          <source
+            src={videoUrl}
+            type='video/mp4; codecs="avc1.4D001E, mp4a.40.2"'
+          />
+          <source src={videoUrl} type='video/mp4' />
           Your browser does not support the video tag.
         </video>
 

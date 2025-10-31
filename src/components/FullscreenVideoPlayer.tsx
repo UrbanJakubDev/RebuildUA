@@ -82,7 +82,6 @@ export function FullscreenVideoPlayer({
     }
   }
 
-
   if (!isOpen) return null
 
   const playerContent = (
@@ -115,7 +114,6 @@ export function FullscreenVideoPlayer({
       >
         <video
           ref={videoRef}
-          src={videoUrl}
           className='max-h-full max-w-full object-contain'
           autoPlay
           onDoubleClick={toggleFullscreen}
@@ -123,7 +121,14 @@ export function FullscreenVideoPlayer({
           title={title}
           playsInline
           muted={false}
+          preload='metadata'
+          crossOrigin='anonymous'
         >
+          <source
+            src={videoUrl}
+            type='video/mp4; codecs="avc1.4D001E, mp4a.40.2"'
+          />
+          <source src={videoUrl} type='video/mp4' />
           Your browser does not support the video tag.
         </video>
       </div>
