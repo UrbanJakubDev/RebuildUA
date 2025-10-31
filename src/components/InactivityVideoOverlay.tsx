@@ -107,6 +107,8 @@ export function InactivityVideoOverlay({
           playsInline
           muted={false}
           loop={true}
+          preload='metadata'
+          crossOrigin='anonymous'
         >
           Your browser does not support the video tag.
         </video>

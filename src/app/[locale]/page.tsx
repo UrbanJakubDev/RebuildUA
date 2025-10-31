@@ -44,7 +44,7 @@ export default function DashboardPage() {
     <>
       <CompanyGrid companies={companies} />
       <InactivityVideoOverlay
-        videoUrl='/videos/GENTEC_EN_720p-LQ-30-s.mp4'
+        videoUrl='/videos/GENTEC_EN_720p-LQ-30-s-rpi.mp4'
         timeout={60000}
         enabled={true}
       />
