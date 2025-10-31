@@ -11,6 +11,7 @@ interface CompanyCardProps {
   logoUrl: string
   description?: string
   isGlowing?: boolean
+  isLowEndDevice?: boolean
 }
 
 export function CompanyCard({
@@ -18,7 +19,8 @@ export function CompanyCard({
   companyName,
   logoUrl,
   description,
-  isGlowing = false
+  isGlowing = false,
+  isLowEndDevice = false
 }: CompanyCardProps) {
   const t = useTranslations('common.navigation')
   const [ripples, setRipples] = useState<
@@ -52,7 +54,9 @@ export function CompanyCard({
       <div
         ref={cardRef}
         onClick={createRipple}
-        className={`group relative flex h-full w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg border border-white/20 bg-white/10 p-8 shadow-lg backdrop-blur-sm transition-all duration-300 ${
+        className={`group relative flex h-full w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg border border-white/20 bg-white/10 p-8 shadow-lg transition-all duration-300 ${
+          isLowEndDevice ? '' : 'backdrop-blur-sm'
+        } ${
           isGlowing
             ? '-translate-y-1 scale-[1.02] border-white/30 bg-white/20 shadow-2xl'
             : ''
@@ -143,32 +147,34 @@ export function CompanyCard({
           />
         ))}
 
-        {/* Energy Flow Lines */}
-        <div className='absolute inset-0 overflow-hidden rounded-lg'>
-          <div
-            className={`bg-accent/20 energy-pulse absolute -left-2 -top-2 h-4 w-4 rounded-full transition-all duration-700 ${
-              isGlowing ? 'opacity-100' : 'opacity-0'
-            }`}
-          />
-          <div
-            className={`bg-accent/20 energy-pulse absolute -right-2 -top-2 h-4 w-4 rounded-full transition-all duration-700 ${
-              isGlowing ? 'opacity-100' : 'opacity-0'
-            }`}
-            style={{ animationDelay: '200ms' }}
-          />
-          <div
-            className={`bg-accent/20 energy-pulse absolute -bottom-2 -left-2 h-4 w-4 rounded-full transition-all duration-700 ${
-              isGlowing ? 'opacity-100' : 'opacity-0'
-            }`}
-            style={{ animationDelay: '400ms' }}
-          />
-          <div
-            className={`bg-accent/20 energy-pulse absolute -bottom-2 -right-2 h-4 w-4 rounded-full transition-all duration-700 ${
-              isGlowing ? 'opacity-100' : 'opacity-0'
-            }`}
-            style={{ animationDelay: '600ms' }}
-          />
-        </div>
+        {/* Energy Flow Lines - disabled on low-end devices for better performance */}
+        {!isLowEndDevice && (
+          <div className='absolute inset-0 overflow-hidden rounded-lg'>
+            <div
+              className={`bg-accent/20 energy-pulse absolute -left-2 -top-2 h-4 w-4 rounded-full transition-all duration-700 ${
+                isGlowing ? 'opacity-100' : 'opacity-0'
+              }`}
+            />
+            <div
+              className={`bg-accent/20 energy-pulse absolute -right-2 -top-2 h-4 w-4 rounded-full transition-all duration-700 ${
+                isGlowing ? 'opacity-100' : 'opacity-0'
+              }`}
+              style={{ animationDelay: '200ms' }}
+            />
+            <div
+              className={`bg-accent/20 energy-pulse absolute -bottom-2 -left-2 h-4 w-4 rounded-full transition-all duration-700 ${
+                isGlowing ? 'opacity-100' : 'opacity-0'
+              }`}
+              style={{ animationDelay: '400ms' }}
+            />
+            <div
+              className={`bg-accent/20 energy-pulse absolute -bottom-2 -right-2 h-4 w-4 rounded-full transition-all duration-700 ${
+                isGlowing ? 'opacity-100' : 'opacity-0'
+              }`}
+              style={{ animationDelay: '600ms' }}
+            />
+          </div>
+        )}
       </div>
     </Link>
   )
