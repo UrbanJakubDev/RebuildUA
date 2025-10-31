@@ -101,6 +101,10 @@ export function InactivityVideoOverlay({
         <video
           ref={videoRef}
           className='h-full w-full object-cover'
+          style={{
+            willChange: 'auto',
+            transform: 'translateZ(0)' // Force GPU acceleration
+          }}
           autoPlay
           onEnded={handleClose}
           playsInline
@@ -108,6 +112,8 @@ export function InactivityVideoOverlay({
           loop={true}
           preload='metadata'
           crossOrigin='anonymous'
+          disablePictureInPicture
+          disableRemotePlayback
         >
           <source
             src={videoUrl}

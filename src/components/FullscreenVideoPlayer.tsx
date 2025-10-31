@@ -115,6 +115,10 @@ export function FullscreenVideoPlayer({
         <video
           ref={videoRef}
           className='max-h-full max-w-full object-contain'
+          style={{
+            willChange: 'auto',
+            transform: 'translateZ(0)' // Force GPU acceleration
+          }}
           autoPlay
           onDoubleClick={toggleFullscreen}
           onEnded={onClose}
@@ -123,6 +127,8 @@ export function FullscreenVideoPlayer({
           muted={false}
           preload='metadata'
           crossOrigin='anonymous'
+          disablePictureInPicture
+          disableRemotePlayback
         >
           <source
             src={videoUrl}
