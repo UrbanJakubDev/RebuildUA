@@ -2,10 +2,10 @@
 
 import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
+import { useRouter } from 'next/navigation'
 import { IoClose } from 'react-icons/io5'
 import { useTranslations } from 'next-intl'
 import { VideoCard } from './VideoCard'
-import { FullscreenVideoPlayer } from './FullscreenVideoPlayer'
 
 interface Video {
   id: string
@@ -26,7 +26,7 @@ const videoDurations = ['3:45', '5:12', '7:23', '4:56', '6:18', '8:34']
 
 export function VideoModal({ isOpen, onClose }: VideoModalProps) {
   const t = useTranslations('videos')
-  const [selectedVideo, setSelectedVideo] = useState<Video | null>(null)
+  const router = useRouter()
   const [isAnimating, setIsAnimating] = useState(false)
 
   // Get real video data
@@ -74,12 +74,9 @@ export function VideoModal({ isOpen, onClose }: VideoModalProps) {
 
   const handleVideoClick = (video: Video) => {
     if (video.videoUrl) {
-      setSelectedVideo(video)
+      // Redirect to video page instead of opening FullscreenVideoPlayer
+      router.push('/video')
     }
-  }
-
-  const handleCloseVideo = () => {
-    setSelectedVideo(null)
   }
 
   const handleBackdropClick = (e: React.MouseEvent) => {
@@ -147,16 +144,6 @@ export function VideoModal({ isOpen, onClose }: VideoModalProps) {
       {typeof window !== 'undefined'
         ? createPortal(modalContent, document.body)
         : null}
-
-      {/* Fullscreen Video Player */}
-      {selectedVideo && selectedVideo.videoUrl && (
-        <FullscreenVideoPlayer
-          isOpen={!!selectedVideo}
-          onClose={handleCloseVideo}
-          videoUrl={selectedVideo.videoUrl}
-          title={selectedVideo.title}
-        />
-      )}
     </>
   )
 }
