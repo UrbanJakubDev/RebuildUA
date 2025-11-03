@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { Suspense, useEffect, useRef, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { IoHandLeftOutline } from 'react-icons/io5'
 
@@ -14,7 +14,7 @@ const translations: Record<string, { touchMeButton: string }> = {
   }
 }
 
-export default function VideoPage() {
+function VideoContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -73,7 +73,7 @@ export default function VideoPage() {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape' || e.key === ' ') {
         e.preventDefault()
-        handleButtonClick()
+        router.push('/')
       }
     }
 
@@ -81,7 +81,7 @@ export default function VideoPage() {
     return () => {
       document.removeEventListener('keydown', handleKeyDown)
     }
-  }, [])
+  }, [router])
 
   return (
     <div className='relative h-screen w-screen bg-white overflow-hidden'>
@@ -130,6 +130,18 @@ export default function VideoPage() {
         {buttonText}
       </button>
     </div>
+  )
+}
+
+export default function VideoPage() {
+  return (
+    <Suspense fallback={
+      <div className='relative h-screen w-screen bg-white overflow-hidden flex items-center justify-center'>
+        <div className='text-gray-500'>Loading...</div>
+      </div>
+    }>
+      <VideoContent />
+    </Suspense>
   )
 }
 
