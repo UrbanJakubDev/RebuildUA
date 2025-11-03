@@ -74,8 +74,8 @@ export function VideoModal({ isOpen, onClose }: VideoModalProps) {
 
   const handleVideoClick = (video: Video) => {
     if (video.videoUrl) {
-      // Redirect to video page instead of opening FullscreenVideoPlayer
-      router.push('/video')
+      // Redirect to video page instead of opening FullscreenVideoPlayer with false loop parameter
+      router.push('/video?loop=false')
     }
   }
 
