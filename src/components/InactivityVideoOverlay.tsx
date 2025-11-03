@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { useInactivityVideoTrigger } from '@/src/hooks/useInactivityVideoTrigger'
 import { useTranslations } from 'next-intl'
+import { IoHandLeftOutline } from 'react-icons/io5'
 
 interface InactivityVideoOverlayProps {
   videoUrl: string
@@ -73,6 +74,27 @@ export function InactivityVideoOverlay({
     }
   }, [isOpen])
 
+  // Ensure video loops continuously - handle edge cases where loop might not work
+  useEffect(() => {
+    if (!isOpen || !videoRef.current) return
+
+    const video = videoRef.current
+
+    const handleEnded = () => {
+      // Restart video if it ends (backup in case loop attribute doesn't work)
+      if (video.ended) {
+        video.currentTime = 0
+        video.play().catch(console.error)
+      }
+    }
+
+    video.addEventListener('ended', handleEnded)
+
+    return () => {
+      video.removeEventListener('ended', handleEnded)
+    }
+  }, [isOpen])
+
   const handleClose = () => {
     setIsOpen(false)
     resetInactivityTimer()
@@ -106,7 +128,6 @@ export function InactivityVideoOverlay({
             transform: 'translateZ(0)' // Force GPU acceleration
           }}
           autoPlay
-          onEnded={handleClose}
           playsInline
           muted={false}
           loop={true}
@@ -129,29 +150,22 @@ export function InactivityVideoOverlay({
         {/* Large Touch Me Button */}
         <button
           onClick={handleTouchMeClick}
-          className={`hover:shadow-3xl absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 transform rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 px-12 py-6 text-2xl font-bold text-white shadow-2xl transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-white/50 ${
-            isAnimating ? 'scale-0 opacity-0' : 'scale-100 opacity-100'
-          } energy-pulse`}
+          className='absolute left-1/2 top-1/2 z-10 flex -translate-x-1/2 -translate-y-1/2 transform items-center gap-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 px-12 py-6 text-2xl font-bold text-white shadow-2xl focus:outline-none focus:ring-4 focus:ring-white/50'
           style={{
             minWidth: '200px',
             minHeight: '80px',
             boxShadow:
-              '0 0 30px rgba(59, 130, 246, 0.5), 0 0 60px rgba(147, 51, 234, 0.3)'
+              '0 0 30px rgba(59, 130, 246, 0.5), 0 0 60px rgba(147, 51, 234, 0.3)',
+            opacity: 1, // Remove transition opacity
+            transition: 'none' // Remove animation
           }}
           aria-label={t('touchMeButton')}
         >
+          <span className='mr-2 flex h-8 w-8 items-center justify-center'>
+            <IoHandLeftOutline />
+          </span>
           {t('touchMeButton')}
         </button>
-
-        {/* Close instruction */}
-        <div
-          className={`absolute bottom-8 left-1/2 z-10 -translate-x-1/2 transform text-center text-white transition-all duration-500 ${
-            isAnimating ? 'translate-y-4 opacity-0' : 'translate-y-0 opacity-70'
-          }`}
-        >
-          <p className='text-lg font-medium'>{t('closeInstruction')}</p>
-          <p className='text-sm opacity-80'>{t('closeInstructionSub')}</p>
-        </div>
       </div>
     </div>
   )
