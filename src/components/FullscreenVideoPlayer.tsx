@@ -132,9 +132,9 @@ export function FullscreenVideoPlayer({
         >
           <source
             src={videoUrl}
-            type='video/mp4; codecs="avc1.4D001E, mp4a.40.2"'
+            type='video/webm; codecs="vp9, opus"'
           />
-          <source src={videoUrl} type='video/mp4' />
+          <source src={videoUrl} type='video/webm' />
           Your browser does not support the video tag.
         </video>
       </div>

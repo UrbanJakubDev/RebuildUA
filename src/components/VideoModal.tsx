@@ -36,7 +36,7 @@ export function VideoModal({ isOpen, onClose }: VideoModalProps) {
       title: t('realVideos.gentec.title'),
       duration: '0:30',
       description: t('realVideos.gentec.description'),
-      videoUrl: '/videos/GENTEC_EN_720p-LQ-30-s-rpi.mp4'
+      videoUrl: '/videos/GENTEC_EN_720p-LQ-30-s-rpi.webm'
     }
   ]
 
