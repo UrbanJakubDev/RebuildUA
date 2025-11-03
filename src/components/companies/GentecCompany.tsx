@@ -65,7 +65,7 @@ export function GentecCompany(): JSX.Element {
 
   return (
     <SimplePageWrapper showBreadcrumbs={false}>
-      <div className='relative flex h-full w-full grow flex-col'>
+      <div className='relative flex h-full w-full grow flex-col max-w-[1920px] mx-auto'>
         <div
           ref={containerRef}
           className='flex-1 overflow-auto bg-gray-100'

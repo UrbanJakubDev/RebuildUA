@@ -1,295 +1,147 @@
 'use client'
-
 import { SimplePageWrapper } from '@/src/components/PageWrapper'
-import {
-  AnimatedSection,
-  AnimatedHero,
-  AnimatedCard,
-  AnimatedText
-} from '@/src/components/AnimatedSection'
 import React from 'react'
-import { CompanyPageProps, CompanyStats } from './types'
+import { useInactivityRedirect } from '@/src/hooks/useInactivityRedirect'
+import { InactivityDebugger } from '@/src/components/InactivityDebugger'
 
-export function RepowerCompany({
-  companyKey,
-  companyName,
-  t
-}: CompanyPageProps): JSX.Element {
-  // Get company-specific content or fallback to generic content
-  const getCompanyContent = (path: string, fallback?: string) => {
-    const companyPath = `companies.${companyKey}.${path}`
-    const genericPath = fallback || path
+export function RepowerCompany(): JSX.Element {
+  const [isLoading, setIsLoading] = React.useState<boolean>(true)
+  const containerRef = React.useRef<HTMLDivElement>(null)
+  const lastActivityRef = React.useRef<number>(Date.now())
 
-    // Try company-specific first, then fallback to generic
-    try {
-      return t(companyPath)
-    } catch {
-      return t(genericPath)
+  // Funkce pro registraci aktivity
+  const registerActivity = React.useCallback(() => {
+    lastActivityRef.current = Date.now()
+    console.log('User activity detected')
+  }, [])
+
+  // Inactivity redirect
+  const { getTimeSinceLastActivity } = useInactivityRedirect({
+    timeout: 60000,
+    redirectPath: '/',
+    enabled: true
+  })
+
+  // Přidání event listenerů pro detekci interakce s PDF
+  React.useEffect(() => {
+    const container = containerRef.current
+    if (!container) return
+
+    // Touchscreen události
+    const events = [
+      'touchstart',
+      'touchmove',
+      'touchend',
+      'wheel', // scroll myší (pro testování na PC)
+      'click',
+      'mousedown'
+    ]
+
+    events.forEach(event => {
+      container.addEventListener(event, registerActivity, { passive: true })
+    })
+
+    return () => {
+      events.forEach(event => {
+        container.removeEventListener(event, registerActivity)
+      })
+    }
+  }, [registerActivity])
+
+  const goToFirstPage = () => {
+    const iframe = document.querySelector('iframe')
+    if (iframe) {
+      iframe.src =
+        '/Prezentace REBUILD UKRAINE.pptx#toolbar=0&navpanes=0&scrollbar=0&view=FitH&statusbar=0&messages=0&page=1'
     }
   }
 
-  const getCompanyStats = (): CompanyStats => {
-    try {
-      const stats = {
-        projects: t(`companies.${companyKey}.statistics.projects`),
-        capacity: t(`companies.${companyKey}.statistics.capacity`),
-        experience: t(`companies.${companyKey}.statistics.experience`)
-      }
-      return stats
-    } catch {
-      return {
-        projects: '400+',
-        capacity: '200 MW',
-        experience: '18 years'
-      }
-    }
-  }
-
-  const stats = getCompanyStats()
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 1000)
+    return () => clearTimeout(timer)
+  }, [])
 
   return (
     <SimplePageWrapper showBreadcrumbs={false}>
-      <div>
-        {/* Hero Section - Energy Theme */}
-        <AnimatedHero className='bg-gradient-to-br from-yellow-50 to-orange-50 px-4 py-20'>
-          <div className='mx-auto max-w-6xl text-center'>
-            <h1 className='mb-8 bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-5xl font-bold text-transparent md:text-7xl'>
-              {companyName}
-            </h1>
-            <p className='mx-auto max-w-4xl text-xl leading-relaxed text-gray-700 md:text-2xl'>
-              {getCompanyContent('hero.description', 'hero.description')}
-            </p>
-          </div>
-        </AnimatedHero>
-
-        {/* Statistics Section - Energy Colors */}
-        <AnimatedSection
-          animation='fadeUp'
-          delay={200}
-          className='bg-gradient-to-r from-yellow-50 to-orange-50 py-16'
+      <div className='relative flex h-full w-full grow flex-col max-w-[1920px] mx-auto'>
+        <div
+          ref={containerRef}
+          className='flex-1 overflow-auto bg-gray-100'
+          // Inline event handlers jako záloha
+          onTouchStart={registerActivity}
+          onTouchMove={registerActivity}
+          onTouchEnd={registerActivity}
+          onWheel={registerActivity}
+          onClick={registerActivity}
         >
-          <div className='mx-auto max-w-6xl px-4'>
-            <div className='grid grid-cols-1 gap-8 text-center md:grid-cols-3'>
-              <div className='rounded-lg border-l-4 border-yellow-500 bg-white p-8 shadow-lg'>
-                <div className='mb-2 text-4xl font-bold text-yellow-600'>
-                  {stats.projects}
+          {isLoading && (
+            <div className='flex h-screen items-center justify-center'>
+              <div className='text-center'>
+                <div className='mb-4'>
+                  <div className='mx-auto h-12 w-12 animate-spin rounded-full border-4 border-gray-300 border-t-blue-600'></div>
                 </div>
-                <div className='text-gray-600'>
-                  {t('statistics.projectsCompleted')}
+                <div className='text-lg font-semibold text-gray-700'>
+                  Načítání prezentace...
                 </div>
-              </div>
-              <div className='rounded-lg border-l-4 border-orange-500 bg-white p-8 shadow-lg'>
-                <div className='mb-2 text-4xl font-bold text-orange-600'>
-                  {stats.capacity}
-                </div>
-                <div className='text-gray-600'>
-                  {t('statistics.totalCapacity')}
-                </div>
-              </div>
-              <div className='rounded-lg border-l-4 border-red-500 bg-white p-8 shadow-lg'>
-                <div className='mb-2 text-4xl font-bold text-red-600'>
-                  {stats.experience}
-                </div>
-                <div className='text-gray-600'>
-                  {t('statistics.yearsExperience')}
+                <div className='mt-2 text-sm text-gray-500'>
+                  Prosím počkejte
                 </div>
               </div>
             </div>
-          </div>
-        </AnimatedSection>
+          )}
 
-        {/* Mission Section - Energy Transformation */}
-        <AnimatedSection
-          animation='fadeLeft'
-          delay={100}
-          className='px-4 py-20'
-        >
-          <div className='mx-auto max-w-6xl'>
-            <div className='grid grid-cols-1 items-center gap-12 lg:grid-cols-2'>
-              <div>
-                <div className='mb-4 text-sm font-semibold text-yellow-600'>
-                  {t('sections.mission.number')}
-                </div>
-                <h2 className='mb-6 text-4xl font-bold'>
-                  {getCompanyContent('mission.title', 'sections.mission.title')}
-                </h2>
-                <p className='mb-6 text-lg leading-relaxed text-gray-600'>
-                  {getCompanyContent(
-                    'mission.description1',
-                    'sections.mission.description1'
-                  )}
-                </p>
-                <p className='text-lg leading-relaxed text-gray-600'>
-                  {getCompanyContent(
-                    'mission.description2',
-                    'sections.mission.description2'
-                  )}
-                </p>
-              </div>
-              <div className='relative'>
-                <div className='flex aspect-square items-center justify-center rounded-2xl bg-gradient-to-br from-yellow-100 to-orange-100'>
-                  <div className='text-8xl'>⚡</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </AnimatedSection>
+          <iframe
+            src='/Prezentace REBUILD UKRAINE.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH&statusbar=0&messages=0&scrollbar=0&zoom=auto'
+            width='100%'
+            height='100%'
+            className='border-0'
+            style={{
+              display: isLoading ? 'none' : 'block',
+              border: 'none',
+              outline: 'none',
+              minHeight: '100vh',
+              pointerEvents: 'auto' // Důležité pro zachycení eventů
+            }}
+            onLoad={() => {
+              console.log('PDF loaded in iframe')
+              setIsLoading(false)
+            }}
+            onError={e => {
+              console.error('PDF loading error in iframe:', e)
+            }}
+            title='REBUILD UKRAINE Prezentace'
+          />
+        </div>
 
-        {/* Sustainability Section - Clean Energy */}
-        <AnimatedSection
-          animation='fadeRight'
-          delay={100}
-          className='bg-gradient-to-r from-green-50 to-emerald-50 px-4 py-20'
+        <button
+          onClick={() => {
+            registerActivity()
+            goToFirstPage()
+          }}
+          className='fixed bottom-6 right-6 z-20 rounded-full bg-blue-600 p-4 text-white shadow-lg transition-colors hover:bg-blue-700'
+          title='Na první stránku prezentace'
         >
-          <div className='mx-auto max-w-6xl'>
-            <div className='grid grid-cols-1 items-center gap-12 lg:grid-cols-2'>
-              <div className='relative order-2 lg:order-1'>
-                <div className='flex aspect-square items-center justify-center rounded-2xl bg-gradient-to-br from-green-100 to-emerald-100'>
-                  <div className='text-8xl'>🌱</div>
-                </div>
-              </div>
-              <div className='order-1 lg:order-2'>
-                <div className='mb-4 text-sm font-semibold text-green-600'>
-                  {t('sections.sustainability.number')}
-                </div>
-                <h2 className='mb-6 text-4xl font-bold'>
-                  {getCompanyContent(
-                    'sustainability.title',
-                    'sections.sustainability.title'
-                  )}
-                </h2>
-                <p className='mb-6 text-lg leading-relaxed text-gray-600'>
-                  {getCompanyContent(
-                    'sustainability.description1',
-                    'sections.sustainability.description1'
-                  )}
-                </p>
-                <p className='text-lg leading-relaxed text-gray-600'>
-                  {getCompanyContent(
-                    'sustainability.description2',
-                    'sections.sustainability.description2'
-                  )}
-                </p>
-              </div>
-            </div>
-          </div>
-        </AnimatedSection>
+          <svg
+            className='h-6 w-6'
+            fill='none'
+            stroke='currentColor'
+            viewBox='0 0 24 24'
+          >
+            <path
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth={2}
+              d='M5 10l7-7m0 0l7 7m-7-7v18'
+            />
+          </svg>
+        </button>
 
-        {/* Innovation Section - Smart Grid */}
-        <AnimatedSection
-          animation='fadeLeft'
-          delay={100}
-          className='px-4 py-20'
-        >
-          <div className='mx-auto max-w-6xl'>
-            <div className='grid grid-cols-1 items-center gap-12 lg:grid-cols-2'>
-              <div>
-                <div className='mb-4 text-sm font-semibold text-orange-600'>
-                  {t('sections.innovation.number')}
-                </div>
-                <h2 className='mb-6 text-4xl font-bold'>
-                  {t('sections.innovation.title')}
-                </h2>
-                <p className='mb-6 text-lg leading-relaxed text-gray-600'>
-                  {t('sections.innovation.description1')}
-                </p>
-                <p className='text-lg leading-relaxed text-gray-600'>
-                  {t('sections.innovation.description2')}
-                </p>
-              </div>
-              <div className='relative'>
-                <div className='flex aspect-square items-center justify-center rounded-2xl bg-gradient-to-br from-orange-100 to-red-100'>
-                  <div className='text-8xl'>🔌</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </AnimatedSection>
-
-        {/* Services Section - Energy Services */}
-        <AnimatedSection
-          animation='fadeUp'
-          delay={200}
-          className='bg-gradient-to-r from-yellow-50 to-orange-50 px-4 py-20'
-        >
-          <div className='mx-auto max-w-6xl'>
-            <div className='mb-16 text-center'>
-              <h2 className='mb-6 text-4xl font-bold'>{t('services.title')}</h2>
-              <p className='mx-auto max-w-3xl text-xl text-gray-600'>
-                {t('services.subtitle')}
-              </p>
-            </div>
-            <div className='grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3'>
-              <AnimatedCard
-                delay={100}
-                className='rounded-lg border-t-4 border-yellow-500 bg-white p-8 shadow-lg transition-shadow hover:shadow-xl'
-              >
-                <div className='mb-4 text-4xl'>🔧</div>
-                <h3 className='mb-4 text-xl font-bold'>
-                  {t('services.installation.title')}
-                </h3>
-                <p className='text-gray-600'>
-                  {t('services.installation.description')}
-                </p>
-              </AnimatedCard>
-              <AnimatedCard
-                delay={200}
-                className='rounded-lg border-t-4 border-orange-500 bg-white p-8 shadow-lg transition-shadow hover:shadow-xl'
-              >
-                <div className='mb-4 text-4xl'>📊</div>
-                <h3 className='mb-4 text-xl font-bold'>
-                  {t('services.monitoring.title')}
-                </h3>
-                <p className='text-gray-600'>
-                  {t('services.monitoring.description')}
-                </p>
-              </AnimatedCard>
-              <AnimatedCard
-                delay={300}
-                className='rounded-lg border-t-4 border-red-500 bg-white p-8 shadow-lg transition-shadow hover:shadow-xl'
-              >
-                <div className='mb-4 text-4xl'>🛠️</div>
-                <h3 className='mb-4 text-xl font-bold'>
-                  {t('services.maintenance.title')}
-                </h3>
-                <p className='text-gray-600'>
-                  {t('services.maintenance.description')}
-                </p>
-              </AnimatedCard>
-            </div>
-          </div>
-        </AnimatedSection>
-
-        {/* Contact Section */}
-        <AnimatedSection
-          animation='fadeUp'
-          delay={200}
-          className='bg-gradient-to-r from-yellow-50 to-orange-50 px-4 py-20'
-        >
-          <div className='mx-auto max-w-4xl text-center'>
-            <h2 className='mb-6 text-4xl font-bold'>{t('contact.title')}</h2>
-            <p className='mb-8 text-xl text-gray-600'>
-              {t('contact.subtitle')}
-            </p>
-            <div className='grid grid-cols-1 gap-8 md:grid-cols-3'>
-              <div className='rounded-lg border-l-4 border-yellow-500 bg-white p-6 shadow-lg'>
-                <div className='mb-4 text-3xl'>📞</div>
-                <h3 className='mb-2 font-bold'>{t('contact.phone')}</h3>
-                <p className='text-gray-600'>+420 123 456 789</p>
-              </div>
-              <div className='rounded-lg border-l-4 border-orange-500 bg-white p-6 shadow-lg'>
-                <div className='mb-4 text-3xl'>✉️</div>
-                <h3 className='mb-2 font-bold'>{t('contact.email')}</h3>
-                <p className='text-gray-600'>info@{companyKey}.cz</p>
-              </div>
-              <div className='rounded-lg border-l-4 border-red-500 bg-white p-6 shadow-lg'>
-                <div className='mb-4 text-3xl'>📍</div>
-                <h3 className='mb-2 font-bold'>{t('contact.address')}</h3>
-                <p className='text-gray-600'>{t('contact.location')}</p>
-              </div>
-            </div>
-          </div>
-        </AnimatedSection>
+        {/* <InactivityDebugger
+          getTimeSinceLastActivity={getTimeSinceLastActivity}
+          timeout={30000}
+        /> */}
       </div>
     </SimplePageWrapper>
   )
