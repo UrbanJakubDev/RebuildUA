@@ -194,7 +194,7 @@ export function AggrCompany({
                 <div className='relative rounded-2xl border-4 border-accent-hover p-2'>
                   <div className='flex aspect-video items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-amber-100 to-orange-100'>
                     <img
-                      src='/images/01.jpg'
+                      src='/images/aggregaat/01.jpg'
                       alt='Virtuální dispečink agregace flexibility'
                       className='h-full w-full object-cover'
                     />
@@ -321,7 +321,7 @@ export function AggrCompany({
                   <div className='flex-1'>
                     <div className='aspect-video overflow-hidden rounded-2xl border-4 border-accent-hover'>
                       <img
-                        src='/images/01.jpg'
+                        src='/images/aggregaat/01.jpg'
                         alt='Projekt 1'
                         className='h-full w-full object-cover'
                       />
@@ -387,7 +387,7 @@ export function AggrCompany({
 
         {/* Image Left Text Right Section */}
         <ImageTextSection
-          imageSrc='/images/01.jpg'
+          imageSrc='/images/aggregaat/01.jpg'
           imageAlt='Naše technologie'
           title={t('companies.aggregaat.company.title')}
           description={t('companies.aggregaat.company.description')}

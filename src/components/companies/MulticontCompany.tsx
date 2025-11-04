@@ -27,7 +27,7 @@ export function MulticontCompany({
           <div
             className='absolute inset-0 bg-cover bg-center bg-no-repeat'
             style={{
-              backgroundImage: 'url(/images/hero-background.jpg)'
+              backgroundImage: 'url(/images/multicont/hero-background.jpg)'
             }}
           >
             {/* Dark overlay for better text readability */}
@@ -46,7 +46,7 @@ export function MulticontCompany({
         </AnimatedHero>
         {/* Image Left Text Right Section */}
         <ImageTextSection
-          imageSrc='/images/container-image.jpg'
+          imageSrc='/images/multicont/container-image.jpg'
           imageAlt='Naše technologie'
           title={t('companies.multicont.company.title')}
           description={t('companies.multicont.company.description')}
@@ -104,7 +104,7 @@ export function MulticontCompany({
 
         {/* Image Left Text Right Section */}
         <ImageTextSection
-          imageSrc='/images/container-image.jpg'
+          imageSrc='/images/multicont/container-image.jpg'
           imageAlt='Twin pack kontejner o délce 14 metrů'
           title={t('companies.multicont.projects.twinPack.title')}
           description={t('companies.multicont.projects.twinPack.description')}
@@ -112,7 +112,7 @@ export function MulticontCompany({
         />
         {/* Image Left Text Right Section */}
         <ImageTextSection
-          imageSrc='/images/container-biogas.jpg'
+          imageSrc='/images/multicont/container-biogas.jpg'
           imageAlt='Kontejner pro bioplynovou stanici'
           title={t('companies.multicont.projects.biogas.title')}
           description={t('companies.multicont.projects.biogas.description')}
@@ -124,7 +124,7 @@ export function MulticontCompany({
 
         {/* Image Left Text Right Section */}
         <ImageTextSection
-          imageSrc='/images/akurat-group-logo.jpg'
+          imageSrc='/images/multicont/akurat-group-logo.jpg'
           imageAlt='AKURAT GROUP logo'
           title={t('companies.multicont.company.title')}
           description={t('companies.multicont.company.description')}

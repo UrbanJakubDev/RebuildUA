@@ -9,8 +9,10 @@
     --secondary: #a3a3a3; /* Medium neutral gray for secondary text */
     --background: #171717; /* Very dark neutral gray (not pure black) */
     --background-secondary: #262626; /* Dark neutral gray */
+    --repower-background: #dfe3e6; /* Very dark neutral gray (not pure black) */
     --button: #005bbb; /* Ukrainian blue */
     --button-text: #fafafa; /* Off-white text */
+    --text-primary: #171717; /* Very dark neutral gray (not pure black) */
     --text-secondary: #d4d4d4; /* Light neutral gray for secondary text */
     --dropdown: #404040; /* Medium dark neutral gray */
     --dropdown-hover: #525252; /* Lighter neutral gray on hover */

@@ -163,22 +163,178 @@
         },
         "repower": {
           "hero": {
-            "description": "Renewable energy solutions and grid modernization for a sustainable energy future."
+            "title": "GENTEC CHP Investment Project",
+            "description": "Pioneering decentralized energy solutions for Ukraine's sustainable future through advanced cogeneration technology and strategic partnerships."
           },
-          "statistics": {
-            "projects": "400+",
-            "capacity": "200 MW",
-            "experience": "18 years"
+          "agenda": {
+            "title": "Agenda",
+            "items": {
+              "item1": {
+                "number": "01",
+                "title": "Investment in Ukrainian Energy",
+                "description": "Strategic opportunities in decentralized power generation and the critical role of cogeneration in Ukraine's energy independence"
+              },
+              "item2": {
+                "number": "02",
+                "title": "Main Project Parameters",
+                "description": "Technical specifications, capacity details, and comprehensive infrastructure requirements for successful deployment"
+              },
+              "item3": {
+                "number": "03",
+                "title": "Location Schema",
+                "description": "Geographic distribution analysis, site selection methodology, and strategic positioning across Ukrainian territory"
+              }
+            }
           },
-          "mission": {
-            "title": "Energy Transformation",
-            "description1": "We lead the transition to clean energy through innovative renewable solutions and smart grid technologies.",
-            "description2": "Our comprehensive approach covers everything from solar and wind installations to energy storage and grid integration."
+          "investment": {
+            "title": "Investment in Ukrainian Energy",
+            "point1": "Addresses critical energy infrastructure needs with sustainable, cost-effective solutions.",
+            "point2": "Deploys state-of-the-art GENTEC CHP cogeneration units (Czech-made) for decentralized electricity and heat generation.",
+            "point3": "Enhances energy security, reduces transmission losses, and ensures resilient power supply.",
+            "point4": "Presents an exceptional investment opportunity with a rapid payback period of just 3-4.5 years and attractive long-term returns."
           },
-          "sustainability": {
-            "title": "Clean Energy Future",
-            "description1": "Every project contributes to reducing carbon emissions and building resilient energy infrastructure.",
-            "description2": "We focus on community-centered solutions that provide long-term environmental and economic benefits."
+          "parameters": {
+            "title": "Main Project Parameters",
+            "pilotCapacity": {
+              "title": "Pilot Capacity",
+              "value": "30 MW",
+              "description": "30 MW total installed capacity planned across initial deployment phase",
+              "point1": "5-10 MW per strategic location",
+              "point2": "Modular design for flexible scaling",
+              "point3": "Proven MTU-based technology platform"
+            },
+            "expansion": {
+              "title": "Expansion Phase",
+              "value": "100-150 MW",
+              "description": "100-150 MW anticipated growth following successful pilot validation",
+              "point1": "20 identified locations nationwide",
+              "point2": "Replicable deployment model",
+              "point3": "Portfolio diversification strategy"
+            },
+            "lease": {
+              "title": "Lease Terms",
+              "value": "10 years",
+              "description": "10 years initial term with landowner partnership structure",
+              "point1": "5-year extension option available",
+              "point2": "Flexible commercial arrangements",
+              "point3": "Long-term stability assured"
+            },
+            "siteSelection": {
+              "title": "Site Selection",
+              "value": "ROI 3-4.5 years",
+              "description": "ROI 3-4.5 years with comprehensive risk mitigation",
+              "point1": "Broad territorial coverage optimization",
+              "point2": "Advanced security measures implemented",
+              "point3": "Infrastructure access prioritized"
+            }
+          },
+          "location": {
+            "title": "Location Schema for CHP Units",
+            "description1": "Current Pool of Projects: 20 carefully identified locations representing total capacity of 100-200 MW distributed across strategically selected sites throughout Ukraine.",
+            "description2": "Each location has undergone rigorous evaluation encompassing infrastructure accessibility, grid connection capacity, natural gas pipeline proximity, security risk assessment, and economic viability analysis. This methodical approach ensures optimal project performance and minimizes operational risks.",
+            "description3": "Our site selection methodology prioritizes locations with existing utility infrastructure, favorable regulatory environments, and proximity to demand centers, enabling rapid deployment and immediate revenue generation upon commissioning."
+          },
+          "financial": {
+            "title": "Vinice Project Financial Analysis",
+            "description": "Comprehensive financial overview of the investment project with detailed metrics and return analysis.",
+            "investment": {
+              "title": "10 MW Investment",
+              "value": "€6.0M",
+              "subtitle": "€3,2M for 5 MW configuration with complete installation and commissioning"
+            },
+            "irr": {
+              "title": "IRR (5 years)",
+              "value": "72.9%",
+              "subtitle": "82.1% Internal Rate of Return over extended 10-year operational period"
+            },
+            "equityPayback": {
+              "title": "Equity Payback",
+              "value": "1.5",
+              "subtitle": "Years to fully recover initial equity investment from operational cash flows"
+            },
+            "totalPayback": {
+              "title": "Total Payback",
+              "value": "4.0",
+              "subtitle": "Years for complete capital recovery including all debt service obligations"
+            }
+          },
+          "financing": {
+            "title": "Financing Structure",
+            "point1": "Investor equity: 30% - Reduced capital requirements through leverage",
+            "point2": "Bank loan or leasing: 70% - 16% interest rate based on current market conditions",
+            "point3": "EU grants or subsidized loans - Potential additional funding sources available"
+          },
+          "conclusion": {
+            "title": "Investment Conclusion",
+            "description": "The Vinice project represents an economically attractive and environmentally sustainable investment opportunity featuring stable long-term electricity revenue streams, proven technological reliability from GENTEC's established track record, and significant scalability potential for portfolio expansion across additional Ukrainian locations."
+          },
+          "partners": {
+            "seeking": {
+              "title": "Seeking Strategic Partners",
+              "subtitle": "Key Collaboration Opportunities",
+              "investors": {
+                "title": "Investors",
+                "description": "Individuals or institutions interested in funding the project and participating in its financial success and long-term benefits."
+              },
+              "landOwners": {
+                "title": "Land Owners",
+                "description": "Property owners willing to lease suitable land for the development and operation of renewable energy facilities on a long-term basis."
+              },
+              "implementation": {
+                "title": "Implementation Partners",
+                "description": "Companies or experts with proven experience in renewable energy construction, technical installation, and efficient operational management."
+              }
+            },
+            "key": {
+              "title": "Key Partners",
+              "subtitle": "Strategic Alliances for Success",
+              "description": "Our commitment to operational excellence and technological innovation is reflected in strategic partnerships with leading industry organizations, equipment manufacturers, and service providers.",
+              "mainImage": "/images/repower/key-partner.jpg",
+              "mainImageAlt": "Key Partner",
+              "image1": "/images/repower/image8.png",
+              "image1Alt": "Key Partner",
+              "finalDescription": "These partnerships provide access to MTU engine technology, advanced control systems, comprehensive maintenance support, and established supply chains. Collaboration with local Ukrainian partners ensures regulatory compliance, cultural understanding, and efficient project execution within the local business environment.",
+              "partner1": {
+                "name": "Partner 1",
+                "image": "/images/repower/partner1.png"
+              },
+              "partner2": {
+                "name": "Partner 2",
+                "image": "/images/repower/partner2.png"
+              },
+              "partner3": {
+                "name": "Partner 3",
+                "image": "/images/repower/partner3.png"
+              },
+              "partner4": {
+                "name": "Partner 4",
+                "image": "/images/repower/partner4.png"
+              },
+              "partner5": {
+                "name": "Partner 5",
+                "image": "/images/repower/partner5.png"
+              }
+            }
+          },
+          "contact": {
+            "title": "Contact Us",
+            "emailLabel": "Email",
+            "phoneLabel": "Phone",
+            "websiteLabel": "Website",
+            "website": "https://www.gentec.cz/en",
+            "email": "info@gentec.cz",
+            "phone": "+420723040212",
+            "logos": {
+              "repower": "/images/repower/image8.png",
+              "repowerAlt": "Repower Logo",
+              "gentec": "/images/repower/image3.png",
+              "gentecAlt": "GENTEC Logo"
+            },
+            "cta": {
+              "title": "Ready to Invest in Ukraine's Energy Future?",
+              "description": "Connect with our investment team to explore opportunities in decentralized power generation. We provide comprehensive support throughout the investment process, from initial feasibility assessment through commercial operation and beyond.",
+              "image": "/images/repower/company-contactus.png"
+            }
           }
         },
         "multicont": {
