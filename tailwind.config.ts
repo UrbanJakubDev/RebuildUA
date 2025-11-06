@@ -45,11 +45,25 @@ const config = {
         'border-hover': 'var(--border-hover)',
         'card-bg': 'var(--card-bg)',
         'card-shadow': 'var(--card-shadow)',
-        'card-shadow-hover': 'var(--card-shadow-hover)'
+        'card-shadow-hover': 'var(--card-shadow-hover)',
+
+        // Gentec theme colors
+        'gentec-red': 'var(--gentec-red)',
+        'gentec-dark-gray': 'var(--gentec-dark-gray)',
+        'gentec-background': 'var(--gentec-background)',
+        'gentec-text-primary': 'var(--gentec-text-primary)',
+        'gentec-text-secondary': 'var(--gentec-text-secondary)',
+        'gentec-dropdown': 'var(--gentec-dropdown)',
+        'gentec-dropdown-hover': 'var(--gentec-dropdown-hover)',
+        'gentec-button-secondary': 'var(--gentec-button-secondary)',
+        'gentec-selected': 'var(--gentec-selected)',
+        'gentec-logo-shadow': 'var(--gentec-logo-shadow)',
+        'gentec-logo-body': 'var(--gentec-logo-body)'
       },
 
       fontFamily: {
-        sans: ['var(--font-space-grotesk)', 'var(--rubik)']
+        sans: ['var(--font-space-grotesk)', 'var(--rubik)'],
+        gentec: ['var(--font-avenir)', 'sans-serif']
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',

@@ -42,7 +42,7 @@
       "exploreMore": "Discover More"
     },
     "footer": {
-      "copyright": "Next.js Starter Kit",
+      "copyright": "Rebuild Ukraine",
       "author": "Created by",
       "about": "About",
       "support": "Support"
@@ -143,7 +143,137 @@
       "companies": {
         "gentec": {
           "hero": {
+            "title": "Gentec CHP",
+            "slogan": "We change power to energy",
             "description": "Advanced technology solutions for industrial automation and smart manufacturing processes."
+          },
+          "groupFormation": {
+            "title": "WE ARE FORMING A GROUP DEDICATED TO",
+            "subtitle": "ENHANCING THE FLEXIBILITY",
+            "description": "OF THE EUROPEAN ENERGY SECTOR BY LEVERAGING DECENTRALIZED SOURCES."
+          },
+          "companyIntroduction": {
+            "title": "COMPANY INTRODUCTION",
+            "subtitle": "MAJOR EUROPEAN MANUFACTURER",
+            "description": "We are expanding to Europe and North America as the fastest growing manufacturer of CHP in Central Europe. Active in several European countries and expanding to new markets."
+          },
+          "customersPartners": {
+            "title": "MAJOR CUSTOMERS AND PARTNERS",
+            "subtitle": "We do our best for our customers and partners.",
+            "points": {
+              "point1": "Long-term supplier for corporates such as Innogy and Veolia.",
+              "point2": "Partners with many medium and small energy companies across Europe.",
+              "point3": "Strong relationships with major manufacturers such as MAN and MTU.",
+              "point4": "THE FASTEST GROWING MANUFACTURER OF CHP IN CENTRAL EUROPE",
+              "point5": "ACTIVE IN MORE THAN 10 COUNTRIES"
+            }
+          },
+          "productRange": {
+            "title": "WIDE PRODUCT RANGE",
+            "range": "30 kWe – 12,000 kWe",
+            "description": "Thanks to our wide power range, we meet diverse customer needs:",
+            "points": {
+              "point1": "50–500 kWe with MAN",
+              "point2": "700–2,500 kWe with MTU",
+              "point3": "Available in frame, canopy, or container versions.",
+              "point4": "Compatible with natural gas, biogas, or other special gases."
+            }
+          },
+          "strengths": {
+            "title": "WHERE WE SEE OUR STRENGTHS",
+            "subtitle": "These features are in our company's DNA.",
+            "items": {
+              "serviceSupport": {
+                "title": "Service Support",
+                "description": "Tailored solutions ensuring performance and customer satisfaction."
+              },
+              "partnership": {
+                "title": "Partnership",
+                "description": "Tailored solutions ensuring performance and customer satisfaction."
+              },
+              "productFlexibility": {
+                "title": "Product Flexibility",
+                "description": "Tailored solutions ensuring performance and customer satisfaction."
+              },
+              "proCustomerApproach": {
+                "title": "Pro-customer Approach",
+                "description": "Tailored solutions ensuring performance and customer satisfaction."
+              },
+              "focusOnQuality": {
+                "title": "Focus on Quality",
+                "description": "Tailored solutions ensuring performance and customer satisfaction."
+              },
+              "serviceNetwork": {
+                "title": "Service Network",
+                "description": "Tailored solutions ensuring performance and customer satisfaction."
+              }
+            }
+          },
+          "researchDevelopment": {
+            "title": "RESEARCH AND DEVELOPMENT",
+            "subtitle": "We invest to be ready for the future.",
+            "items": {
+              "lowEmission": {
+                "title": "Low-emission Solutions",
+                "description": "Developing eco-friendly CHP with industry leaders."
+              },
+              "artificialIntelligence": {
+                "title": "Artificial Intelligence",
+                "description": "AI-driven systems collect and process CHP data for predictive maintenance."
+              },
+              "hydrogenReady": {
+                "title": "Hydrogen Ready",
+                "description": "Developing CHP units combusting hydrogen in combination with natural gas."
+              }
+            }
+          },
+          "references": {
+            "title": "REFERENCES",
+            "subtitle": "Our successful projects and partnerships worldwide",
+            "items": {
+              "uaProject": {
+                "title": "UA Project (Ukraine)",
+                "description": "Supply of technical assistance | 70–2500 kW | 10/23–02/24"
+              },
+              "amperGeneration": {
+                "title": "Amper Generation s.r.o.",
+                "description": "KE-MTUNG 1000 | Canopy | Low-emission solution | Turn-key solution"
+              },
+              "brewdog": {
+                "title": "BREWDOG (Scotland)",
+                "description": "KE-MNG 500-BL | Container | Unique design | 2023"
+              },
+              "envirogy": {
+                "title": "ENVIROGY (UK)",
+                "description": "2 CHP units | KE-MNG 140 eco BE + KE-MNG 350 BL | 2023"
+              },
+              "innogy": {
+                "title": "Innogy | Central Heating system in Náchod",
+                "description": "KE-MTUNG 1000 | Canopy | Low-emission solution | Turn-key solution"
+              },
+              "pittsburg": {
+                "title": "PITTSBURG (Pennsylvania, USA)",
+                "description": "KE-MNG 500-BL | Container | Realization 05/2024"
+              },
+              "mutenice": {
+                "title": "Greenhous Mutěnice | Greenhouse installation",
+                "description": "2x KE-MTUNG 1000 | Container | Low-emission solution | Turn-key solution"
+              },
+              "olbena": {
+                "title": "PBS Olbena | Olomouc, Czech Republic",
+                "description": "KE-MBG 300 | Frame | Low-emission solution"
+              }
+            }
+          },
+          "contact": {
+            "title": "CONTACT",
+            "emailLabel": "Email:",
+            "email": "gentec@gentec.cz",
+            "websiteLabel": "Website:",
+            "website": "www.gentec.cz/en",
+            "qrUrl": "https://www.gentec.cz/en",
+            "partnerTitle": "READY TO PARTNER WITH US?",
+            "partnerDescription": "Join us in enhancing the flexibility of the European energy sector through decentralized sources."
           },
           "statistics": {
             "projects": "300+",
@@ -312,7 +442,7 @@
               },
               "partner5": {
                 "name": "Partner 5",
-                "image": "/images/repower/partner5.png"
+                "image": "/images/repower/image8.png"
               }
             }
           },
@@ -321,8 +451,8 @@
             "emailLabel": "Email",
             "phoneLabel": "Phone",
             "websiteLabel": "Website",
-            "website": "https://www.gentec.cz/en",
-            "email": "info@gentec.cz",
+            "website": "WWW.GENTEC.CZ/EN",
+            "email": "serge.knizhin@gentec.cz",
             "phone": "+420723040212",
             "logos": {
               "repower": "/images/repower/image8.png",
@@ -455,6 +585,14 @@
       "gentec": {
         "title": "GENTEC Technology Solutions",
         "description": "Advanced technology solutions for industrial automation and smart manufacturing processes."
+      },
+      "ke-mng-500": {
+        "title": "KE-MNG 500",
+        "description": "KE-MNG 500 is a high-efficiency cogeneration unit that is used to generate electricity and heat."
+      },
+      "press-conference": {
+        "title": "Press Conference",
+        "description": "Press conference of GENTEC and the company's management."
       }
     },
     "placeholders": [

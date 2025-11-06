@@ -55,6 +55,24 @@ export function AnimatedCard({
   )
 }
 
+export function GentecAnimatedSection({
+  children,
+  delay = 0,
+  className = ''
+}: {
+  children: React.ReactNode
+  delay?: number
+  className?: string
+}) {
+  return (
+    <AnimatedSection animation='fadeUp' delay={delay} className={className}>
+      <div className='absolute inset-0 bg-gentec-background'></div>
+      <div className='absolute right-0 top-0 h-full w-1/3 bg-gentec-red'></div>
+      {children}
+    </AnimatedSection>
+  )
+}
+
 export function AnimatedText({
   children,
   delay = 0,

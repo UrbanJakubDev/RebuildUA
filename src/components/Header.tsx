@@ -2,10 +2,10 @@
 import { Link } from '@/src/navigation'
 import { useTranslations } from 'next-intl'
 import { FC, useState, useEffect, useRef } from 'react'
+import { useRouter } from 'next/navigation'
 import LangSwitcher from './LangSwitcher'
 import ThemeSwitch from './ThemeSwitch'
 import { Logo } from '../app/icons/Logo'
-import { VideoModal } from './VideoModal'
 import { IoVideocam, IoHome } from 'react-icons/io5'
 
 interface Props {
@@ -14,24 +14,12 @@ interface Props {
 
 export const Header: FC<Props> = ({ locale }) => {
   const t = useTranslations('common.navigation')
+  const router = useRouter()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false)
   const headerRef = useRef<HTMLElement>(null)
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen)
-  }
-
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false)
-  }
-
-  const toggleVideoModal = () => {
-    setIsVideoModalOpen(!isVideoModalOpen)
-  }
-
-  const closeVideoModal = () => {
-    setIsVideoModalOpen(false)
+  const handleVideosClick = () => {
+    router.push('/videos')
   }
 
   // Close mobile menu when clicking outside
@@ -90,7 +78,7 @@ export const Header: FC<Props> = ({ locale }) => {
   return (
     <header
       ref={headerRef}
-      className='bg-black/95 supports-[backdrop-filter]:bg-black/90 sticky top-0 z-50 border-b border-border shadow-sm backdrop-blur-sm'
+      className='sticky top-0 z-50 border-b border-border bg-black/95 shadow-sm backdrop-blur-sm supports-[backdrop-filter]:bg-black/90'
     >
       <div className='mx-auto flex items-center justify-between px-4 py-2 lg:px-6 lg:py-3'>
         {/* Left Section - Logo and Navigation */}
@@ -116,7 +104,7 @@ export const Header: FC<Props> = ({ locale }) => {
             </Link>
 
             <button
-              onClick={toggleVideoModal}
+              onClick={handleVideosClick}
               className='flex items-center gap-1 rounded-lg px-2 py-1 text-secondary transition-all duration-200 hover:bg-background-secondary hover:text-primary'
             >
               <IoVideocam size={18} />
@@ -138,7 +126,7 @@ export const Header: FC<Props> = ({ locale }) => {
             </Link>
 
             <button
-              onClick={toggleVideoModal}
+              onClick={handleVideosClick}
               className='rounded-lg p-1 text-secondary transition-all duration-200 hover:bg-background-secondary hover:text-primary'
               title={t('videos')}
             >
@@ -153,9 +141,6 @@ export const Header: FC<Props> = ({ locale }) => {
           <LangSwitcher />
         </div>
       </div>
-
-      {/* Video Modal - now renders as portal on full screen */}
-      <VideoModal isOpen={isVideoModalOpen} onClose={closeVideoModal} />
     </header>
   )
 }

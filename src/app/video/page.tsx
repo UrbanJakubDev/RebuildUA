@@ -24,8 +24,11 @@ function VideoContent() {
   const loopParam = searchParams.get('loop')
   const shouldLoop = loopParam !== 'false'
 
-  // Video URL - same as used in homepage
-  const videoUrl = '/videos/GENTEC_EN_720p-LQ-30-s-rpi.webm'
+  // Read video URL from query parameter, fallback to default test video
+  const videoParam = searchParams.get('video')
+  const videoUrl = videoParam
+    ? decodeURIComponent(videoParam)
+    : '/videos/GENTEC_EN_720p-LQ-30-s-rpi.webm'
 
   // Detect locale from cookies or default to 'en'
   useEffect(() => {
@@ -71,6 +74,11 @@ function VideoContent() {
   // Handle button click - redirect to homepage
   const handleButtonClick = () => {
     router.push('/')
+  }
+
+  const handleClose = () => {
+    // Redirect to videos page - use window.location for non-localized routes
+    window.location.href = '/videos'
   }
 
   // Handle keyboard navigation
@@ -121,6 +129,7 @@ function VideoContent() {
         disablePictureInPicture
         disableRemotePlayback
       >
+        <source src={videoUrl} type='video/mp4' />
         <source src={videoUrl} type='video/webm; codecs="vp9, opus"' />
         <source src={videoUrl} type='video/webm' />
         Your browser does not support the video tag.
@@ -133,18 +142,20 @@ function VideoContent() {
       {shouldLoop && (
         <button
           onClick={handleButtonClick}
-          className='absolute left-1/2 top-1/2 z-10 flex -translate-x-1/2 -translate-y-1/2 transform items-center gap-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 px-12 py-6 text-2xl font-bold text-white shadow-2xl focus:outline-none focus:ring-4 focus:ring-white/50'
+          className='absolute left-1/2 top-1/2 z-10 flex -translate-x-1/2 -translate-y-1/2 transform items-center gap-4 rounded-2xl px-12 py-6 text-2xl font-bold text-white shadow-2xl focus:outline-none focus:ring-4 focus:ring-white/50'
           style={{
             minWidth: '200px',
             minHeight: '80px',
+            background:
+              'linear-gradient(90deg, var(--gentec-red), var(--gentec-dark-gray))',
             boxShadow:
-              '0 0 30px rgba(59, 130, 246, 0.5), 0 0 60px rgba(147, 51, 234, 0.3)',
+              '0 0 30px rgba(196,44,49,0.5), 0 0 60px rgba(0,0,0,0.15)',
             opacity: 1,
             transition: 'none'
           }}
           aria-label={buttonText}
         >
-          <span className='mr-2 flex h-8 w-8 items-center justify-center'>
+          <span className='mr-2 flex h-12 w-12 items-center justify-center text-white'>
             <IoHandLeftOutline />
           </span>
           {buttonText}
@@ -154,7 +165,7 @@ function VideoContent() {
       {/* Close Button - only shown when loop is disabled */}
       {!shouldLoop && (
         <button
-          onClick={handleButtonClick}
+          onClick={handleClose}
           className='absolute right-4 top-4 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-black/50 text-white transition-all duration-300 hover:scale-110 hover:bg-black/70 focus:outline-none focus:ring-4 focus:ring-white/50'
           aria-label='Close video'
         >

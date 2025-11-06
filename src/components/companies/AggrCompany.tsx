@@ -11,6 +11,7 @@ import React, { useState } from 'react'
 import { CompanyPageProps, CompanyStats } from './types'
 import { ImageTextSection } from '../ImageTextSection'
 import { QRCodeSection } from '../QRCodeSection'
+import { InactivityRedirectHandler } from '../InactivityRedirectHandler'
 
 // Accordion Item Component
 interface AccordionItemProps {
@@ -74,6 +75,11 @@ export function AggrCompany({
 
   return (
     <SimplePageWrapper showBreadcrumbs={false}>
+      <InactivityRedirectHandler
+        redirectPath='/'
+        timeout={60000}
+        enabled={true}
+      />
       <div className='bg-black'>
         {/* Hero Section - Mining Theme */}
         <AnimatedHero className=' px-4 py-20'>

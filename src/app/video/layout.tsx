@@ -19,18 +19,14 @@ export default function VideoLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang='en' className={`${space_grotesk.variable} scroll-smooth`} suppressHydrationWarning>
-      <body className='bg-white h-screen w-screen overflow-hidden'>
-        <ThemeProvider
-          enableSystem
-          attribute='class'
-          defaultTheme='light'
-          themes={['light', 'dark', 'ukrainian', 'energy', 'corporate']}
-        >
-          {children}
-        </ThemeProvider>
+    <html
+      lang='en'
+      className={`${space_grotesk.variable} scroll-smooth`}
+      suppressHydrationWarning
+    >
+      <body className='h-screen w-screen overflow-hidden bg-white'>
+        {children}
       </body>
     </html>
   )
 }
-

@@ -1,7 +1,7 @@
 import { ThemeProvider } from '@/src/components/ThemeProvider'
 import type { Metadata } from 'next'
 import { AbstractIntlMessages, NextIntlClientProvider } from 'next-intl'
-import { Inter, Rubik, Space_Grotesk } from 'next/font/google'
+import { Inter, Rubik, Space_Grotesk, Montserrat } from 'next/font/google'
 import NextTopLoader from 'nextjs-toploader'
 import { Header } from '@/src/components/Header'
 
@@ -22,6 +22,12 @@ const rubik = Rubik({
 const space_grotesk = Space_Grotesk({
   subsets: ['latin'],
   variable: '--font-space-grotesk'
+})
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  variable: '--font-avenir',
+  weight: ['400', '700'],
+  fallback: ['sans-serif']
 })
 export async function generateMetadata({
   params
@@ -45,7 +51,7 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       dir={locale === 'ar' || locale == 'fa' ? 'rtl' : 'ltr'}
-      className={`${space_grotesk.variable} ${rubik.variable} scroll-smooth`}
+      className={`${space_grotesk.variable} ${rubik.variable} ${montserrat.variable} scroll-smooth`}
       suppressHydrationWarning
     >
       <head>

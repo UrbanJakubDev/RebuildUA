@@ -9,7 +9,8 @@
     --secondary: #a3a3a3; /* Medium neutral gray for secondary text */
     --background: #171717; /* Very dark neutral gray (not pure black) */
     --background-secondary: #262626; /* Dark neutral gray */
-    --repower-background: #dfe3e6; /* Very dark neutral gray (not pure black) */
+    --repower-background: #ededef; /* Light neutral gray */
+    --gentec-background: #ededef; /* Light neutral gray */
     --button: #005bbb; /* Ukrainian blue */
     --button-text: #fafafa; /* Off-white text */
     --text-primary: #171717; /* Very dark neutral gray (not pure black) */
@@ -35,6 +36,20 @@
       0,
       0.5
     ); /* Stronger dark shadows on hover */
+
+    /* Gentec theme colors */
+    --gentec-red: #ad2628;           /* 173, 38, 40 */
+    --gentec-dark-gray: #4c4c54;     /* 76, 76, 84 */
+    --gentec-background: #e6e6e8;    /* 230, 230, 232 */
+    --gentec-text-primary: #171717;  /* Very dark neutral gray (not pure black) */
+    --gentec-text-secondary: #d4d4d4; /* Light neutral gray for secondary text */
+    --gentec-dropdown: #404040; /* Medium dark neutral gray */
+    --gentec-dropdown-hover: #525252; /* Lighter neutral gray on hover */
+    --gentec-button-secondary: #404040; /* Medium dark neutral gray secondary buttons */
+    --gentec-selected: #004085; /* Dark Ukrainian blue selection */
+    --gentec-logo-shadow: #003366; /* Dark Ukrainian blue shadow */
+    --gentec-logo-body: #005bbb; /* Ukrainian blue */
+    --gentec-span-bg: linear-gradient(to right, #005bbb, #004085, #003366);
   }
 }
 

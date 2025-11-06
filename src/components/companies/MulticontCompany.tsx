@@ -11,6 +11,7 @@ import React from 'react'
 import { CompanyPageProps, CompanyStats } from './types'
 import { QRCodeSection } from '../QRCodeSection'
 import { ImageTextSection } from '../ImageTextSection'
+import { InactivityRedirectHandler } from '../InactivityRedirectHandler'
 
 export function MulticontCompany({
   companyKey,
@@ -20,6 +21,11 @@ export function MulticontCompany({
   // Get company-specific content or fallback to generic content
   return (
     <SimplePageWrapper showBreadcrumbs={false}>
+      <InactivityRedirectHandler
+        redirectPath='/'
+        timeout={60000}
+        enabled={true}
+      />
       <div>
         {/* Hero Section - Logistics Theme with Background Image */}
         <AnimatedHero className='relative overflow-hidden px-4 py-20'>

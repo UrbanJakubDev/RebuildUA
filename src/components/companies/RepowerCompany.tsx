@@ -11,6 +11,12 @@ import React from 'react'
 import { CompanyPageProps } from './types'
 import { QRCodeSVG } from 'qrcode.react'
 import { ImageTextSection } from '../ImageTextSection'
+import {
+  HiOutlineCash,
+  HiOutlineHome,
+  HiOutlineUserGroup
+} from 'react-icons/hi'
+import { InactivityRedirectHandler } from '../InactivityRedirectHandler'
 
 interface AgendaItemProps {
   number: string
@@ -24,8 +30,8 @@ function AgendaItem({ number, title, description }: AgendaItemProps) {
       <div className='text-xl text-secondary'>{number}</div>
       {/* Divider with line */}
       <div className='h-[2px] w-full bg-background'></div>
-      <div className='text-text-primary text-2xl font-bold'>{title}</div>
-      <p className='text-text-primary text-lg leading-relaxed'>{description}</p>
+      <div className='text-2xl font-bold text-text-primary'>{title}</div>
+      <p className='text-xl leading-relaxed text-text-primary'>{description}</p>
     </div>
   )
 }
@@ -54,8 +60,8 @@ function ParameterCard({
   return (
     <AnimatedCard delay={delay} className={colorClass}>
       <h3 className={`mb-4 text-2xl font-bold ${titleColor}`}>{title}</h3>
-      <p className='mb-4 font-bold text-gray-900'>{description}</p>
-      <ul className='space-y-2 text-sm text-gray-700'>
+      <p className='mb-4 text-xl font-bold text-gray-900'>{description}</p>
+      <ul className='space-y-2 text-lg text-gray-700'>
         <li>• {point1}</li>
         <li>• {point2}</li>
         <li>• {point3}</li>
@@ -90,9 +96,9 @@ function FinancialCard({
       delay={delay}
       className={`rounded-2xl bg-gradient-to-br ${gradientClass} flex flex-col items-center justify-center p-8 text-center text-white`}
     >
-      <h3 className='text-4xl font-bold'>{value}</h3>
-      <p className={`mb-2 text-lg ${titleColor}`}>{title}</p>
-      <p className={`mt-2 text-sm ${subtitleColor}`}>{subtitle}</p>
+      <h3 className='text-5xl font-bold'>{value}</h3>
+      <p className={`mb-2 text-xl ${titleColor}`}>{title}</p>
+      <p className={`mt-2 text-lg ${subtitleColor}`}>{subtitle}</p>
     </AnimatedCard>
   )
 }
@@ -107,7 +113,7 @@ function ContentCard({ title, content, delay }: ContentCardProps) {
   return (
     <AnimatedCard delay={delay} className='rounded-2xl bg-white p-8 shadow-lg'>
       <h3 className='mb-6 text-2xl font-bold text-gray-900'>{title}</h3>
-      <div className='text-lg text-gray-700'>{content}</div>
+      <div className='text-xl text-gray-700'>{content}</div>
     </AnimatedCard>
   )
 }
@@ -119,14 +125,20 @@ export function RepowerCompany({
 }: CompanyPageProps): JSX.Element {
   return (
     <SimplePageWrapper showBreadcrumbs={false}>
+      <InactivityRedirectHandler
+        redirectPath='/'
+        timeout={60000}
+        enabled={true}
+      />
       <div className='bg-repower-background text-text-primary'>
         {/* Hero Section */}
-        <AnimatedHero className='relative overflow-hidden px-4 py-20'>
+        <AnimatedHero className='relative overflow-hidden px-4 py-40'>
           {/* Background Image */}
           <div
-            className='absolute inset-0 bg-cover bg-center bg-no-repeat '
+            className='bg-fill absolute inset-0 bg-no-repeat'
             style={{
-              backgroundImage: 'url(/images/repower/hero-background.png)'
+              backgroundImage: 'url(/images/repower/hero-background.png)',
+              backgroundPosition: '90% 80%'
             }}
           >
             {/* Dark overlay for better text readability */}
@@ -134,25 +146,40 @@ export function RepowerCompany({
           </div>
 
           {/* Content */}
-          <div className='relative z-10 mx-auto max-w-6xl text-center'>
-            <h1 className='mb-8 text-5xl font-bold text-white drop-shadow-lg md:text-7xl'>
-              {t('companies.repower.hero.title')}
-            </h1>
-            <p className='mx-auto max-w-4xl text-xl leading-relaxed text-gray-100 drop-shadow-md md:text-2xl'>
-              {t('companies.repower.hero.description')}
-            </p>
+          <div className='relative z-10 mx-auto flex w-full max-w-6xl items-center gap-8 text-left'>
+            {/* Left: Logo image on 1/3 */}
+            <div className='flex w-1/3 items-center justify-start'>
+              <img
+                src='/images/repower/image8.png'
+                alt='Repower logo'
+                className='w-full max-w-md object-contain'
+              />
+            </div>
+            {/* Right: Hero content on 2/3 (optional, currently empty for future use) */}
+            <div className='w-2/3'></div>
           </div>
         </AnimatedHero>
 
+        <AnimatedSection>
+          <div className='col-span-2 flex w-full flex-col items-center justify-center py-20'>
+            <h1 className='mb-8 text-7xl'>
+              {t('companies.repower.hero.title')}
+            </h1>
+            <p className='mx-auto max-w-4xl text-2xl leading-relaxed'>
+              {t('companies.repower.hero.description')}
+            </p>
+          </div>
+        </AnimatedSection>
+
         {/* Agenda Section */}
         <AnimatedSection animation='fadeUp' delay={100} className='px-4 py-20'>
-          <div className='text-text-primary mx-auto max-w-6xl'>
+          <div className='mx-auto max-w-6xl text-text-primary'>
             <div className='mb-8 text-left'>
-              <span className='mb-4 inline-block text-6xl font-bold '>
+              <span className='mb-4 inline-block text-6xl'>
                 {t('companies.repower.agenda.title')}
               </span>
             </div>
-            <div className='grid grid-cols-1 gap-6 md:grid-cols-3'>
+            <div className='grid grid-cols-3 gap-6'>
               {[1, 2, 3].map(item => (
                 <AgendaItem
                   key={item}
@@ -171,7 +198,7 @@ export function RepowerCompany({
 
         {/* Investment in Ukrainian Energy Section */}
         <AnimatedSection animation='fadeUp' delay={100} className='px-4 py-20'>
-          <div className='mx-auto grid max-w-6xl grid-cols-1 items-center gap-8 md:grid-cols-2'>
+          <div className='mx-auto grid max-w-6xl grid-cols-2 items-center gap-8'>
             {/* Left: Image */}
             <div className='flex justify-center'>
               <svg
@@ -386,10 +413,10 @@ export function RepowerCompany({
             </div>
             {/* Right: Heading + Ordered List */}
             <div>
-              <span className='mb-6 block text-4xl font-bold md:text-6xl'>
+              <h2 className='mb-6 block text-6xl'>
                 {t('companies.repower.investment.title')}
-              </span>
-              <ol className='text-text-primary list-decimal space-y-4 pl-6 text-lg'>
+              </h2>
+              <ol className='list-decimal space-y-4 pl-6 text-xl text-text-primary'>
                 <li>{t('companies.repower.investment.point1')}</li>
                 <li>{t('companies.repower.investment.point2')}</li>
                 <li>{t('companies.repower.investment.point3')}</li>
@@ -403,7 +430,7 @@ export function RepowerCompany({
         <AnimatedSection animation='fadeUp' delay={100} className=' px-4 py-20'>
           <div className='mx-auto max-w-6xl'>
             <div className='mb-12 text-center'>
-              <h2 className='mb-6 text-4xl font-bold text-gray-900'>
+              <h2 className='mb-6 text-6xl'>
                 {t('companies.repower.parameters.title')}
               </h2>
             </div>
@@ -458,7 +485,7 @@ export function RepowerCompany({
 
         {/* Location Schema Section */}
         <AnimatedSection animation='fadeUp' delay={100} className=' px-4 py-20'>
-          <div className='mx-auto grid max-w-6xl grid-cols-1 items-center gap-8 md:grid-cols-2'>
+          <div className='mx-auto grid max-w-6xl grid-cols-2 items-center gap-8'>
             {/* Left: Image */}
             <div className='flex justify-center'>
               <img
@@ -469,16 +496,16 @@ export function RepowerCompany({
             </div>
             {/* Right: Heading + Paragraphs */}
             <div>
-              <h2 className='mb-6 text-4xl font-bold text-gray-900 md:text-6xl'>
+              <h2 className='mb-6 text-6xl'>
                 {t('companies.repower.location.title')}
               </h2>
-              <p className='mb-6 text-lg leading-relaxed text-gray-700'>
+              <p className='mb-6 text-xl leading-relaxed text-gray-700'>
                 {t('companies.repower.location.description1')}
               </p>
-              <p className='mb-6 text-lg leading-relaxed text-gray-700'>
+              <p className='mb-6 text-xl leading-relaxed text-gray-700'>
                 {t('companies.repower.location.description2')}
               </p>
-              <p className='text-lg leading-relaxed text-gray-700'>
+              <p className='text-xl leading-relaxed text-gray-700'>
                 {t('companies.repower.location.description3')}
               </p>
             </div>
@@ -489,20 +516,20 @@ export function RepowerCompany({
         <AnimatedSection animation='fadeUp' delay={100} className=' px-4 py-20'>
           <div className='mx-auto max-w-6xl'>
             {/* Title */}
-            <h2 className='mb-6 text-center text-4xl font-bold text-gray-900'>
+            <h2 className='mb-6 text-center text-6xl'>
               {t('companies.repower.financial.title')}
             </h2>
 
             {/* Description */}
-            <p className='mb-8 text-center text-lg leading-relaxed text-gray-700'>
+            <p className='mb-8 text-center text-xl leading-relaxed text-gray-700'>
               {t('companies.repower.financial.description')}
             </p>
 
             {/* Line Divider */}
-            <div className='mb-12 h-[2px] w-full bg-gray-200'></div>
+            <div className='mb-12 h-[2px] w-full bg-gray-600'></div>
 
             {/* 2-col Grid: Image Left, Cards Right */}
-            <div className='grid grid-cols-1 gap-8 md:grid-cols-2'>
+            <div className='grid grid-cols-2 gap-8'>
               {/* Left: Image */}
               <div className='flex justify-center'>
                 <img
@@ -554,7 +581,7 @@ export function RepowerCompany({
         {/* Financing Structure & Investment Conclusion Section */}
         <AnimatedSection animation='fadeUp' delay={100} className=' px-4 py-20'>
           <div className='mx-auto max-w-6xl'>
-            <div className='grid grid-cols-1 gap-8 md:grid-cols-2'>
+            <div className='grid grid-cols-2 gap-8'>
               {/* Financing Structure Card */}
               <ContentCard
                 title={t('companies.repower.financing.title')}
@@ -594,21 +621,24 @@ export function RepowerCompany({
         {/* Seeking Strategic Partners Section */}
         <AnimatedSection animation='fadeUp' delay={100} className=' px-4 py-20'>
           <div className='mx-auto max-w-6xl'>
-            <h2 className='text-left text-4xl font-bold text-gray-900'>
+            <h2 className='text-left text-6xl'>
               {t('companies.repower.partners.seeking.title')}
             </h2>
-            <p className='mb-8 text-left text-lg leading-relaxed text-gray-700'>
+            <p className='mb-8 text-left text-xl leading-relaxed text-gray-700'>
               {t('companies.repower.partners.seeking.subtitle')}
             </p>
-            <div className='grid grid-cols-1 gap-8 md:grid-cols-3'>
+            <div className='grid grid-cols-3 gap-8'>
               <AnimatedCard
                 delay={100}
                 className='rounded-2xl bg-white p-6 shadow-lg'
               >
-                <h3 className='mb-4 text-2xl font-bold text-blue-600'>
-                  {t('companies.repower.partners.seeking.investors.title')}
-                </h3>
-                <p className='text-lg leading-relaxed text-gray-700'>
+                <div className='mb-4'>
+                  <HiOutlineCash className='mb-3 h-7 w-7 text-text-primary' />
+                  <h3 className='text-2xl font-bold text-text-primary'>
+                    {t('companies.repower.partners.seeking.investors.title')}
+                  </h3>
+                </div>
+                <p className='text-xl leading-relaxed text-gray-700'>
                   {t(
                     'companies.repower.partners.seeking.investors.description'
                   )}
@@ -619,10 +649,13 @@ export function RepowerCompany({
                 delay={200}
                 className='rounded-2xl bg-white p-6 shadow-lg'
               >
-                <h3 className='mb-4 text-2xl font-bold text-green-600'>
-                  {t('companies.repower.partners.seeking.landOwners.title')}
-                </h3>
-                <p className='text-lg leading-relaxed text-gray-700'>
+                <div className='mb-4'>
+                  <HiOutlineHome className='mb-3 h-7 w-7 text-text-primary' />
+                  <h3 className='text-2xl font-bold text-text-primary'>
+                    {t('companies.repower.partners.seeking.landOwners.title')}
+                  </h3>
+                </div>
+                <p className='text-xl leading-relaxed text-gray-700'>
                   {t(
                     'companies.repower.partners.seeking.landOwners.description'
                   )}
@@ -633,10 +666,15 @@ export function RepowerCompany({
                 delay={300}
                 className='rounded-2xl bg-white p-6 shadow-lg'
               >
-                <h3 className='mb-4 text-2xl font-bold text-purple-600'>
-                  {t('companies.repower.partners.seeking.implementation.title')}
-                </h3>
-                <p className='text-lg leading-relaxed text-gray-700'>
+                <div className='mb-4'>
+                  <HiOutlineUserGroup className='mb-3 h-7 w-7 text-text-primary' />
+                  <h3 className='text-2xl font-bold text-text-primary'>
+                    {t(
+                      'companies.repower.partners.seeking.implementation.title'
+                    )}
+                  </h3>
+                </div>
+                <p className='text-xl leading-relaxed text-gray-700'>
                   {t(
                     'companies.repower.partners.seeking.implementation.description'
                   )}
@@ -650,7 +688,7 @@ export function RepowerCompany({
         <AnimatedSection animation='fadeUp' delay={100} className='px-4 py-20'>
           <div className='mx-auto max-w-6xl'>
             {/* Title */}
-            <h2 className='mb-4 text-left text-4xl font-bold text-gray-900'>
+            <h2 className='mb-4 text-left text-6xl'>
               {t('companies.repower.partners.key.title')}
             </h2>
 
@@ -660,13 +698,13 @@ export function RepowerCompany({
             </h3>
 
             {/* Description */}
-            <p className='mb-8 text-left text-lg leading-relaxed text-gray-700'>
+            <p className='mb-8 text-left text-xl leading-relaxed text-gray-700'>
               {t('companies.repower.partners.key.description')}
             </p>
 
             {/* 5-col Grid with Mini Images */}
-            <div className='mb-12 grid grid-cols-4 gap-4'>
-              {[1, 2, 3, 4].map(index => (
+            <div className='mb-12 grid grid-cols-5 gap-4'>
+              {[1, 2, 3, 4, 5].map(index => (
                 <AnimatedCard
                   key={index}
                   delay={index * 100}
@@ -685,14 +723,6 @@ export function RepowerCompany({
               ))}
             </div>
 
-            <div className='mb-8 flex justify-center'>
-              <img
-                src={t('companies.repower.partners.key.image1')}
-                alt={t('companies.repower.partners.key.image1Alt')}
-                className='w-full max-w-xs rounded-2xl object-cover shadow-lg'
-              />
-            </div>
-
             {/* Large Image */}
             <div className='mb-8 flex justify-center'>
               <img
@@ -703,7 +733,7 @@ export function RepowerCompany({
             </div>
 
             {/* Final Description */}
-            <p className='text-left text-lg leading-relaxed text-gray-700'>
+            <p className='text-left text-xl leading-relaxed text-gray-700'>
               {t('companies.repower.partners.key.finalDescription')}
             </p>
           </div>
@@ -716,68 +746,55 @@ export function RepowerCompany({
           className='bg-black px-4 py-20'
         >
           <div className='mx-auto max-w-6xl'>
-            <div className='bg-repower-background rounded-2xl p-8 shadow-lg'>
-              <div className='grid grid-cols-1 gap-8 md:grid-cols-3'>
+            <div className='rounded-2xl bg-repower-background p-16 shadow-lg'>
+              <div className='grid grid-cols-3 gap-8'>
                 {/* Column 1: Contact Info + QR Code */}
-                <div className='space-y-6'>
+                <div className='flex flex-col items-center justify-center space-y-6 text-center'>
                   <div>
                     <h3 className='mb-4 text-xl font-bold text-gray-900'>
                       {t('companies.repower.contact.title')}
                     </h3>
                     <div className='space-y-3 text-gray-700'>
-                      <div className='flex items-center'>
-                        <span className='mr-2 font-semibold'>
+                      <div className='flex gap-4 text-left'>
+                        <span className='mb-1 font-semibold'>
                           {t('companies.repower.contact.emailLabel')}:
                         </span>
-                        <a
-                          href={`mailto:${t('companies.repower.contact.email')}`}
-                          className='text-blue-600 hover:underline'
-                        >
+                        <span className='text-blue-600'>
                           {t('companies.repower.contact.email')}
-                        </a>
+                        </span>
                       </div>
-                      <div className='flex items-center'>
-                        <span className='mr-2 font-semibold'>
+                      <div className='flex gap-4 text-left'>
+                        <span className='mb-1 font-semibold'>
                           {t('companies.repower.contact.phoneLabel')}:
                         </span>
-                        <a
-                          href={`tel:${t('companies.repower.contact.phone')}`}
-                          className='text-blue-600 hover:underline'
-                        >
+                        <span className='text-blue-600'>
                           {t('companies.repower.contact.phone')}
-                        </a>
+                        </span>
                       </div>
-                      <div className='flex items-center'>
-                        <span className='mr-2 font-semibold'>
+                      <div className='flex gap-4 text-left'>
+                        <span className='mb-1 font-semibold'>
                           {t('companies.repower.contact.websiteLabel')}:
                         </span>
-                        <a
-                          href={t('companies.repower.contact.website')}
-                          target='_blank'
-                          rel='noopener noreferrer'
-                          className='text-blue-600 hover:underline'
-                        >
+                        <span className='text-blue-600'>
                           {t('companies.repower.contact.website')}
-                        </a>
+                        </span>
                       </div>
                     </div>
                   </div>
                   {/* QR Code */}
                   <div className='flex items-center justify-center'>
                     <div className='rounded-lg bg-white p-4 shadow-md'>
-                      <QRCodeSVG
-                        value={t('companies.repower.contact.website')}
-                        size={160}
-                        bgColor='#ffffff'
-                        fgColor='#000000'
-                        level='M'
+                      <img
+                        src='/images/repower/qr.png'
+                        alt='Repower QR code'
+                        className='h-full w-full object-contain'
                       />
                     </div>
                   </div>
                 </div>
 
                 {/* Column 2: Logos */}
-                <div className='flex flex-col items-center justify-center space-y-8'>
+                <div className='mx-auto flex flex-col items-center justify-center space-y-8 px-10'>
                   <div className='flex items-center justify-center'>
                     <img
                       src={t('companies.repower.contact.logos.repower')}
@@ -795,12 +812,12 @@ export function RepowerCompany({
                 </div>
 
                 {/* Column 3: CTA + Image */}
-                <div className='space-y-6'>
+                <div className='flex flex-col items-center space-y-6 text-center'>
                   <div>
                     <h3 className='mb-4 text-2xl font-bold text-gray-900'>
                       {t('companies.repower.contact.cta.title')}
                     </h3>
-                    <p className='mb-6 text-lg leading-relaxed text-gray-700'>
+                    <p className='mb-6 text-xl leading-relaxed text-gray-700'>
                       {t('companies.repower.contact.cta.description')}
                     </p>
                   </div>
