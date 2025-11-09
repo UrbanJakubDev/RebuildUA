@@ -19,6 +19,9 @@ function VideosContent() {
   const t = useTranslations('videos')
   const router = useRouter()
 
+  // If url not localhost, use the following videos /videos/GENTEC_EN_720p-LQ-30-s-rpi.webm for all videos
+  const isLocalhost = window.location.hostname === 'localhost'
+
   // Get real video data - using single test video for deployment
   const realVideos: Video[] = [
     {
@@ -26,21 +29,21 @@ function VideosContent() {
       title: t('realVideos.gentec.title'),
       duration: '0:30',
       description: t('realVideos.gentec.description'),
-      videoUrl: '/videos/GENTEC_EN_720p-LQ-30-s-rpi.webm'
+      videoUrl: isLocalhost ? '/videos/GENTEC_EN_1080p.mp4' : '/videos/GENTEC_EN_720p-LQ-30-s-rpi.webm'
     },
     {
       id: '2',
       title: t('realVideos.ke-mng-500.title'),
       duration: '0:30',
       description: t('realVideos.ke-mng-500.description'),
-      videoUrl: '/videos/GENTEC_EN_720p-LQ-30-s-rpi.webm'
+      videoUrl: isLocalhost ? '/videos/gentec_-_ke_mng_500 (2160p).mp4' : '/videos/GENTEC_EN_720p-LQ-30-s-rpi.webm'
     },
     {
       id: '3',
       title: t('realVideos.press-conference.title'),
       duration: '0:30',
       description: t('realVideos.press-conference.description'),
-      videoUrl: '/videos/GENTEC_EN_720p-LQ-30-s-rpi.webm'
+      videoUrl: isLocalhost ? '/videos/Press_conference_1.7.2024.mp4' : '/videos/GENTEC_EN_720p-LQ-30-s-rpi.webm'
     }
   ]
 

@@ -12,6 +12,7 @@ interface ImageTextSectionProps {
   imagePosition: 'left' | 'right'
   backgroundColor?: string
   icon?: string
+  imageAlign?: 'left' | 'center' | 'right'
 }
 
 export function ImageTextSection({
@@ -21,7 +22,8 @@ export function ImageTextSection({
   description,
   imagePosition,
   backgroundColor = 'bg-black',
-  icon = '🚀'
+  icon = '🚀',
+  imageAlign = 'center'
 }: ImageTextSectionProps) {
   return (
     <AnimatedSection
@@ -43,6 +45,7 @@ export function ImageTextSection({
                   src={imageSrc}
                   alt={imageAlt}
                   className='h-full w-full object-cover'
+                  style={{ objectPosition: imageAlign }}
                 />
               )}
             </div>

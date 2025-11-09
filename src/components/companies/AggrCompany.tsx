@@ -72,6 +72,14 @@ export function AggrCompany({
   const [activeSection, setActiveSection] = useState(0)
   // State for accordion
   const [activeAccordion, setActiveAccordion] = useState(-1)
+  const carouselImages = [
+    '/images/aggregaat/accordeon01.jpg',
+    '/images/aggregaat/accordeon02.jpg',
+    '/images/aggregaat/accordeon03.jpg',
+    '/images/aggregaat/accordeon04.jpg',
+    '/images/aggregaat/accordeon05.jpg'
+  ]
+  const carouselSequence = [...carouselImages, ...carouselImages]
 
   return (
     <SimplePageWrapper showBreadcrumbs={false}>
@@ -82,8 +90,20 @@ export function AggrCompany({
       />
       <div className='bg-black'>
         {/* Hero Section - Mining Theme */}
-        <AnimatedHero className=' px-4 py-20'>
+        <AnimatedHero className='relative flex min-h-[600px] items-center justify-center px-4 py-20'>
           <div className='mx-auto max-w-6xl text-center'>
+            <div
+              className='absolute inset-0 -z-10 h-full w-full'
+              style={{
+                backgroundImage: "url('/images/aggregaat/hero-bg.jpg')",
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                opacity: 0.5,
+                pointerEvents: 'none'
+              }}
+              aria-hidden='true'
+            />
             <h1 className='mb-8  bg-clip-text text-8xl font-bold text-transparent text-white'>
               {t('companies.aggregaat.hero.title')}
             </h1>
@@ -221,7 +241,11 @@ export function AggrCompany({
             <div className='grid grid-cols-1 items-center gap-12 lg:grid-cols-2'>
               <div className='relative'>
                 <div className='flex aspect-square items-center justify-center rounded-2xl bg-gradient-to-br from-accent-hover to-accent-hover'>
-                  <div className='text-8xl'>🌱</div>
+                  <img
+                    src='/images/aggregaat/batteries.jpg'
+                    alt='Agregaat'
+                    className='h-full w-full rounded-lg object-cover'
+                  />
                 </div>
               </div>
               <div className='order-1 lg:order-2'>
@@ -322,66 +346,24 @@ export function AggrCompany({
             {/* Infinite Carousel */}
             <div className='relative overflow-hidden'>
               <div className='animate-scroll-infinite flex'>
-                {/* First set of images */}
                 <div className='flex min-w-full gap-8'>
-                  <div className='flex-1'>
-                    <div className='aspect-video overflow-hidden rounded-2xl border-4 border-accent-hover'>
-                      <img
-                        src='/images/aggregaat/01.jpg'
-                        alt='Projekt 1'
-                        className='h-full w-full object-cover'
-                      />
+                  {carouselSequence.map((imageSrc, index) => (
+                    <div
+                      key={`${index}-${imageSrc}`}
+                      className='min-w-[520px] flex-1 flex-shrink-0'
+                    >
+                      <div
+                        className='w-full overflow-hidden rounded-2xl border-4 border-accent-hover'
+                        style={{ aspectRatio: '16 / 9' }}
+                      >
+                        <img
+                          src={imageSrc}
+                          alt={`Projekt ${index + 1}`}
+                          className='h-full w-full object-cover'
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <div className='flex-1'>
-                    <div className='aspect-video overflow-hidden rounded-2xl border-4 border-accent-hover'>
-                      <img
-                        src='/images/aggr_logo.svg'
-                        alt='Projekt 2'
-                        className='h-full w-full bg-white object-cover p-8'
-                      />
-                    </div>
-                  </div>
-                  <div className='flex-1'>
-                    <div className='aspect-video overflow-hidden rounded-2xl border-4 border-accent-hover'>
-                      <img
-                        src='/images/gentec_logo.svg'
-                        alt='Projekt 3'
-                        className='h-full w-full bg-white object-cover p-8'
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Duplicate set for seamless loop */}
-                <div className='flex min-w-full gap-8'>
-                  <div className='flex-1'>
-                    <div className='aspect-video overflow-hidden rounded-2xl border-4 border-accent-hover'>
-                      <img
-                        src='/images/01.jpg'
-                        alt='Projekt 1'
-                        className='h-full w-full object-cover'
-                      />
-                    </div>
-                  </div>
-                  <div className='flex-1'>
-                    <div className='aspect-video overflow-hidden rounded-2xl border-4 border-accent-hover'>
-                      <img
-                        src='/images/aggr_logo.svg'
-                        alt='Projekt 2'
-                        className='h-full w-full bg-white object-cover p-8'
-                      />
-                    </div>
-                  </div>
-                  <div className='flex-1'>
-                    <div className='aspect-video overflow-hidden rounded-2xl border-4 border-accent-hover'>
-                      <img
-                        src='/images/gentec_logo.svg'
-                        alt='Projekt 3'
-                        className='h-full w-full bg-white object-cover p-8'
-                      />
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -389,15 +371,20 @@ export function AggrCompany({
         </AnimatedSection>
 
         {/* Contact Section with QR Code */}
-        <QRCodeSection url='https://www.aggregaat.cz' qrSize={160} />
+        <QRCodeSection
+          url='https://www.aggregaat.cz'
+          qrSize={160}
+          className='bg-gentec-red py-20'
+        />
 
         {/* Image Left Text Right Section */}
         <ImageTextSection
-          imageSrc='/images/aggregaat/01.jpg'
+          imageSrc='/images/aggregaat/gentec.jpg'
           imageAlt='Naše technologie'
           title={t('companies.aggregaat.company.title')}
           description={t('companies.aggregaat.company.description')}
           imagePosition='left'
+          imageAlign='right'
         />
       </div>
     </SimplePageWrapper>

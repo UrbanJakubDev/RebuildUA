@@ -54,19 +54,7 @@ export function GentecCompany({
                   {t('companies.gentec.hero.title')}
                 </span>
                 <span className='block text-4xl text-white drop-shadow-xl'>
-                  {t('companies.gentec.hero.slogan')
-                    .split(/(power|потужність)/i)
-                    .map((part: string, i: number, arr: string[]) => {
-                      const isBreakWord = /^(power|потужність)$/i.test(
-                        part.trim()
-                      )
-                      return (
-                        <React.Fragment key={i}>
-                          {part}
-                          {isBreakWord && i < arr.length - 1 && <br />}
-                        </React.Fragment>
-                      )
-                    })}
+                  We change <br /> power to <br /> energy
                 </span>
               </div>
             </div>
@@ -743,22 +731,22 @@ export function GentecCompany({
         >
           <div className='absolute inset-0 bg-gentec-dark-gray'></div>
           <div className='relative z-10 mx-auto max-w-6xl'>
-            <div className='grid grid-cols-3 gap-8'>
+            <div className='grid gap-8 text-center md:grid-cols-3 md:place-items-center'>
               {/* Column 1: Contact Info + QR Code */}
-              <div className='space-y-6 text-left text-white'>
+              <div className='flex flex-col items-center space-y-6 text-white'>
                 <div>
                   <h3 className='mb-4 text-xl font-bold'>
                     {t('companies.gentec.contact.title')}
                   </h3>
-                  <div className='space-y-3'>
-                    <div className='flex items-center'>
-                      <span className='mr-2 font-semibold'>
+                  <div className='space-y-3 text-lg'>
+                    <div className='flex flex-col'>
+                      <span className='font-semibold'>
                         {t('companies.gentec.contact.emailLabel')}
                       </span>
                       <span>{t('companies.gentec.contact.email')}</span>
                     </div>
-                    <div className='flex items-center'>
-                      <span className='mr-2 font-semibold'>
+                    <div className='flex flex-col'>
+                      <span className='font-semibold'>
                         {t('companies.gentec.contact.websiteLabel')}
                       </span>
                       <span>{t('companies.gentec.contact.website')}</span>
@@ -766,7 +754,7 @@ export function GentecCompany({
                   </div>
                 </div>
                 {/* QR Code */}
-                <div className='flex items-center justify-center'>
+                <div className='flex justify-center'>
                   <div className='rounded-lg bg-white p-4 shadow-md'>
                     <QRCodeSVG
                       value={t('companies.gentec.contact.qrUrl')}
@@ -780,7 +768,7 @@ export function GentecCompany({
               </div>
 
               {/* Column 2: Logo with different background */}
-              <div className='flex flex-col items-center justify-center rounded-lg bg-gentec-background px-4 py-10'>
+              <div className='flex h-full w-full flex-col items-center justify-center rounded-lg bg-gentec-background px-4 py-10'>
                 <img
                   src='/images/gentec_logo.svg'
                   alt='GENTEC logo'
@@ -789,7 +777,7 @@ export function GentecCompany({
               </div>
 
               {/* Column 3: Additional Info */}
-              <div className='space-y-6 text-white'>
+              <div className='flex flex-col items-center space-y-6 text-white'>
                 <div>
                   <h3 className='mb-4 text-2xl font-bold'>
                     {t('companies.gentec.contact.partnerTitle')}
