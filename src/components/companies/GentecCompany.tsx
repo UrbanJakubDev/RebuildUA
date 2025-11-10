@@ -429,7 +429,7 @@ export function GentecCompany({
                 <div className='mb-4 flex justify-center'>
                   <div className='flex h-64 w-64 items-center justify-center bg-gentec-red'>
                     <img
-                      src='/images/gentec/ai.png'
+                      src='/images/gentec/ai-icon.png'
                       alt='Artificial Intelligence icon'
                       className='h-48 w-48 object-fill'
                     />
