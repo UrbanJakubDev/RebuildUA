@@ -207,7 +207,8 @@ export function MulticontCompany({
           imageSize='fill'
         />
         {/* Contact Section with QR Code */}
-        <div className='bg-multicont-primary grid grid-cols-2 py-20'>
+        <div className='bg-multicont-primary '>
+          <div className='max-w-6xl mx-auto grid grid-cols-2 py-20'>
           <QRCodeSection url='https://www.multicont.eu' qrSize={160} className='bg-multicont-primary' />
           <ContactInfo
             phone={contactInfo.phone}
@@ -216,6 +217,7 @@ export function MulticontCompany({
             t={t}
             className='bg-multicont-primary'
           />
+          </div>
         </div>
       </div>
     </SimplePageWrapper>

@@ -393,7 +393,8 @@ export function AggrCompany({
         </AnimatedSection>
 
         {/* Contact Section with QR Code */}
-        <div className='grid grid-cols-2 bg-gentec-red'>
+        <div className='bg-gentec-red '>
+          <div className='max-w-6xl mx-auto grid grid-cols-2 '>
           <QRCodeSection
             url='https://www.aggregaat.cz'
             qrSize={160}
@@ -407,6 +408,7 @@ export function AggrCompany({
             className='bg-gentec-red py-20'
             t={t}
           />
+          </div>
         </div>
       </div>
     </SimplePageWrapper>
