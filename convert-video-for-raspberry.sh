@@ -1,14 +1,37 @@
 #!/bin/bash
 
 # Script to convert video to Raspberry Pi optimized format
-# Usage: ./convert-video-for-raspberry.sh input.mp4 output.mp4
+# Usage: ./convert-video-for-raspberry.sh input.mp4 output.mp4 1280x720
+#  - input.mp4:  source file (default: public/videos/GENTEC_EN_720p-LQ-30-s.mp4)
+#  - output.mp4: destination file (default: same directory as input, suffix with resolution)
+#  - 1280x720:   target resolution in WIDTHxHEIGHT format (default: 1280x720)
 
 INPUT_VIDEO="${1:-public/videos/GENTEC_EN_720p-LQ-30-s.mp4}"
-OUTPUT_VIDEO="${2:-public/videos/GENTEC_EN_720p-LQ-30-s-rpi.mp4}"
+TARGET_RESOLUTION="${3:-1280x720}"
+
+# Validate target resolution format WIDTHxHEIGHT (e.g., 1920x1080)
+if [[ ! "$TARGET_RESOLUTION" =~ ^[0-9]+x[0-9]+$ ]]; then
+    echo "Error: Target resolution must be in WIDTHxHEIGHT format (e.g., 1920x1080)."
+    exit 1
+fi
+
+TARGET_WIDTH="${TARGET_RESOLUTION%x*}"
+TARGET_HEIGHT="${TARGET_RESOLUTION#*x}"
+
+# Determine default output path if not provided
+if [ -z "$2" ]; then
+    INPUT_DIR="$(dirname "$INPUT_VIDEO")"
+    INPUT_FILENAME="$(basename "$INPUT_VIDEO")"
+    INPUT_NAME_NO_EXT="${INPUT_FILENAME%.*}"
+    OUTPUT_VIDEO="${INPUT_DIR}/${INPUT_NAME_NO_EXT}-${TARGET_RESOLUTION}-rpi.mp4"
+else
+    OUTPUT_VIDEO="$2"
+fi
 
 echo "Converting video for Raspberry Pi optimization..."
 echo "Input: $INPUT_VIDEO"
 echo "Output: $OUTPUT_VIDEO"
+echo "Target resolution: $TARGET_RESOLUTION"
 
 # Check if ffmpeg is installed
 if ! command -v ffmpeg &> /dev/null; then
@@ -24,16 +47,25 @@ fi
 # - CRF 23 (good quality, reasonable file size)
 # - Preset medium (balance between encoding speed and file size)
 # - AAC audio codec (widely supported)
-# - Max resolution 720p (optimal for Raspberry Pi performance)
+# - Max resolution configurable (default 720p)
 # - 30fps (reduces processing load)
+
+if [ "$TARGET_HEIGHT" -ge 1080 ]; then
+  MAX_RATE="5M"
+  BUF_SIZE="10M"
+else
+  MAX_RATE="2M"
+  BUF_SIZE="4M"
+fi
+
 ffmpeg -i "$INPUT_VIDEO" \
   -c:v libx264 \
   -profile:v main \
   -preset medium \
   -crf 23 \
-  -maxrate 2M \
-  -bufsize 4M \
-  -vf "scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2" \
+  -maxrate "$MAX_RATE" \
+  -bufsize "$BUF_SIZE" \
+  -vf "scale=${TARGET_WIDTH}:${TARGET_HEIGHT}:force_original_aspect_ratio=decrease,pad=${TARGET_WIDTH}:${TARGET_HEIGHT}:(ow-iw)/2:(oh-ih)/2" \
   -r 30 \
   -c:a aac \
   -b:a 128k \

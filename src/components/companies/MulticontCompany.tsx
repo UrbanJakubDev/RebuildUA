@@ -12,12 +12,19 @@ import { CompanyPageProps, CompanyStats } from './types'
 import { QRCodeSection } from '../QRCodeSection'
 import { ImageTextSection } from '../ImageTextSection'
 import { InactivityRedirectHandler } from '../InactivityRedirectHandler'
+import { ContactInfo } from '../ContactInfo'
 
 export function MulticontCompany({
   companyKey,
   companyName,
   t
 }: CompanyPageProps): JSX.Element {
+  const contactInfo = {
+    phone: '+420 724 575 452',
+    email: 'radek.vones@multicont.eu',
+    web: 'www.multicont.eu'
+  }
+
   // Get company-specific content or fallback to generic content
   return (
     <SimplePageWrapper showBreadcrumbs={false}>
@@ -126,54 +133,59 @@ export function MulticontCompany({
         />
 
         <AnimatedSection>
-          <div className="mx-auto max-w-5xl py-12">
-            <h2 className="mb-8 text-3xl font-bold text-center text-multicont-primary">
-              {t('companies.multicont.referenceGallery.title', { defaultValue: 'Reference Gallery' })}
+          <div className='mx-auto max-w-5xl py-12'>
+            <h2 className='text-multicont-primary mb-8 text-center text-3xl font-bold'>
+              {t('companies.multicont.referenceGallery.title', {
+                defaultValue: 'Reference Gallery'
+              })}
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className='grid grid-cols-1 gap-6 sm:grid-cols-2'>
               {[
                 {
                   src: '/images/multicont/reference/twinpack.jpg',
-                  alt: 'Twin Pack 14m',
+                  alt: 'Twin Pack 14m'
                 },
                 {
                   src: '/images/multicont/reference/interior.jpg',
-                  alt: 'Container Interior',
+                  alt: 'Container Interior'
                 },
                 {
                   src: '/images/multicont/reference/01.jpg',
-                  alt: 'Reference Container 01',
+                  alt: 'Reference Container 01'
                 },
                 {
                   src: '/images/multicont/reference/02.jpg',
-                  alt: 'Reference Container 02',
+                  alt: 'Reference Container 02'
                 },
                 {
                   src: '/images/multicont/reference/03.jpg',
-                  alt: 'Reference Container 03',
+                  alt: 'Reference Container 03'
                 },
                 {
                   src: '/images/multicont/reference/04.jpg',
-                  alt: 'Reference Container 04',
+                  alt: 'Reference Container 04'
                 },
                 {
                   src: '/images/multicont/reference/05.jpg',
-                  alt: 'Reference Container 05',
+                  alt: 'Reference Container 05'
                 },
                 {
                   src: '/images/multicont/reference/06.jpg',
-                  alt: 'Reference Container 06',
+                  alt: 'Reference Container 06'
                 },
                 {
                   src: '/images/multicont/reference/2504-02.PNG',
-                  alt: 'Reference Container 07',
-                },
+                  alt: 'Reference Container 07'
+                }
               ].map((img, i) => (
-                <div key={i} className="overflow-hidden rounded-xl bg-white shadow">
+                <div
+                  key={i}
+                  className='overflow-hidden rounded-xl bg-white shadow'
+                >
                   <img
                     src={img.src}
                     alt={img.alt}
-                    className="w-full h-[350px] object-cover transition-transform duration-300 hover:scale-105"
+                    className='h-[350px] w-full object-cover transition-transform duration-300 hover:scale-105'
                   />
                 </div>
               ))}
@@ -181,18 +193,30 @@ export function MulticontCompany({
           </div>
         </AnimatedSection>
 
-        {/* Contact Section with QR Code */}
-        <QRCodeSection url='https://www.multicont.eu' qrSize={160} />
-
         {/* Image Left Text Right Section */}
         <ImageTextSection
           imageSrc='/images/multicont/akurat-group-logo.jpg'
           imageAlt='AKURAT GROUP logo'
           title={t('companies.multicont.company.title')}
-          description={t('companies.multicont.company.description')}
+          description={[
+            t('companies.multicont.company.description.p1'),
+            t('companies.multicont.company.description.p2'),
+            t('companies.multicont.company.description.p3')
+          ]}
           imagePosition='left'
           imageSize='fill'
         />
+        {/* Contact Section with QR Code */}
+        <div className='bg-multicont-primary grid grid-cols-2 py-20'>
+          <QRCodeSection url='https://www.multicont.eu' qrSize={160} className='bg-multicont-primary' />
+          <ContactInfo
+            phone={contactInfo.phone}
+            email={contactInfo.email}
+            website={contactInfo.web}
+            t={t}
+            className='bg-multicont-primary'
+          />
+        </div>
       </div>
     </SimplePageWrapper>
   )

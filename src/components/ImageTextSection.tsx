@@ -8,7 +8,7 @@ interface ImageTextSectionProps {
   imageSrc: string
   imageAlt: string
   title: string
-  description: string
+  description: string | string[]
   imagePosition: 'left' | 'right'
   backgroundColor?: string
   icon?: string
@@ -58,9 +58,17 @@ export function ImageTextSection({
             className={`${imagePosition === 'right' ? 'order-1 lg:order-1' : 'order-1 lg:order-2'}`}
           >
             <h2 className='mb-6 text-4xl font-bold text-white'>{title}</h2>
-            <p className='text-lg leading-relaxed text-gray-300'>
-              {description}
-            </p>
+            <div className='space-y-4 text-lg leading-relaxed text-gray-300'>
+              {Array.isArray(description) ? (
+                description.map((item, index) => (
+                  <p key={index} className='m-0'>
+                    {item}
+                  </p>
+                ))
+              ) : (
+                <p className='m-0'>{description}</p>
+              )}
+            </div>
           </div>
         </div>
       </div>

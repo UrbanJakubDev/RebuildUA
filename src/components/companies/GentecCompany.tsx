@@ -11,12 +11,20 @@ import React from 'react'
 import { CompanyPageProps } from './types'
 import { QRCodeSVG } from 'qrcode.react'
 import { InactivityRedirectHandler } from '../InactivityRedirectHandler'
+import { ContactInfo } from '../ContactInfo'
 
 export function GentecCompany({
   companyKey,
   companyName,
   t
 }: CompanyPageProps): JSX.Element {
+  const contactInfo = {
+    phone: '+420 725 024 798',
+    email: 'richard.joura@gentec.cz',
+    website: 'https://www.gentec.cz',
+    websiteLabel: 'www.gentec.cz'
+  }
+
   return (
     <SimplePageWrapper showBreadcrumbs={false}>
       <InactivityRedirectHandler
@@ -62,7 +70,7 @@ export function GentecCompany({
         </AnimatedHero>
 
         <AnimatedSection>
-          <div className='relative mx-auto grid grid-cols-1 items-center gap-10  md:grid-cols-2 max-w-6xl'>
+          <div className='relative mx-auto grid max-w-6xl grid-cols-1 items-center  gap-10 md:grid-cols-2'>
             {/* LEVÝ sloupec s obrázky */}
             <div className='flex h-full w-full flex-col items-center justify-center gap-8 bg-gentec-background'>
               {/* 3. row */}
@@ -274,7 +282,7 @@ export function GentecCompany({
                 </ul>
               </div>
               <img
-                src='/images/gentec/GENTEC CHP - kogenerační jednotka (1).png'
+                src='/images/gentec/GENTEC_CHP.png'
                 alt='Product lineup of CHP units'
                 className='rounded-xl object-contain'
                 style={{
@@ -738,20 +746,14 @@ export function GentecCompany({
                   <h3 className='mb-4 text-xl font-bold'>
                     {t('companies.gentec.contact.title')}
                   </h3>
-                  <div className='space-y-3 text-lg'>
-                    <div className='flex flex-col'>
-                      <span className='font-semibold'>
-                        {t('companies.gentec.contact.emailLabel')}
-                      </span>
-                      <span>{t('companies.gentec.contact.email')}</span>
-                    </div>
-                    <div className='flex flex-col'>
-                      <span className='font-semibold'>
-                        {t('companies.gentec.contact.websiteLabel')}
-                      </span>
-                      <span>{t('companies.gentec.contact.website')}</span>
-                    </div>
-                  </div>
+                  <ContactInfo
+                    phone={contactInfo.phone}
+                    email={contactInfo.email}
+                    website={contactInfo.website}
+                    websiteLabel={contactInfo.websiteLabel}
+                    t={t}
+                    className='pb-0 text-lg'
+                  />
                 </div>
                 {/* QR Code */}
                 <div className='flex justify-center'>

@@ -44,9 +44,9 @@ export function VideoCard({
         )}
 
         {/* Play Button Overlay */}
-        <div className='bg-background/20 absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-active:opacity-100'>
-          <div className='bg-card-bg/90 touch-manipulation rounded-full border border-border p-4 transition-transform duration-300 group-hover:scale-110 group-active:scale-95'>
-            <IoPlay size={32} className='ml-1 text-primary' />
+        <div className='bg-background/40 absolute z-10 inset-0 flex items-center justify-center opacity-100'>
+          <div className='bg-black/90 touch-manipulation rounded-full border border-black p-4'>
+            <IoPlay size={32} className='ml-1 text-white font-bold' />
           </div>
         </div>
 

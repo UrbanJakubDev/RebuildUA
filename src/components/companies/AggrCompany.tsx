@@ -12,6 +12,7 @@ import { CompanyPageProps, CompanyStats } from './types'
 import { ImageTextSection } from '../ImageTextSection'
 import { QRCodeSection } from '../QRCodeSection'
 import { InactivityRedirectHandler } from '../InactivityRedirectHandler'
+import { ContactInfo } from '../ContactInfo'
 
 // Accordion Item Component
 interface AccordionItemProps {
@@ -81,6 +82,13 @@ export function AggrCompany({
   ]
   const carouselSequence = [...carouselImages, ...carouselImages]
 
+  const contactInfo = {
+    phone: '+420 725 564 366',
+    email: 'yaroslav.kozun@aggregaat.cz',
+    website: 'https://www.aggregaat.cz',
+    websiteLabel: 'www.aggregaat.cz'
+  }
+
   return (
     <SimplePageWrapper showBreadcrumbs={false}>
       <InactivityRedirectHandler
@@ -112,6 +120,20 @@ export function AggrCompany({
             </p>
           </div>
         </AnimatedHero>
+
+        {/* Image Left Text Right Section */}
+        <ImageTextSection
+          imageSrc='/images/aggregaat/gentec.jpg'
+          imageAlt='Naše technologie'
+          title={t('companies.aggregaat.company.title')}
+          description={[
+            t('companies.aggregaat.company.description.p1'),
+            t('companies.aggregaat.company.description.p2'),
+            t('companies.aggregaat.company.description.p3')
+          ]}
+          imagePosition='left'
+          imageAlign='right'
+        />
 
         {/* Interactive Sections */}
         <AnimatedSection
@@ -371,21 +393,21 @@ export function AggrCompany({
         </AnimatedSection>
 
         {/* Contact Section with QR Code */}
-        <QRCodeSection
-          url='https://www.aggregaat.cz'
-          qrSize={160}
-          className='bg-gentec-red py-20'
-        />
-
-        {/* Image Left Text Right Section */}
-        <ImageTextSection
-          imageSrc='/images/aggregaat/gentec.jpg'
-          imageAlt='Naše technologie'
-          title={t('companies.aggregaat.company.title')}
-          description={t('companies.aggregaat.company.description')}
-          imagePosition='left'
-          imageAlign='right'
-        />
+        <div className='grid grid-cols-2 bg-gentec-red'>
+          <QRCodeSection
+            url='https://www.aggregaat.cz'
+            qrSize={160}
+            className='bg-gentec-red py-20'
+          />
+          <ContactInfo
+            phone={contactInfo.phone}
+            email={contactInfo.email}
+            website={contactInfo.website}
+            websiteLabel={contactInfo.websiteLabel}
+            className='bg-gentec-red py-20'
+            t={t}
+          />
+        </div>
       </div>
     </SimplePageWrapper>
   )

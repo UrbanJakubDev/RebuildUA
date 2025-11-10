@@ -3,7 +3,7 @@
 import { Suspense, useEffect, useRef, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { IoHandLeftOutline, IoClose } from 'react-icons/io5'
-import { LuPointer } from "react-icons/lu";
+import { LuPointer } from 'react-icons/lu'
 
 // Translations - using same structure as messages files
 const translations: Record<string, { touchMeButton: string }> = {
@@ -20,6 +20,7 @@ function VideoContent() {
   const searchParams = useSearchParams()
   const videoRef = useRef<HTMLVideoElement>(null)
   const [locale, setLocale] = useState<string>('en')
+  const [isMuted, setIsMuted] = useState(true)
 
   // Read loop parameter from URL, default to true
   const loopParam = searchParams.get('loop')
@@ -30,7 +31,7 @@ function VideoContent() {
 
   const videoUrl = videoParam
     ? decodeURIComponent(videoParam)
-    : '/videos/GENTEC_EN_720p-LQ-30-s-rpi.webm'
+    : '/videos/GENTEC_EN_1080p.mp4'
 
   // Detect locale from cookies or default to 'en'
   useEffect(() => {
@@ -68,10 +69,36 @@ function VideoContent() {
 
   // Auto-play video when component mounts
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play().catch(console.error)
+    const video = videoRef.current
+    if (!video) return
+
+    // Reset muted state before attempting playback
+    setIsMuted(true)
+    video.muted = true
+
+    const attemptPlay = async () => {
+      try {
+        await video.play()
+        if (!shouldLoop) {
+          // Unmute after playback starts for user-selected videos
+          video.muted = false
+          setIsMuted(false)
+        }
+      } catch (error) {
+        console.error('Video autoplay prevented', error)
+      }
     }
-  }, [])
+
+    if (video.readyState >= HTMLMediaElement.HAVE_ENOUGH_DATA) {
+      attemptPlay()
+    } else {
+      video.addEventListener('loadeddata', attemptPlay, { once: true })
+    }
+
+    return () => {
+      video.removeEventListener('loadeddata', attemptPlay)
+    }
+  }, [shouldLoop, videoUrl])
 
   // Handle button click - redirect to homepage
   const handleButtonClick = () => {
@@ -124,7 +151,7 @@ function VideoContent() {
         }}
         autoPlay
         playsInline
-        muted={false}
+        muted={isMuted}
         loop={shouldLoop}
         preload='metadata'
         crossOrigin='anonymous'

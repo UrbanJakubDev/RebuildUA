@@ -19,29 +19,31 @@ function VideosContent() {
   const t = useTranslations('videos')
   const router = useRouter()
 
-
   // Get real video data - using single test video for deployment
   const realVideos: Video[] = [
     {
       id: '1',
       title: t('realVideos.gentec.title'),
-      duration: '0:30',
+      duration: '2:04',
       description: t('realVideos.gentec.description'),
-      videoUrl: '/videos/GENTEC_EN_720p-LQ-30-s-rpi.webm'
+      videoUrl: '/videos/GENTEC_EN_1080p.mp4',
+      thumbnail: '/videos/thumbnail2.png'
     },
     {
       id: '2',
       title: t('realVideos.ke-mng-500.title'),
-      duration: '0:30',
+      duration: '0:29',
       description: t('realVideos.ke-mng-500.description'),
-      videoUrl: '/videos/GENTEC_EN_720p-LQ-30-s-rpi.webm'
+      videoUrl: '/videos/gentec_-_ke_mng_500 (2160p)-1920x1080-rpi.mp4',
+      thumbnail: '/videos/thumbnail1.png'
     },
     {
       id: '3',
       title: t('realVideos.press-conference.title'),
-      duration: '0:30',
+      duration: '1:36',
       description: t('realVideos.press-conference.description'),
-      videoUrl: '/videos/GENTEC_EN_720p-LQ-30-s-rpi.webm'
+      videoUrl: '/videos/Press_conference_1.7.2024.mp4',
+      thumbnail: '/videos/thumbnail3.png'
     }
   ]
 
@@ -95,6 +97,7 @@ function VideosContent() {
               <div key={video.id} className='h-80'>
                 <VideoCard
                   title={video.title}
+                  thumbnail={video.thumbnail}
                   duration={video.duration}
                   description={video.description}
                   videoUrl={video.videoUrl}
@@ -104,11 +107,6 @@ function VideosContent() {
             ))}
           </div>
         </div>
-
-        {/* Glass effects using theme colors */}
-        <div className='via-accent/30 absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent to-transparent' />
-        <div className='via-accent/20 absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-transparent to-transparent' />
-        <div className='via-accent/20 absolute inset-y-0 right-0 w-1 bg-gradient-to-b from-transparent to-transparent' />
       </div>
     </div>
   )
