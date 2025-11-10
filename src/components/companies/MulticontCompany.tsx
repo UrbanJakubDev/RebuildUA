@@ -110,7 +110,7 @@ export function MulticontCompany({
 
         {/* Image Left Text Right Section */}
         <ImageTextSection
-          imageSrc='/images/multicont/container-image.jpg'
+          imageSrc='/images/multicont/reference/twinpack.jpg'
           imageAlt='Twin pack kontejner o délce 14 metrů'
           title={t('companies.multicont.projects.twinPack.title')}
           description={t('companies.multicont.projects.twinPack.description')}
@@ -125,6 +125,62 @@ export function MulticontCompany({
           imagePosition='right'
         />
 
+        <AnimatedSection>
+          <div className="mx-auto max-w-5xl py-12">
+            <h2 className="mb-8 text-3xl font-bold text-center text-multicont-primary">
+              {t('companies.multicont.referenceGallery.title', { defaultValue: 'Reference Gallery' })}
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {[
+                {
+                  src: '/images/multicont/reference/twinpack.jpg',
+                  alt: 'Twin Pack 14m',
+                },
+                {
+                  src: '/images/multicont/reference/interior.jpg',
+                  alt: 'Container Interior',
+                },
+                {
+                  src: '/images/multicont/reference/01.jpg',
+                  alt: 'Reference Container 01',
+                },
+                {
+                  src: '/images/multicont/reference/02.jpg',
+                  alt: 'Reference Container 02',
+                },
+                {
+                  src: '/images/multicont/reference/03.jpg',
+                  alt: 'Reference Container 03',
+                },
+                {
+                  src: '/images/multicont/reference/04.jpg',
+                  alt: 'Reference Container 04',
+                },
+                {
+                  src: '/images/multicont/reference/05.jpg',
+                  alt: 'Reference Container 05',
+                },
+                {
+                  src: '/images/multicont/reference/06.jpg',
+                  alt: 'Reference Container 06',
+                },
+                {
+                  src: '/images/multicont/reference/2504-02.PNG',
+                  alt: 'Reference Container 07',
+                },
+              ].map((img, i) => (
+                <div key={i} className="overflow-hidden rounded-xl bg-white shadow">
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    className="w-full h-[350px] object-cover transition-transform duration-300 hover:scale-105"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </AnimatedSection>
+
         {/* Contact Section with QR Code */}
         <QRCodeSection url='https://www.multicont.eu' qrSize={160} />
 
@@ -135,6 +191,7 @@ export function MulticontCompany({
           title={t('companies.multicont.company.title')}
           description={t('companies.multicont.company.description')}
           imagePosition='left'
+          imageSize='fill'
         />
       </div>
     </SimplePageWrapper>

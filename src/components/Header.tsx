@@ -78,59 +78,59 @@ export const Header: FC<Props> = ({ locale }) => {
   return (
     <header
       ref={headerRef}
-      className='sticky top-0 z-50 border-b border-border bg-black/95 shadow-sm backdrop-blur-sm supports-[backdrop-filter]:bg-black/90'
+      className='sticky top-0 z-50 border-b border-border bg-black/95 py-2 shadow-sm backdrop-blur-sm supports-[backdrop-filter]:bg-black/90'
     >
-      <div className='mx-auto flex items-center justify-between px-4 py-2 lg:px-6 lg:py-3'>
+      <div className='mx-auto flex max-w-[1920px] items-center justify-between px-8 py-4 lg:px-12'>
         {/* Left Section - Logo and Navigation */}
-        <div className='flex items-center gap-4'>
+        <div className='flex items-center gap-8'>
           {/* Logo */}
           <Link
             lang={locale}
             href='/'
-            className='flex items-center transition-opacity duration-200 hover:opacity-80'
+            className='flex scale-110 items-center transition-opacity duration-200 hover:opacity-80'
           >
             <Logo />
           </Link>
 
           {/* Navigation Links */}
-          <nav className='hidden items-center gap-2 md:flex'>
+          <nav className='hidden items-center gap-6 md:flex'>
             <Link
               lang={locale}
               href='/'
-              className='flex items-center gap-1 rounded-lg px-2 py-1 text-secondary transition-all duration-200 hover:bg-background-secondary hover:text-primary'
+              className='flex items-center gap-3 rounded-2xl px-5 py-3 text-lg font-medium text-secondary transition-all duration-200 hover:bg-background-secondary hover:text-primary'
             >
-              <IoHome size={18} />
-              <span className='text-sm font-medium'>{t('home')}</span>
+              <IoHome size={28} />
+              <span>{t('home')}</span>
             </Link>
 
             <button
               onClick={handleVideosClick}
-              className='flex items-center gap-1 rounded-lg px-2 py-1 text-secondary transition-all duration-200 hover:bg-background-secondary hover:text-primary'
+              className='flex items-center gap-3 rounded-2xl px-5 py-3 text-lg font-medium text-secondary transition-all duration-200 hover:bg-background-secondary hover:text-primary'
             >
-              <IoVideocam size={18} />
-              <span className='text-sm font-medium'>{t('videos')}</span>
+              <IoVideocam size={28} />
+              <span>{t('videos')}</span>
             </button>
           </nav>
         </div>
 
         {/* Right Section - Language & Theme */}
-        <div className='flex items-center gap-2'>
+        <div className='flex items-center gap-6'>
           {/* Mobile menu for navigation */}
-          <div className='flex items-center gap-1 md:hidden'>
+          <div className='flex items-center gap-3 md:hidden'>
             <Link
               href={`/${locale}`}
-              className='rounded-lg p-1 text-secondary transition-all duration-200 hover:bg-background-secondary hover:text-primary'
+              className='rounded-2xl p-3 text-xl text-secondary transition-all duration-200 hover:bg-background-secondary hover:text-primary'
               title={t('home')}
             >
-              <IoHome size={20} />
+              <IoHome size={30} />
             </Link>
 
             <button
               onClick={handleVideosClick}
-              className='rounded-lg p-1 text-secondary transition-all duration-200 hover:bg-background-secondary hover:text-primary'
+              className='rounded-2xl p-3 text-xl text-secondary transition-all duration-200 hover:bg-background-secondary hover:text-primary'
               title={t('videos')}
             >
-              <IoVideocam size={20} />
+              <IoVideocam size={30} />
             </button>
           </div>
 
@@ -138,7 +138,9 @@ export const Header: FC<Props> = ({ locale }) => {
           {/* <ThemeSwitch /> */}
 
           {/* Language Switcher */}
-          <LangSwitcher />
+          <div className='bg-background-secondary/40 rounded-2xl p-3'>
+            <LangSwitcher />
+          </div>
         </div>
       </div>
     </header>

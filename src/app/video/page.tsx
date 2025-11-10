@@ -3,6 +3,7 @@
 import { Suspense, useEffect, useRef, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { IoHandLeftOutline, IoClose } from 'react-icons/io5'
+import { LuPointer } from "react-icons/lu";
 
 // Translations - using same structure as messages files
 const translations: Record<string, { touchMeButton: string }> = {
@@ -152,12 +153,13 @@ function VideoContent() {
             boxShadow:
               '0 0 30px rgba(196,44,49,0.5), 0 0 60px rgba(0,0,0,0.15)',
             opacity: 1,
-            transition: 'none'
+            transition: 'none',
+            border: '4px solid white'
           }}
           aria-label={buttonText}
         >
           <span className='mr-2 flex h-12 w-12 items-center justify-center text-white'>
-            <IoHandLeftOutline />
+            <LuPointer size={48} />
           </span>
           {buttonText}
         </button>

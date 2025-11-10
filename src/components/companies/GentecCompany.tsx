@@ -62,7 +62,7 @@ export function GentecCompany({
         </AnimatedHero>
 
         <AnimatedSection>
-          <div className='relative mx-auto grid grid-cols-1 items-center gap-10  md:grid-cols-2 '>
+          <div className='relative mx-auto grid grid-cols-1 items-center gap-10  md:grid-cols-2 max-w-6xl'>
             {/* LEVÝ sloupec s obrázky */}
             <div className='flex h-full w-full flex-col items-center justify-center gap-8 bg-gentec-background'>
               {/* 3. row */}

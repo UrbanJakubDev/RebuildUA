@@ -507,6 +507,9 @@
               "title": "Container for biogas plant",
               "description": "As part of one of our orders, we manufactured a container for placing a biogas cogeneration unit for a biogas plant in the Czech Republic. Compact dimensions ensure trouble-free placement in the BPS area."
             }
+          },
+          "referenceGallery": {
+            "title": "Reference Gallery"
           }
         },
         "aggregaat": {
@@ -572,6 +575,9 @@
             "title": "Introduction of aggregaat s.r.o.",
             "description": "We are part of the AKURAT GROUP. We are here to manage the irregular production of small decentralized sources and to ensure that energy is produced from them when it is most needed. We thus contribute to the stabilization of energy and the development of RES. We deal fairly with our clients and at the same time let them earn fairly from aggregation and modern energy."
           }
+        },
+        "referenceGallery": {
+          "title": "Reference Gallery"
         }
       }
     }
