@@ -27,12 +27,9 @@ function VideoContent() {
   // Read video URL from query parameter, fallback to default test video
   const videoParam = searchParams.get('video')
 
-
-  // If url not localhost, use the following videos /videos/GENTEC_EN_720p-LQ-30-s-rpi.webm for all videos
-  const isLocalhost = window.location.hostname === 'localhost'
   const videoUrl = videoParam
     ? decodeURIComponent(videoParam)
-    : isLocalhost ? '/videos/GENTEC_EN_1080p.mp4' : '/videos/GENTEC_EN_720p-LQ-30-s-rpi.webm'
+    : '/videos/GENTEC_EN_720p-LQ-30-s-rpi.webm'
 
   // Detect locale from cookies or default to 'en'
   useEffect(() => {
