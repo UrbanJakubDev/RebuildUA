@@ -15,10 +15,6 @@ export const CustomScrollbar: React.FC<CustomScrollbarProps> = ({
   className = '',
   enabled = true
 }) => {
-  // If disabled, just render children without custom scrollbar
-  if (!enabled) {
-    return <>{children}</>
-  }
   const containerRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
   const thumbRef = useRef<HTMLDivElement>(null)
@@ -220,6 +216,11 @@ export const CustomScrollbar: React.FC<CustomScrollbarProps> = ({
       container.removeEventListener('scroll', handleScroll)
     }
   }, [handleScroll])
+
+  // If disabled, just render children without custom scrollbar
+  if (!enabled) {
+    return <>{children}</>
+  }
 
   return (
     <div className={`relative h-full w-full ${className}`}>
