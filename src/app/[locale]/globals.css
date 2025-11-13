@@ -38,10 +38,10 @@
     ); /* Stronger dark shadows on hover */
 
     /* Gentec theme colors */
-    --gentec-red: #ad2628;           /* 173, 38, 40 */
-    --gentec-dark-gray: #4c4c54;     /* 76, 76, 84 */
-    --gentec-background: #e6e6e8;    /* 230, 230, 232 */
-    --gentec-text-primary: #171717;  /* Very dark neutral gray (not pure black) */
+    --gentec-red: #ad2628; /* 173, 38, 40 */
+    --gentec-dark-gray: #4c4c54; /* 76, 76, 84 */
+    --gentec-background: #e6e6e8; /* 230, 230, 232 */
+    --gentec-text-primary: #171717; /* Very dark neutral gray (not pure black) */
     --gentec-text-secondary: #d4d4d4; /* Light neutral gray for secondary text */
     --gentec-dropdown: #404040; /* Medium dark neutral gray */
     --gentec-dropdown-hover: #525252; /* Lighter neutral gray on hover */
@@ -74,15 +74,14 @@
     @apply bg-background text-primary;
   }
 
-  html, body {
-    user-select: none;
-    -webkit-user-select: none; /* Chrome, Chromium, Safari */
-    -webkit-touch-callout: none;
-    -webkit-user-drag: none;
-    touch-action: pan-y; /* umožní vertikální scroll */
-    overflow-x: hidden; /* volitelně, aby se nešlo posouvat do stran */
+  html,
+  body {
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    -webkit-touch-callout: none !important;
+    -webkit-user-drag: none !important;
+    touch-action: pan-y !important;
   }
-  
 }
 
 /* Custom Ripple Animation */

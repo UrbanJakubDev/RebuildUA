@@ -7,9 +7,13 @@ import { Header } from '@/src/components/Header'
 
 import { Footer } from '@/src/components/Footer'
 import { BackToTop } from '@/src/components/BackToTop'
+import { CustomScrollbar } from '@/src/components/CustomScrollbar'
 import './globals.css'
 import { Suspense } from 'react'
 import { BackgroundSlideshow } from '../../components/BackgroundSlideshow'
+
+// 🚨 QUICK TOGGLE: Set to false to disable custom scrollbar
+const ENABLE_CUSTOM_SCROLLBAR = true
 
 const inter = Inter({
   subsets: ['latin'],
@@ -68,7 +72,13 @@ export default async function LocaleLayout({
           crossOrigin='anonymous'
         />
       </head>
-      <body className='flex h-screen flex-col'>
+      <body
+        className={
+          ENABLE_CUSTOM_SCROLLBAR
+            ? 'h-screen overflow-hidden'
+            : 'flex h-screen flex-col'
+        }
+      >
         <ThemeProvider
           enableSystem
           attribute='class'
@@ -90,32 +100,36 @@ export default async function LocaleLayout({
               color='var(--primary)'
               showSpinner={false}
             />
-            {/* NavBar */}
-            <Header locale={locale} />
+            <CustomScrollbar thumbWidth={50} enabled={ENABLE_CUSTOM_SCROLLBAR}>
+              <div className='flex min-h-screen flex-col'>
+                {/* NavBar */}
+                <Header locale={locale} />
 
-            {/* Main - vyplní zbývající místo */}
-            <main className='relative flex-1'>
-              {/* Background slideshow */}
-              <BackgroundSlideshow />
+                {/* Main - vyplní zbývající místo */}
+                <main className='relative flex-1'>
+                  {/* Background slideshow */}
+                  <BackgroundSlideshow />
 
-              {/* Content */}
-              <div className='relative z-10 h-full'>
-                <Suspense
-                  fallback={
-                    <div className='flex h-full items-center justify-center'>
-                      Loading...
-                    </div>
-                  }
-                >
-                  {children}
-                </Suspense>
+                  {/* Content */}
+                  <div className='relative z-10 h-full'>
+                    <Suspense
+                      fallback={
+                        <div className='flex h-full items-center justify-center'>
+                          Loading...
+                        </div>
+                      }
+                    >
+                      {children}
+                    </Suspense>
+                  </div>
+                </main>
+
+                {/* Footer */}
+                <Footer />
+
+                <BackToTop />
               </div>
-            </main>
-
-            {/* Footer */}
-            <Footer />
-
-            <BackToTop />
+            </CustomScrollbar>
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>
