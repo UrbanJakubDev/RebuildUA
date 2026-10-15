@@ -14,6 +14,18 @@ interface ScrollRevealProps {
   once?: boolean
 }
 
+function getScrollParent(node: HTMLElement | null): Element | null {
+  let parent = node?.parentElement ?? null
+  while (parent) {
+    const { overflowY } = window.getComputedStyle(parent)
+    if (overflowY === 'auto' || overflowY === 'scroll') {
+      return parent
+    }
+    parent = parent.parentElement
+  }
+  return null
+}
+
 export function ScrollReveal({
   children,
   direction = 'up',
@@ -36,34 +48,48 @@ export function ScrollReveal({
   }, [pathname])
 
   useEffect(() => {
+    const currentElement = elementRef.current
+    if (!currentElement) return
+
+    const reveal = () => {
+      setIsVisible(true)
+      if (once) {
+        setHasAnimated(true)
+      }
+    }
+
+    // Immediate check — covers first paint and custom scroll containers
+    // where IntersectionObserver root defaults would miss the element.
+    const rect = currentElement.getBoundingClientRect()
+    const inView = rect.top < window.innerHeight && rect.bottom > 0
+    if (inView) {
+      // Respect delay for first paint without leaving content permanently hidden
+      const timeoutId = window.setTimeout(reveal, delay)
+      return () => window.clearTimeout(timeoutId)
+    }
+
+    const scrollRoot = getScrollParent(currentElement)
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true)
-          if (once) {
-            setHasAnimated(true)
-          }
+          reveal()
         } else if (!once && !hasAnimated) {
           setIsVisible(false)
         }
       },
       {
+        root: scrollRoot,
         threshold,
         rootMargin: '0px 0px -50px 0px'
       }
     )
 
-    const currentElement = elementRef.current
-    if (currentElement) {
-      observer.observe(currentElement)
-    }
+    observer.observe(currentElement)
 
     return () => {
-      if (currentElement) {
-        observer.unobserve(currentElement)
-      }
+      observer.unobserve(currentElement)
     }
-  }, [threshold, once, hasAnimated])
+  }, [threshold, once, hasAnimated, delay, pathname])
 
   const getInitialTransform = () => {
     switch (direction) {
@@ -128,6 +154,7 @@ export function useScrollReveal() {
         }
       },
       {
+        root: getScrollParent(element),
         threshold,
         rootMargin: '0px 0px -50px 0px'
       }

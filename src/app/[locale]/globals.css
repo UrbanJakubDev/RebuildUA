@@ -82,6 +82,10 @@
     -webkit-user-drag: none !important;
     touch-action: pan-y !important;
   }
+
+  .custom-scrollbar-container::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 /* Custom Ripple Animation */

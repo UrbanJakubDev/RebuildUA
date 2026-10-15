@@ -1,7 +1,7 @@
 import { ThemeProvider } from '@/src/components/ThemeProvider'
 import type { Metadata } from 'next'
 import { AbstractIntlMessages, NextIntlClientProvider } from 'next-intl'
-import { Inter, Rubik, Space_Grotesk, Montserrat } from 'next/font/google'
+import { Rubik, Space_Grotesk, Montserrat } from 'next/font/google'
 import NextTopLoader from 'nextjs-toploader'
 import { Header } from '@/src/components/Header'
 
@@ -11,14 +11,17 @@ import { CustomScrollbar } from '@/src/components/CustomScrollbar'
 import './globals.css'
 import { Suspense } from 'react'
 import { BackgroundSlideshow } from '../../components/BackgroundSlideshow'
+import enMessages from '../../../messages/en.json'
+import uaMessages from '../../../messages/ua.json'
 
 // 🚨 QUICK TOGGLE: Set to false to disable custom scrollbar
 const ENABLE_CUSTOM_SCROLLBAR = true
 
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--inter'
-})
+const messagesByLocale = {
+  en: enMessages,
+  ua: uaMessages
+} as const
+
 const rubik = Rubik({
   subsets: ['arabic'],
   variable: '--rubik'
@@ -49,8 +52,8 @@ export default async function LocaleLayout({
   children: React.ReactNode
   params: { locale: string }
 }) {
-  // Import messages directly instead of using useMessages hook
-  const messages = (await import(`../../../messages/${locale}.json`)).default
+  const messages =
+    messagesByLocale[locale as keyof typeof messagesByLocale] ?? enMessages
   return (
     <html
       lang={locale}
@@ -58,20 +61,7 @@ export default async function LocaleLayout({
       className={`${space_grotesk.variable} ${rubik.variable} ${montserrat.variable} scroll-smooth`}
       suppressHydrationWarning
     >
-      <head>
-        <link
-          rel='preload'
-          href='/_next/static/css/a153700f3d793704.css'
-          as='style'
-        />
-        <link
-          rel='preload'
-          href='/_next/static/media/b7387a63dd068245-s.woff2'
-          as='font'
-          type='font/woff2'
-          crossOrigin='anonymous'
-        />
-      </head>
+      <head />
       <body
         className={
           ENABLE_CUSTOM_SCROLLBAR

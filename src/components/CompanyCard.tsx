@@ -7,7 +7,7 @@ import LocalImage from './LocalImage'
 interface CompanyCardProps {
   companySlug: string
   companyName: string
-  logoUrl: string
+  logoUrl?: string
   description?: string
   isGlowing?: boolean
   isLowEndDevice?: boolean
@@ -36,15 +36,21 @@ export function CompanyCard({
       >
         {/* Logo - hlavní prvek */}
         <div className='relative z-10 flex h-full w-full items-center justify-center'>
-          <LocalImage
-            src={logoUrl}
-            alt={`${companyName} logo`}
-            width={500}
-            height={500}
-            className={`max-h-full max-w-full object-contain transition-transform duration-300 ${
-              isGlowing ? 'scale-105' : ''
-            }`}
-          />
+          {logoUrl ? (
+            <LocalImage
+              src={logoUrl}
+              alt={`${companyName} logo`}
+              width={500}
+              height={500}
+              className={`max-h-full max-w-full object-contain transition-transform duration-300 ${
+                isGlowing ? 'scale-105' : ''
+              }`}
+            />
+          ) : (
+            <span className='text-center text-2xl font-semibold text-white'>
+              {companyName}
+            </span>
+          )}
         </div>
 
         {/* Simple glow effect */}

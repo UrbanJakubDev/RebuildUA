@@ -227,18 +227,13 @@ export const CustomScrollbar: React.FC<CustomScrollbarProps> = ({
       {/* Scrollable content container */}
       <div
         ref={containerRef}
-        className='h-full w-full overflow-x-hidden overflow-y-scroll'
+        className='custom-scrollbar-container h-full w-full overflow-x-hidden overflow-y-scroll'
         style={{
           scrollbarWidth: 'none', // Firefox
           msOverflowStyle: 'none', // IE/Edge
           touchAction: 'pan-y' // Enable touch scrolling
         }}
       >
-        <style jsx>{`
-          div::-webkit-scrollbar {
-            display: none; /* Chrome/Safari/Opera */
-          }
-        `}</style>
         <div ref={contentRef}>{children}</div>
       </div>
 

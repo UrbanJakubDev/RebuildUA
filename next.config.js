@@ -27,7 +27,9 @@ const nextConfig = {
     ]
   },
   experimental: {
-    optimizePackageImports: ['next-intl', 'web-vitals']
+    // Without this, react-icons/io5 ships the whole icon set into layout.js
+    // (~3.5MB eval string) and Safari throws SyntaxError: Unexpected EOF.
+    optimizePackageImports: ['next-intl', 'web-vitals', 'react-icons']
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production'

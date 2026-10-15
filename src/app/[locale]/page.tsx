@@ -12,31 +12,44 @@ export async function generateMetadata({
 }
 
 export default function DashboardPage() {
-  // Ukázková data firem - můžete je nahradit skutečnými daty
+  // Aggr a Multicont zůstávají skryté (nemazat), dokud se nerozhodne o jejich návratu
+  // const hiddenCompanies = [
+  //   {
+  //     slug: 'Aggr',
+  //     name: 'Aggr',
+  //     logoUrl: '/images/aggr_logo.svg',
+  //     description: 'Popis firmy A'
+  //   },
+  //   {
+  //     slug: 'Multicont',
+  //     name: 'Multicont',
+  //     logoUrl: '/images/multicont.svg',
+  //     description: 'Popis firmy C'
+  //   }
+  // ]
+
   const companies = [
-    {
-      slug: 'Aggr',
-      name: 'Aggr',
-      logoUrl: '/images/aggr_logo.svg', // Logo Aggr
-      description: 'Popis firmy A'
-    },
     {
       slug: 'Gentec',
       name: 'Gentec',
-      logoUrl: '/images/gentec_logo.svg', // Logo Gentec
+      logoUrl: '/images/gentec_logo.svg',
       description: 'Popis firmy B'
-    },
-    {
-      slug: 'Multicont',
-      name: 'Multicont',
-      logoUrl: '/images/multicont.svg', // Logo Multicont
-      description: 'Popis firmy C'
     },
     {
       slug: 'Repower',
       name: 'Repower',
-      logoUrl: '/images/Group_5-removebg-preview.png', // Logo Repower
+      logoUrl: '/images/Group_5-removebg-preview.png',
       description: 'Popis firmy D'
+    },
+    {
+      slug: 'UKRHOLD',
+      name: 'UKRHOLD'
+      // logoUrl zatím chybí - dočasně zobrazen textový placeholder
+    },
+    {
+      slug: 'Turbex',
+      name: 'Turbex'
+      // logoUrl zatím chybí - dočasně zobrazen textový placeholder
     }
   ]
 

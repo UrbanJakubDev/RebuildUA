@@ -6,7 +6,34 @@ import { useRouter } from 'next/navigation'
 import LangSwitcher from './LangSwitcher'
 import ThemeSwitch from './ThemeSwitch'
 import { Logo } from '../app/icons/Logo'
-import { IoVideocam, IoHome } from 'react-icons/io5'
+
+function IconHome({ size = 28 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      aria-hidden
+    >
+      <path d='M11.47 3.84a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 1-1.06 1.06l-.72-.72V20.25A1.75 1.75 0 0 1 17.69 22H6.31A1.75 1.75 0 0 1 4.56 20.25v-7.38l-.72.72a.75.75 0 0 1-1.06-1.06l8.69-8.69ZM6.06 12.81v7.44c0 .138.112.25.25.25h3.44v-4.5a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 .75.75v4.5h3.44a.25.25 0 0 0 .25-.25v-7.44L12 6.94l-5.94 5.87Z' />
+    </svg>
+  )
+}
+
+function IconVideocam({ size = 28 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      aria-hidden
+    >
+      <path d='M4.5 4.5a3 3 0 0 0-3 3v9a3 3 0 0 0 3 3h8.25a3 3 0 0 0 3-3v-9a3 3 0 0 0-3-3H4.5ZM19.94 18.75l-2.69-2.69V7.94l2.69-2.69c.944-.945 2.56-.276 2.56 1.06v11.38c0 1.336-1.616 2.005-2.56 1.06Z' />
+    </svg>
+  )
+}
 
 interface Props {
   locale: string
@@ -99,7 +126,7 @@ export const Header: FC<Props> = ({ locale }) => {
               href='/'
               className='flex items-center gap-3 rounded-2xl px-5 py-3 text-lg font-medium text-secondary transition-all duration-200 hover:bg-background-secondary hover:text-primary'
             >
-              <IoHome size={28} />
+              <IconHome size={28} />
               <span>{t('home')}</span>
             </Link>
 
@@ -107,7 +134,7 @@ export const Header: FC<Props> = ({ locale }) => {
               onClick={handleVideosClick}
               className='flex items-center gap-3 rounded-2xl px-5 py-3 text-lg font-medium text-secondary transition-all duration-200 hover:bg-background-secondary hover:text-primary'
             >
-              <IoVideocam size={28} />
+              <IconVideocam size={28} />
               <span>{t('videos')}</span>
             </button>
           </nav>
@@ -122,7 +149,7 @@ export const Header: FC<Props> = ({ locale }) => {
               className='rounded-2xl p-3 text-xl text-secondary transition-all duration-200 hover:bg-background-secondary hover:text-primary'
               title={t('home')}
             >
-              <IoHome size={30} />
+              <IconHome size={30} />
             </Link>
 
             <button
@@ -130,7 +157,7 @@ export const Header: FC<Props> = ({ locale }) => {
               className='rounded-2xl p-3 text-xl text-secondary transition-all duration-200 hover:bg-background-secondary hover:text-primary'
               title={t('videos')}
             >
-              <IoVideocam size={30} />
+              <IconVideocam size={30} />
             </button>
           </div>
 

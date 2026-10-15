@@ -6,7 +6,7 @@ import { CompanyCard } from './CompanyCard'
 interface Company {
   slug: string
   name: string
-  logoUrl: string
+  logoUrl?: string
   description?: string
 }
 

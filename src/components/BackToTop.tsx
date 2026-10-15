@@ -2,7 +2,19 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { IoHome } from 'react-icons/io5'
+
+function IconHome({ className = '' }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      aria-hidden
+    >
+      <path d='M11.47 3.84a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 1-1.06 1.06l-.72-.72V20.25A1.75 1.75 0 0 1 17.69 22H6.31A1.75 1.75 0 0 1 4.56 20.25v-7.38l-.72.72a.75.75 0 0 1-1.06-1.06l8.69-8.69ZM6.06 12.81v7.44c0 .138.112.25.25.25h3.44v-4.5a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 .75.75v4.5h3.44a.25.25 0 0 0 .25-.25v-7.44L12 6.94l-5.94 5.87Z' />
+    </svg>
+  )
+}
 
 interface BackToTopProps {
   showHomeButton?: boolean
@@ -57,7 +69,7 @@ export function BackToTop({
             className='text-primary hover:text-background flex h-12 min-h-[48px] w-12 min-w-[48px] items-center justify-center rounded-xl border border-border bg-card-bg hover:bg-accent-hover shadow-md transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95 active:shadow-sm'
             aria-label='Na hlavní stránku'
           >
-            <IoHome className='h-5 w-5' />
+            <IconHome className='h-5 w-5' />
           </button>
         )}
 
@@ -107,7 +119,7 @@ export function HomeButton({
         className='flex h-14 min-h-[56px] w-14 min-w-[56px] items-center justify-center rounded-xl border border-border bg-card-bg shadow-md transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95 active:shadow-sm'
         aria-label='Na hlavní stránku'
       >
-        <IoHome className='h-6 w-6 text-primary' />
+        <IconHome className='h-6 w-6 text-primary' />
       </button>
     </div>
   )
