@@ -77,7 +77,7 @@ export default async function LocaleLayout({
         >
           <NextIntlClientProvider
             locale={locale}
-            messages={messages as AbstractIntlMessages}
+            messages={messages as unknown as AbstractIntlMessages}
           >
             <NextTopLoader
               initialPosition={0.08}
