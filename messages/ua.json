@@ -45,7 +45,10 @@
       "copyright": "Rebuild Ukraine",
       "author": "Створено",
       "about": "Про нас",
-      "support": "Підтримка"
+      "support": "Підтримка",
+      "view": "Вигляд",
+      "viewClassic": "Оригінальний",
+      "viewNew": "Новий"
     },
     "ui": {
       "theme": "Тема",

@@ -11,7 +11,8 @@ export function CompanyTopBar({
   active,
   theme
 }: {
-  active: CompanySlug
+  /** Aktivní firma; bez ní (úvodní stránka) není zvýrazněná žádná záložka */
+  active?: CompanySlug
   theme: CompanyTheme
 }) {
   const locale = useLocale()
@@ -58,7 +59,7 @@ export function CompanyTopBar({
           {languages.map(lang => (
             <Link
               key={lang}
-              href={`/${active}`}
+              href={active ? `/${active}` : '/'}
               locale={lang}
               className={`border-b-2 px-2 py-1.5 text-[#2c2a29] ${
                 locale === lang ? 'border-[#2c2a29]' : 'border-transparent'

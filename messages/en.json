@@ -45,7 +45,10 @@
       "copyright": "Rebuild Ukraine",
       "author": "Created by",
       "about": "About",
-      "support": "Support"
+      "support": "Support",
+      "view": "View",
+      "viewClassic": "Original",
+      "viewNew": "New"
     },
     "ui": {
       "theme": "Theme",
