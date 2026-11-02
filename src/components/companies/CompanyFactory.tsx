@@ -4,17 +4,17 @@ import React from 'react'
 import { CompanyComponent, CompanyPageProps } from './types'
 
 // Import all company components
-import { AggrCompany } from './AggrCompany'
 import { GentecCompany } from './GentecCompany'
 import { RepowerCompany } from './RepowerCompany'
-import { MulticontCompany } from './MulticontCompany'
+import { UkrholdCompany } from './UkrholdCompany'
+import { TurbexCompany } from './TurbexCompany'
 
 // Company registry mapping
 const companyComponents: Record<string, CompanyComponent> = {
-  aggr: AggrCompany,
   gentec: GentecCompany,
   repower: RepowerCompany,
-  multicont: MulticontCompany
+  ukrhold: UkrholdCompany,
+  turbex: TurbexCompany
 }
 
 // Fallback component for unknown companies

@@ -1,839 +1,530 @@
 'use client'
 
-import { SimplePageWrapper } from '@/src/components/PageWrapper'
-import {
-  AnimatedSection,
-  AnimatedHero,
-  AnimatedCard,
-  AnimatedText
-} from '@/src/components/AnimatedSection'
 import React from 'react'
 import { CompanyPageProps } from './types'
-import { QRCodeSVG } from 'qrcode.react'
-import { ImageTextSection } from '../ImageTextSection'
 import {
-  HiOutlineCash,
-  HiOutlineHome,
-  HiOutlineUserGroup
-} from 'react-icons/hi'
-import { InactivityRedirectHandler } from '../InactivityRedirectHandler'
+  CompanyShell,
+  CompanyTheme,
+  Container,
+  ContactRow,
+  Eyebrow,
+  Heading,
+  PillAnchor,
+  PillLink,
+  Section,
+  SectionNav,
+  SectionNavItem,
+  num
+} from '../company-layout'
 
-interface AgendaItemProps {
-  number: string
-  title: string
-  description: string
+interface RepowerContent {
+  nav: SectionNavItem[]
+  hero: Record<
+    'eyebrow' | 'title' | 'highlight' | 'text' | 'cta' | 'ctaSecondary',
+    string
+  >
+  facts: {
+    items: { title: string; value: string; unit: string; label: string }[]
+  }
+  about: Record<'title' | 'text', string>
+  locations: Record<
+    'eyebrow' | 'title' | 'capacity' | 'unit' | 'text1' | 'text2',
+    string
+  >
+  pilot: Record<
+    | 'eyebrow'
+    | 'title'
+    | 'goalTitle'
+    | 'goalText'
+    | 'techTitle'
+    | 'techText'
+    | 'initial'
+    | 'unit'
+    | 'initialLabel'
+    | 'expand'
+    | 'expandLabel'
+    | 'auditEyebrow'
+    | 'auditTitle'
+    | 'auditText1'
+    | 'auditText2',
+    string
+  >
+  economics: Record<
+    | 'eyebrow'
+    | 'title'
+    | 'financingTitle'
+    | 'equity'
+    | 'loan'
+    | 'grants'
+    | 'conclusionTitle'
+    | 'conclusion',
+    string
+  > & { returns: { value: string; title: string; sub: string }[] }
+  evaluation: Record<'eyebrow' | 'title' | 'subtitle' | 'text', string>
+  jv: { eyebrow: string; title: string; items: string[] }
+  timeline: {
+    eyebrow: string
+    title: string
+    items: { title: string; dur: string; text: string }[]
+  }
+  partners: Record<'eyebrow' | 'title' | 'text', string>
+  contact: Record<
+    'eyebrow' | 'title' | 'text' | 'label' | 'email' | 'web' | 'cta',
+    string
+  >
 }
 
-function AgendaItem({ number, title, description }: AgendaItemProps) {
+const theme: CompanyTheme = {
+  text: '#2c2a29',
+  accent: '#b90426',
+  border: '#ebebeb',
+  tabBg: '#f5f5f5'
+}
+
+const img = (file: string) => `/images/repower/${file}`
+
+const partnerLogos = [
+  { src: 'image3.png', alt: 'GENTEC', maxHeight: 64 },
+  { src: 'image21.png', alt: 'MTU', maxHeight: 48 },
+  { src: 'image24.png', alt: 'MWM', maxHeight: 60 },
+  { src: 'image23.png', alt: 'MND', maxHeight: 72 },
+  { src: 'image20.png', alt: 'Národní rozvojová banka', maxHeight: 52 },
+  {
+    src: 'image22.jpeg',
+    alt: 'Ukraine Facility',
+    maxHeight: 72,
+    noBlend: true
+  },
+  { src: 'image18.png', alt: 'Virtuel', maxHeight: 36 },
+  { src: 'image19.png', alt: 'Aggregaat', maxHeight: 32 },
+  { src: 'egap.png', alt: 'EGAP', maxHeight: 52 }
+]
+
+const contact = {
+  email: 'gentec@gentec.cz',
+  web: 'www.gentec.cz/en',
+  webHref: 'https://www.gentec.cz/en'
+}
+
+const bodyText = 'text-base leading-[1.65] text-[#2c2a29]'
+
+export function RepowerCompany({ t }: CompanyPageProps): JSX.Element {
+  const c = t.raw('companies.repower') as RepowerContent
+
   return (
-    <div className='text-text-primary'>
-      <div className='text-xl text-secondary'>{number}</div>
-      {/* Divider with line */}
-      <div className='h-[2px] w-full bg-background'></div>
-      <div className='text-2xl font-bold text-text-primary'>{title}</div>
-      <p className='text-xl leading-relaxed text-text-primary'>{description}</p>
-    </div>
-  )
-}
-
-interface ParameterCardProps {
-  keyName: string
-  colorClass: string
-  titleColor: string
-  delay: number
-  t: any
-}
-
-function ParameterCard({
-  keyName,
-  colorClass,
-  titleColor,
-  delay,
-  t
-}: ParameterCardProps) {
-  const title = t(`companies.repower.parameters.${keyName}.title`)
-  const description = t(`companies.repower.parameters.${keyName}.description`)
-  const point1 = t(`companies.repower.parameters.${keyName}.point1`)
-  const point2 = t(`companies.repower.parameters.${keyName}.point2`)
-  const point3 = t(`companies.repower.parameters.${keyName}.point3`)
-
-  return (
-    <AnimatedCard delay={delay} className={colorClass}>
-      <h3 className={`mb-4 text-2xl font-bold ${titleColor}`}>{title}</h3>
-      <p className='mb-4 text-xl font-bold text-gray-900'>{description}</p>
-      <ul className='space-y-2 text-lg text-gray-700'>
-        <li>• {point1}</li>
-        <li>• {point2}</li>
-        <li>• {point3}</li>
-      </ul>
-    </AnimatedCard>
-  )
-}
-
-interface FinancialCardProps {
-  keyName: string
-  gradientClass: string
-  titleColor: string
-  subtitleColor: string
-  delay: number
-  t: any
-}
-
-function FinancialCard({
-  keyName,
-  gradientClass,
-  titleColor,
-  subtitleColor,
-  delay,
-  t
-}: FinancialCardProps) {
-  const title = t(`companies.repower.financial.${keyName}.title`)
-  const value = t(`companies.repower.financial.${keyName}.value`)
-  const subtitle = t(`companies.repower.financial.${keyName}.subtitle`)
-
-  return (
-    <AnimatedCard
-      delay={delay}
-      className={`rounded-2xl bg-gradient-to-br ${gradientClass} flex flex-col items-center justify-center p-8 text-center text-white`}
-    >
-      <h3 className='text-5xl font-bold'>{value}</h3>
-      <p className={`mb-2 text-xl ${titleColor}`}>{title}</p>
-      <p className={`mt-2 text-lg ${subtitleColor}`}>{subtitle}</p>
-    </AnimatedCard>
-  )
-}
-
-interface ContentCardProps {
-  title: string
-  content: React.ReactNode
-  delay: number
-}
-
-function ContentCard({ title, content, delay }: ContentCardProps) {
-  return (
-    <AnimatedCard delay={delay} className='rounded-2xl bg-white p-8 shadow-lg'>
-      <h3 className='mb-6 text-2xl font-bold text-gray-900'>{title}</h3>
-      <div className='text-xl text-gray-700'>{content}</div>
-    </AnimatedCard>
-  )
-}
-
-export function RepowerCompany({
-  companyKey,
-  companyName,
-  t
-}: CompanyPageProps): JSX.Element {
-  return (
-    <SimplePageWrapper showBreadcrumbs={false}>
-      <InactivityRedirectHandler
-        redirectPath='/'
-        timeout={60000}
-        enabled={true}
-      />
-      <div className='bg-repower-background text-text-primary'>
-        {/* Hero Section */}
-        <AnimatedHero className='relative overflow-hidden px-4 py-40'>
-          {/* Background Image */}
-          <div
-            className='bg-fill absolute inset-0 bg-no-repeat'
-            style={{
-              backgroundImage: 'url(/images/repower/hero-background.png)',
-              backgroundPosition: '90% 80%'
-            }}
+    <CompanyShell slug='repower' theme={theme} topSectionId='about'>
+      {/* Hero */}
+      <section className='relative h-[640px] overflow-hidden bg-[#2c2a29]'>
+        <img
+          src={img('hero-aerial.jpg')}
+          alt='GENTEC CHP site in Ukraine'
+          className='absolute inset-0 block h-full w-full object-cover object-[55%_60%]'
+        />
+        <div
+          className='absolute inset-0'
+          style={{
+            background:
+              'linear-gradient(to right, rgba(20,19,19,0.97) 0%, rgba(20,19,19,0.9) 38%, rgba(20,19,19,0.4) 60%, rgba(20,19,19,0) 78%)'
+          }}
+        />
+        <img
+          src='/images/shared/logo-red-white.png'
+          alt='GENTEC'
+          className='absolute right-10 top-10 z-[2] h-[72px]'
+        />
+        <Container className='relative flex h-full flex-col justify-end gap-7 pb-16 pt-12 text-white'>
+          <Eyebrow color='#fff' className='text-sm'>
+            {c.hero.eyebrow}
+          </Eyebrow>
+          <Heading
+            as='h1'
+            className='max-w-[760px] text-[88px] leading-[0.98] tracking-[-0.03em] text-white'
           >
-            {/* Dark overlay for better text readability */}
-            <div className='absolute inset-0 bg-black bg-opacity-50'></div>
+            {c.hero.title}
+            <br />
+            <span className='text-[#b90426]'>{c.hero.highlight}</span>
+          </Heading>
+          <p className='max-w-[560px] text-lg leading-[1.6]'>{c.hero.text}</p>
+          <div className='flex items-center gap-3'>
+            <PillAnchor
+              to='contact'
+              arrow
+              className='bg-[#b90426] px-[30px] py-4 text-white hover:bg-[#960320]'
+            >
+              {c.hero.cta}
+            </PillAnchor>
+            <PillAnchor
+              to='pilot'
+              className='border-2 border-white/70 px-7 py-3.5 text-white hover:bg-white hover:text-[#2c2a29]'
+            >
+              {c.hero.ctaSecondary}
+            </PillAnchor>
           </div>
+        </Container>
+      </section>
 
-          {/* Content */}
-          <div className='relative z-10 mx-auto flex w-full max-w-6xl items-center gap-8 text-left'>
-            {/* Left: Logo image on 1/3 */}
-            <div className='flex w-1/3 items-center justify-start'>
-              <img
-                src='/images/repower/image8.png'
-                alt='Repower logo'
-                className='w-full max-w-md object-contain'
-              />
-            </div>
-            {/* Right: Hero content on 2/3 (optional, currently empty for future use) */}
-            <div className='w-2/3'></div>
+      {/* Key facts */}
+      <section className='bg-[#2c2a29] text-white'>
+        <Container>
+          <div className='grid grid-cols-4 border-l border-white/[0.12] pl-7'>
+            {c.facts.items.map((fact, i) => (
+              <div
+                key={i}
+                className='mr-7 flex flex-col gap-2 border-r border-white/[0.12] py-8 pr-7'
+              >
+                <div className='text-[13px] font-bold uppercase tracking-[0.12em]'>
+                  {fact.title}
+                </div>
+                <div className='whitespace-nowrap text-[42px] font-black leading-[1.05] tracking-[-0.02em]'>
+                  {fact.value}
+                  <span className='ml-1.5 text-2xl text-[#b90426]'>
+                    {fact.unit}
+                  </span>
+                </div>
+                <div className='text-[13px] leading-[1.5]'>{fact.label}</div>
+              </div>
+            ))}
           </div>
-        </AnimatedHero>
+        </Container>
+      </section>
 
-        <AnimatedSection>
-          <div className='col-span-2 flex w-full flex-col items-center justify-center py-20'>
-            <h1 className='mb-8 text-7xl'>
-              {t('companies.repower.hero.title')}
-            </h1>
-            <p className='mx-auto max-w-4xl text-2xl leading-relaxed'>
-              {t('companies.repower.hero.description')}
+      <SectionNav items={c.nav} theme={theme} />
+
+      {/* About */}
+      <Section id='about' className='bg-white'>
+        <Container className='grid grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] items-center gap-[72px] pb-24 pt-28'>
+          <div className='flex flex-col gap-7'>
+            <img
+              src={img('image7.png')}
+              alt='RePOWER Ukraine'
+              className='h-14 self-start'
+            />
+            <Heading className='text-[40px] leading-[1.12] tracking-[-0.02em] [text-wrap:pretty]'>
+              {c.about.title}
+            </Heading>
+            <p className='max-w-[600px] text-lg leading-[1.65] text-[#2c2a29]'>
+              {c.about.text}
             </p>
           </div>
-        </AnimatedSection>
+          <img
+            src={img('image10.png')}
+            alt='GENTEC container CHP unit'
+            className='block aspect-[4/5] w-full object-cover'
+          />
+        </Container>
+      </Section>
 
-        {/* Agenda Section */}
-        <AnimatedSection animation='fadeUp' delay={100} className='px-4 py-20'>
-          <div className='mx-auto max-w-6xl text-text-primary'>
-            <div className='mb-8 text-left'>
-              <span className='mb-4 inline-block text-6xl'>
-                {t('companies.repower.agenda.title')}
-              </span>
+      {/* Locations */}
+      <Section id='locations' className='bg-[#f5f5f5]'>
+        <Container className='grid grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] items-center gap-16 py-24'>
+          <div className='flex flex-col gap-5'>
+            <Eyebrow color='#b90426'>{c.locations.eyebrow}</Eyebrow>
+            <Heading className='text-[56px] leading-[1.02]'>
+              {c.locations.title}
+            </Heading>
+            <div className='text-[28px] font-black tracking-[-0.01em]'>
+              {c.locations.capacity}{' '}
+              <span className='text-[#b90426]'>{c.locations.unit}</span>
             </div>
-            <div className='grid grid-cols-3 gap-6'>
-              {[1, 2, 3].map(item => (
-                <AgendaItem
-                  key={item}
-                  number={t(
-                    `companies.repower.agenda.items.item${item}.number`
-                  )}
-                  title={t(`companies.repower.agenda.items.item${item}.title`)}
-                  description={t(
-                    `companies.repower.agenda.items.item${item}.description`
-                  )}
-                />
+            <p className='text-[17px] leading-[1.65] text-[#2c2a29]'>
+              {c.locations.text1}
+            </p>
+            <p className='text-[17px] leading-[1.65] text-[#2c2a29]'>
+              {c.locations.text2}
+            </p>
+          </div>
+          <img
+            src={img('image13.jpg')}
+            alt='Map of identified CHP locations in Ukraine'
+            className='block w-full mix-blend-multiply'
+          />
+        </Container>
+      </Section>
+
+      {/* Pilot project */}
+      <Section id='pilot' className='bg-white'>
+        <Container className='flex flex-col gap-14 pb-24 pt-28'>
+          <div className='flex flex-col gap-4'>
+            <Eyebrow color='#b90426'>{c.pilot.eyebrow}</Eyebrow>
+            <Heading className='text-[64px] leading-none tracking-[-0.03em]'>
+              {c.pilot.title}
+            </Heading>
+          </div>
+          <div className='grid grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] items-start gap-14'>
+            <img
+              src={img('image14.png')}
+              alt='GENTEC CHP units on site'
+              className='block aspect-[819/725] w-full object-cover'
+            />
+            <div className='flex flex-col gap-9'>
+              <div className='flex flex-col gap-3'>
+                <h3 className='text-[22px] font-black'>{c.pilot.goalTitle}</h3>
+                <p className={bodyText}>{c.pilot.goalText}</p>
+              </div>
+              <div className='flex flex-col gap-3'>
+                <h3 className='text-[22px] font-black'>{c.pilot.techTitle}</h3>
+                <p className={bodyText}>{c.pilot.techText}</p>
+              </div>
+              <div className='grid grid-cols-2 border-t border-[#d1d1d1]'>
+                {[
+                  [c.pilot.initial, c.pilot.initialLabel],
+                  [c.pilot.expand, c.pilot.expandLabel]
+                ].map(([value, label]) => (
+                  <div
+                    key={label}
+                    className='flex flex-col gap-1 border-b border-[#d1d1d1] py-5'
+                  >
+                    <span className='text-[32px] font-black tracking-[-0.02em]'>
+                      {value}{' '}
+                      <span className='text-xl text-[#b90426]'>
+                        {c.pilot.unit}
+                      </span>
+                    </span>
+                    <span className='text-[13px] text-[#2c2a29]'>{label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className='grid grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] items-center gap-14 bg-[#f5f5f5]'>
+            <img
+              src={img('image15.png')}
+              alt='Site visualisation'
+              className='block aspect-[4/5] w-full object-cover'
+            />
+            <div className='flex flex-col gap-5 py-12 pr-14'>
+              <Eyebrow color='#b90426'>{c.pilot.auditEyebrow}</Eyebrow>
+              <Heading
+                as='h3'
+                className='text-4xl leading-[1.1] tracking-[-0.02em]'
+              >
+                {c.pilot.auditTitle}
+              </Heading>
+              <p className={bodyText}>{c.pilot.auditText1}</p>
+              <p className={bodyText}>{c.pilot.auditText2}</p>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Economics */}
+      <Section id='economics' className='bg-[#2c2a29] text-white'>
+        <Container className='flex flex-col gap-16 py-28'>
+          <div className='flex flex-col gap-4'>
+            <Eyebrow color='#b90426'>{c.economics.eyebrow}</Eyebrow>
+            <Heading className='text-5xl leading-[1.05] text-white'>
+              {c.economics.title}
+            </Heading>
+          </div>
+          <div className='grid grid-cols-4 gap-8'>
+            {c.economics.returns.map((item, i) => (
+              <div
+                key={i}
+                className='flex flex-col gap-2.5 border-t-[3px] border-[#b90426] pt-6'
+              >
+                <div className='text-[56px] font-black leading-none tracking-[-0.03em]'>
+                  {item.value}
+                </div>
+                <div className='text-lg font-bold'>{item.title}</div>
+                <div className='text-sm leading-[1.5] text-[#d1d1d1]'>
+                  {item.sub}
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className='grid grid-cols-2 gap-16'>
+            <div className='flex flex-col gap-6'>
+              <h3 className='text-[22px] font-black'>
+                {c.economics.financingTitle}
+              </h3>
+              <div className='flex h-14 text-xl font-black'>
+                <div className='flex w-[30%] items-center bg-[#b90426] px-4'>
+                  30%
+                </div>
+                <div className='flex flex-1 items-center bg-[#4c4d54] px-4'>
+                  70%
+                </div>
+              </div>
+              <div className='flex flex-col gap-2.5 text-base leading-[1.5]'>
+                <div className='flex items-center gap-3'>
+                  <span className='h-3 w-3 flex-none bg-[#b90426]' />
+                  {c.economics.equity}
+                </div>
+                <div className='flex items-center gap-3'>
+                  <span className='h-3 w-3 flex-none border border-white/40 bg-[#4c4d54]' />
+                  {c.economics.loan}
+                </div>
+                <div className='flex items-center gap-3'>
+                  <span className='h-3 w-3 flex-none border border-dashed border-white/60' />
+                  {c.economics.grants}
+                </div>
+              </div>
+            </div>
+            <div className='flex flex-col gap-4'>
+              <h3 className='text-[22px] font-black'>
+                {c.economics.conclusionTitle}
+              </h3>
+              <p className='text-lg leading-[1.65]'>{c.economics.conclusion}</p>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Evaluation */}
+      <Section className='bg-white'>
+        <Container className='grid grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] items-center gap-16 py-24'>
+          <div className='flex flex-col gap-5'>
+            <Eyebrow color='#b90426'>{c.evaluation.eyebrow}</Eyebrow>
+            <Heading className='text-[40px] leading-[1.1] tracking-[-0.02em]'>
+              {c.evaluation.title}
+            </Heading>
+            <div className='text-base font-bold'>{c.evaluation.subtitle}</div>
+            <p className={bodyText}>{c.evaluation.text}</p>
+          </div>
+          <img
+            src={img('image17.png')}
+            alt='Return on equity chart'
+            className='block w-full'
+          />
+        </Container>
+      </Section>
+
+      {/* Joint venture */}
+      <Section id='jv' className='bg-[#f5f5f5]'>
+        <Container className='grid grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] items-center gap-[72px] py-28'>
+          <div className='flex flex-col gap-10'>
+            <div className='flex flex-col gap-4'>
+              <Eyebrow color='#b90426'>{c.jv.eyebrow}</Eyebrow>
+              <Heading>{c.jv.title}</Heading>
+            </div>
+            <div className='flex flex-col gap-7'>
+              {c.jv.items.map((text, i) => (
+                <div
+                  key={i}
+                  className='flex items-baseline gap-5 text-[17px] leading-[1.6] text-[#2c2a29]'
+                >
+                  <span className='w-10 flex-none text-[22px] font-black text-[#b90426]'>
+                    {num(i)}
+                  </span>
+                  {text}
+                </div>
               ))}
             </div>
           </div>
-        </AnimatedSection>
+          <img
+            src={img('image16.jpeg')}
+            alt='GENTEC container CHP unit in hall'
+            className='block aspect-[4/5] w-full object-cover'
+          />
+        </Container>
+      </Section>
 
-        {/* Investment in Ukrainian Energy Section */}
-        <AnimatedSection animation='fadeUp' delay={100} className='px-4 py-20'>
-          <div className='mx-auto grid max-w-6xl grid-cols-2 items-center gap-8'>
-            {/* Left: Image */}
-            <div className='flex justify-center'>
-              <svg
-                viewBox='126.6 -13.4 748.8 550.8'
-                width='100%'
-                height='auto'
-                preserveAspectRatio='xMidYMid meet'
-                overflow='visible'
-                style={{ maxWidth: '100%', display: 'block' }}
-                className='w-full max-w-md '
-                aria-label='Investment in Ukrainian Energy diagram'
+      {/* Timeline */}
+      <Section id='timeline' className='bg-white'>
+        <Container className='flex flex-col gap-12 py-28'>
+          <div className='flex flex-col gap-4'>
+            <Eyebrow color='#b90426'>{c.timeline.eyebrow}</Eyebrow>
+            <Heading>{c.timeline.title}</Heading>
+          </div>
+          <div className='flex flex-col border-t border-[#d1d1d1]'>
+            {c.timeline.items.map((phase, i) => (
+              <div
+                key={i}
+                className='grid grid-cols-[80px_minmax(0,1fr)_minmax(0,1.6fr)] items-baseline gap-8 border-b border-[#d1d1d1] py-8'
               >
-                <g id='packed_circles-frame'>
-                  <g
-                    id='step-1'
-                    className='themed-svg-shape-fill themed-svg-shape-background'
-                  >
-                    <circle
-                      id='step-1-accent'
-                      cx='291'
-                      cy='329'
-                      r='150'
-                      className='themed-svg-shape-fill themed-svg-shape-background'
-                      style={
-                        {
-                          '--shape-bg-color-override': '#323234ff'
-                        } as React.CSSProperties
-                      }
-                    />
-                  </g>
-                  <g
-                    id='step-2'
-                    className='themed-svg-shape-fill themed-svg-shape-background'
-                  >
-                    <circle
-                      id='step-2-accent'
-                      cx='542'
-                      cy='185'
-                      r='120'
-                      className='themed-svg-shape-fill themed-svg-shape-background'
-                      style={
-                        {
-                          '--shape-bg-color-override': '#414044ff'
-                        } as React.CSSProperties
-                      }
-                    />
-                  </g>
-                  <g
-                    id='step-3'
-                    className='themed-svg-shape-fill themed-svg-shape-background'
-                  >
-                    <circle
-                      id='step-3-accent'
-                      cx='751'
-                      cy='324'
-                      r='110'
-                      className='themed-svg-shape-fill themed-svg-shape-background'
-                      style={
-                        {
-                          '--shape-bg-color-override': '#504f54ff'
-                        } as React.CSSProperties
-                      }
-                    />
-                  </g>
-                  <g
-                    id='step-4'
-                    className='themed-svg-shape-fill themed-svg-shape-background'
-                  >
-                    <circle
-                      id='step-4-accent'
-                      cx='544'
-                      cy='423'
-                      r='100'
-                      className='themed-svg-shape-fill themed-svg-shape-background'
-                      style={
-                        {
-                          '--shape-bg-color-override': '#5f5e63ff'
-                        } as React.CSSProperties
-                      }
-                    />
-                  </g>
-                  <g
-                    id='step-5'
-                    className='themed-svg-shape-fill themed-svg-shape-background'
-                  >
-                    <circle
-                      id='step-5-accent'
-                      cx='343.5'
-                      cy='88.5'
-                      r='87.5'
-                      className='themed-svg-shape-fill themed-svg-shape-background'
-                      style={
-                        {
-                          '--shape-bg-color-override': '#6e6c73ff'
-                        } as React.CSSProperties
-                      }
-                    />
-                  </g>
-                </g>
-                {/* Labeled circles (Investment themes) */}
-                <foreignObject
-                  x='164.16796875'
-                  y='247.0625'
-                  width='251'
-                  height='163'
-                  style={{ overflow: 'visible' }}
-                >
-                  <div
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      height: '100%',
-                      fontSize: 28,
-                      fontWeight: 700,
-                      color: 'white',
-                      textAlign: 'center'
-                    }}
-                  >
-                    Infrastructure Needs
-                  </div>
-                </foreignObject>
-                <foreignObject
-                  x='443.16796875'
-                  y='120.0625'
-                  width='195'
-                  height='127'
-                  style={{ overflow: 'visible' }}
-                >
-                  <div
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      height: '100%',
-                      fontSize: 22,
-                      fontWeight: 700,
-                      color: 'white',
-                      textAlign: 'center'
-                    }}
-                  >
-                    GENTEC CHP Units
-                  </div>
-                </foreignObject>
-                <foreignObject
-                  x='661.16796875'
-                  y='262.0625'
-                  width='177'
-                  height='129'
-                  style={{ overflow: 'visible' }}
-                >
-                  <div
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      height: '100%',
-                      fontSize: 20,
-                      fontWeight: 700,
-                      color: 'white',
-                      textAlign: 'center'
-                    }}
-                  >
-                    Energy Security
-                  </div>
-                </foreignObject>
-                <foreignObject
-                  x='459.16796875'
-                  y='363.0625'
-                  width='167'
-                  height='121'
-                  style={{ overflow: 'visible' }}
-                >
-                  <div
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      height: '100%',
-                      fontSize: 18,
-                      fontWeight: 700,
-                      color: 'white',
-                      textAlign: 'center'
-                    }}
-                  >
-                    Cost Efficiency
-                  </div>
-                </foreignObject>
-                <foreignObject
-                  x='268.16796875'
-                  y='41.0625'
-                  width='147'
-                  height='96'
-                  style={{ overflow: 'visible' }}
-                >
-                  <div
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      height: '100%',
-                      fontSize: 18,
-                      fontWeight: 700,
-                      color: 'white',
-                      textAlign: 'center'
-                    }}
-                  >
-                    Investment Opportunity
-                  </div>
-                </foreignObject>
-              </svg>
-            </div>
-            {/* Right: Heading + Ordered List */}
-            <div>
-              <h2 className='mb-6 block text-6xl'>
-                {t('companies.repower.investment.title')}
-              </h2>
-              <ol className='list-decimal space-y-4 pl-6 text-xl text-text-primary'>
-                <li>{t('companies.repower.investment.point1')}</li>
-                <li>{t('companies.repower.investment.point2')}</li>
-                <li>{t('companies.repower.investment.point3')}</li>
-                <li>{t('companies.repower.investment.point4')}</li>
-              </ol>
-            </div>
-          </div>
-        </AnimatedSection>
-
-        {/* Main Project Parameters Section */}
-        <AnimatedSection animation='fadeUp' delay={100} className=' px-4 py-20'>
-          <div className='mx-auto max-w-6xl'>
-            <div className='mb-12 text-center'>
-              <h2 className='mb-6 text-6xl'>
-                {t('companies.repower.parameters.title')}
-              </h2>
-            </div>
-            <div className='grid grid-cols-2 items-center gap-8'>
-              {/* Left: Cards */}
-              <div className='space-y-6'>
-                <ParameterCard
-                  keyName='pilotCapacity'
-                  colorClass='bg-gray-100 p-4 rounded-xl'
-                  titleColor='text-text-primary'
-                  delay={100}
-                  t={t}
-                />
-                <ParameterCard
-                  keyName='expansion'
-                  colorClass='bg-gray-100 p-4 rounded-xl'
-                  titleColor='text-text-primary'
-                  delay={200}
-                  t={t}
-                />
-                <ParameterCard
-                  keyName='lease'
-                  colorClass='bg-gray-100 p-4 rounded-xl'
-                  titleColor='text-text-primary'
-                  delay={300}
-                  t={t}
-                />
-                <ParameterCard
-                  keyName='siteSelection'
-                  colorClass='bg-gray-100 p-4 rounded-xl'
-                  titleColor='text-text-primary'
-                  delay={400}
-                  t={t}
-                />
+                <span className='text-[40px] font-black leading-none text-[#b90426]'>
+                  {num(i)}
+                </span>
+                <div className='flex flex-col gap-2.5'>
+                  <h3 className='text-[22px] font-black leading-[1.2]'>
+                    {phase.title}
+                  </h3>
+                  <span className='self-start bg-[#2c2a29] px-2.5 py-[5px] text-xs font-bold uppercase tracking-[0.08em] text-white'>
+                    {phase.dur}
+                  </span>
+                </div>
+                <p className={bodyText}>{phase.text}</p>
               </div>
-              {/* Right: Image */}
-              <div className='flex h-full items-center justify-center'>
-                <AnimatedCard
-                  delay={500}
-                  className='flex h-full w-full items-center justify-center rounded-2xl '
-                >
-                  <img
-                    src='/images/repower/image11.png'
-                    alt='Repower company illustration'
-                    className='h-full w-full rounded-xl object-cover'
-                  />
-                </AnimatedCard>
-              </div>
-            </div>
+            ))}
           </div>
-        </AnimatedSection>
+        </Container>
+      </Section>
 
-        {/* Location Schema Section */}
-        <AnimatedSection animation='fadeUp' delay={100} className=' px-4 py-20'>
-          <div className='mx-auto grid max-w-6xl grid-cols-2 items-center gap-8'>
-            {/* Left: Image */}
-            <div className='flex justify-center'>
-              <img
-                src='/images/repower/location-schema.jpg'
-                alt={t('companies.repower.location.title')}
-                className='w-full max-w-2xl rounded-2xl object-cover shadow-lg'
-              />
+      {/* Partners */}
+      <Section id='partners' className='bg-[#f5f5f5]'>
+        <Container className='flex flex-col gap-12 py-24'>
+          <div className='grid grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] items-end gap-16'>
+            <div className='flex flex-col gap-4'>
+              <Eyebrow color='#b90426'>{c.partners.eyebrow}</Eyebrow>
+              <Heading className='text-[40px] leading-[1.1] tracking-[-0.02em]'>
+                {c.partners.title}
+              </Heading>
             </div>
-            {/* Right: Heading + Paragraphs */}
-            <div>
-              <h2 className='mb-6 text-6xl'>
-                {t('companies.repower.location.title')}
-              </h2>
-              <p className='mb-6 text-xl leading-relaxed text-gray-700'>
-                {t('companies.repower.location.description1')}
-              </p>
-              <p className='mb-6 text-xl leading-relaxed text-gray-700'>
-                {t('companies.repower.location.description2')}
-              </p>
-              <p className='text-xl leading-relaxed text-gray-700'>
-                {t('companies.repower.location.description3')}
-              </p>
-            </div>
-          </div>
-        </AnimatedSection>
-
-        {/* Investment Costs and Returns Section */}
-        <AnimatedSection animation='fadeUp' delay={100} className=' px-4 py-20'>
-          <div className='mx-auto max-w-6xl'>
-            {/* Title */}
-            <h2 className='mb-6 text-center text-6xl'>
-              {t('companies.repower.financial.title')}
-            </h2>
-
-            {/* Description */}
-            <p className='mb-8 text-center text-xl leading-relaxed text-gray-700'>
-              {t('companies.repower.financial.description')}
+            <p className='text-[17px] leading-[1.6] text-[#2c2a29]'>
+              {c.partners.text}
             </p>
-
-            {/* Line Divider */}
-            <div className='mb-12 h-[2px] w-full bg-gray-600'></div>
-
-            {/* 2-col Grid: Image Left, Cards Right */}
-            <div className='grid grid-cols-2 gap-8'>
-              {/* Left: Image */}
-              <div className='flex justify-center'>
+          </div>
+          <div className='grid grid-cols-5 items-center gap-x-10 gap-y-6'>
+            {partnerLogos.map(logo => (
+              <div
+                key={logo.alt}
+                className='flex h-[110px] items-center justify-center'
+              >
                 <img
-                  src='/images/repower/financial-analysis.jpg'
-                  alt={t('companies.repower.financial.title')}
-                  className='w-full max-w-md rounded-2xl object-cover shadow-lg'
+                  src={img(logo.src)}
+                  alt={logo.alt}
+                  className={`max-w-full ${logo.noBlend ? '' : 'mix-blend-multiply'}`}
+                  style={{ maxHeight: logo.maxHeight }}
                 />
               </div>
-
-              {/* Right: 2-col Grid with Cards */}
-              <div className='grid grid-cols-2 gap-4'>
-                <FinancialCard
-                  keyName='investment'
-                  gradientClass='from-blue-600 to-indigo-600'
-                  titleColor='text-blue-100'
-                  subtitleColor='text-blue-100'
-                  delay={100}
-                  t={t}
-                />
-                <FinancialCard
-                  keyName='irr'
-                  gradientClass='from-green-600 to-emerald-600'
-                  titleColor='text-green-100'
-                  subtitleColor='text-green-100'
-                  delay={200}
-                  t={t}
-                />
-                <FinancialCard
-                  keyName='equityPayback'
-                  gradientClass='from-purple-600 to-pink-600'
-                  titleColor='text-purple-100'
-                  subtitleColor='text-purple-100'
-                  delay={300}
-                  t={t}
-                />
-                <FinancialCard
-                  keyName='totalPayback'
-                  gradientClass='from-orange-600 to-red-600'
-                  titleColor='text-orange-100'
-                  subtitleColor='text-orange-100'
-                  delay={400}
-                  t={t}
-                />
-              </div>
-            </div>
+            ))}
           </div>
-        </AnimatedSection>
+        </Container>
+      </Section>
 
-        {/* Financing Structure & Investment Conclusion Section */}
-        <AnimatedSection animation='fadeUp' delay={100} className=' px-4 py-20'>
-          <div className='mx-auto max-w-6xl'>
-            <div className='grid grid-cols-2 gap-8'>
-              {/* Financing Structure Card */}
-              <ContentCard
-                title={t('companies.repower.financing.title')}
-                delay={100}
-                content={
-                  <ul className='space-y-4'>
-                    <li className='flex items-start'>
-                      <span className='mr-3 text-2xl'>•</span>
-                      <span>{t('companies.repower.financing.point1')}</span>
-                    </li>
-                    <li className='flex items-start'>
-                      <span className='mr-3 text-2xl'>•</span>
-                      <span>{t('companies.repower.financing.point2')}</span>
-                    </li>
-                    <li className='flex items-start'>
-                      <span className='mr-3 text-2xl'>•</span>
-                      <span>{t('companies.repower.financing.point3')}</span>
-                    </li>
-                  </ul>
-                }
-              />
-
-              {/* Investment Conclusion Card */}
-              <ContentCard
-                title={t('companies.repower.conclusion.title')}
-                delay={200}
-                content={
-                  <p className='leading-relaxed'>
-                    {t('companies.repower.conclusion.description')}
-                  </p>
-                }
-              />
-            </div>
-          </div>
-        </AnimatedSection>
-
-        {/* Seeking Strategic Partners Section */}
-        <AnimatedSection animation='fadeUp' delay={100} className=' px-4 py-20'>
-          <div className='mx-auto max-w-6xl'>
-            <h2 className='text-left text-6xl'>
-              {t('companies.repower.partners.seeking.title')}
-            </h2>
-            <p className='mb-8 text-left text-xl leading-relaxed text-gray-700'>
-              {t('companies.repower.partners.seeking.subtitle')}
+      {/* Contact */}
+      <Section id='contact' className='bg-[#b90426] text-white'>
+        <Container className='grid grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] items-center gap-16 py-24'>
+          <div className='flex flex-col gap-5'>
+            <Eyebrow color='#fff'>{c.contact.eyebrow}</Eyebrow>
+            <Heading className='text-[56px] leading-[1.02] tracking-[-0.03em] text-white'>
+              {c.contact.title}
+            </Heading>
+            <p className='max-w-[520px] text-lg leading-[1.6]'>
+              {c.contact.text}
             </p>
-            <div className='grid grid-cols-3 gap-8'>
-              <AnimatedCard
-                delay={100}
-                className='rounded-2xl bg-white p-6 shadow-lg'
-              >
-                <div className='mb-4'>
-                  <HiOutlineCash className='mb-3 h-7 w-7 text-text-primary' />
-                  <h3 className='text-2xl font-bold text-text-primary'>
-                    {t('companies.repower.partners.seeking.investors.title')}
-                  </h3>
-                </div>
-                <p className='text-xl leading-relaxed text-gray-700'>
-                  {t(
-                    'companies.repower.partners.seeking.investors.description'
-                  )}
-                </p>
-              </AnimatedCard>
-
-              <AnimatedCard
-                delay={200}
-                className='rounded-2xl bg-white p-6 shadow-lg'
-              >
-                <div className='mb-4'>
-                  <HiOutlineHome className='mb-3 h-7 w-7 text-text-primary' />
-                  <h3 className='text-2xl font-bold text-text-primary'>
-                    {t('companies.repower.partners.seeking.landOwners.title')}
-                  </h3>
-                </div>
-                <p className='text-xl leading-relaxed text-gray-700'>
-                  {t(
-                    'companies.repower.partners.seeking.landOwners.description'
-                  )}
-                </p>
-              </AnimatedCard>
-
-              <AnimatedCard
-                delay={300}
-                className='rounded-2xl bg-white p-6 shadow-lg'
-              >
-                <div className='mb-4'>
-                  <HiOutlineUserGroup className='mb-3 h-7 w-7 text-text-primary' />
-                  <h3 className='text-2xl font-bold text-text-primary'>
-                    {t(
-                      'companies.repower.partners.seeking.implementation.title'
-                    )}
-                  </h3>
-                </div>
-                <p className='text-xl leading-relaxed text-gray-700'>
-                  {t(
-                    'companies.repower.partners.seeking.implementation.description'
-                  )}
-                </p>
-              </AnimatedCard>
-            </div>
           </div>
-        </AnimatedSection>
-
-        {/* Key Partners Section */}
-        <AnimatedSection animation='fadeUp' delay={100} className='px-4 py-20'>
-          <div className='mx-auto max-w-6xl'>
-            {/* Title */}
-            <h2 className='mb-4 text-left text-6xl'>
-              {t('companies.repower.partners.key.title')}
-            </h2>
-
-            {/* Subtitle */}
-            <h3 className='mb-6 text-left text-2xl font-semibold text-gray-700'>
-              {t('companies.repower.partners.key.subtitle')}
-            </h3>
-
-            {/* Description */}
-            <p className='mb-8 text-left text-xl leading-relaxed text-gray-700'>
-              {t('companies.repower.partners.key.description')}
-            </p>
-
-            {/* 5-col Grid with Mini Images */}
-            <div className='mb-12 grid grid-cols-5 gap-4'>
-              {[1, 2, 3, 4, 5].map(index => (
-                <AnimatedCard
-                  key={index}
-                  delay={index * 100}
-                  className='flex items-center justify-center'
-                >
-                  <img
-                    src={t(
-                      `companies.repower.partners.key.partner${index}.image`
-                    )}
-                    alt={t(
-                      `companies.repower.partners.key.partner${index}.name`
-                    )}
-                    className='h-20 w-full object-contain'
-                  />
-                </AnimatedCard>
-              ))}
-            </div>
-
-            {/* Large Image */}
-            <div className='mb-8 flex justify-center'>
+          <div className='flex flex-col gap-6'>
+            <div className='flex items-center justify-between'>
+              <Eyebrow color='#fff'>{c.contact.label}</Eyebrow>
               <img
-                src={t('companies.repower.partners.key.mainImage')}
-                alt={t('companies.repower.partners.key.mainImageAlt')}
-                className='w-full max-w-2xl rounded-2xl object-cover shadow-lg'
+                src='/images/shared/logo-white.png'
+                alt='GENTEC'
+                className='h-14'
               />
             </div>
-
-            {/* Final Description */}
-            <p className='text-left text-xl leading-relaxed text-gray-700'>
-              {t('companies.repower.partners.key.finalDescription')}
-            </p>
-          </div>
-        </AnimatedSection>
-
-        {/* Contact Section with Dark Background */}
-        <AnimatedSection
-          animation='fadeUp'
-          delay={100}
-          className='bg-black px-4 py-20'
-        >
-          <div className='mx-auto max-w-6xl'>
-            <div className='rounded-2xl bg-repower-background p-16 shadow-lg'>
-              <div className='grid grid-cols-3 gap-8'>
-                {/* Column 1: Contact Info + QR Code */}
-                <div className='flex flex-col items-center justify-center space-y-6 text-center'>
-                  <div>
-                    <h3 className='mb-4 text-xl font-bold text-gray-900'>
-                      {t('companies.repower.contact.title')}
-                    </h3>
-                    <div className='space-y-3 text-gray-700'>
-                      <div className='flex gap-4 text-left'>
-                        <span className='mb-1 font-semibold'>
-                          {t('companies.repower.contact.emailLabel')}:
-                        </span>
-                        <span className='text-blue-600'>
-                          {t('companies.repower.contact.email')}
-                        </span>
-                      </div>
-                      <div className='flex gap-4 text-left'>
-                        <span className='mb-1 font-semibold'>
-                          {t('companies.repower.contact.phoneLabel')}:
-                        </span>
-                        <span className='text-blue-600'>
-                          {t('companies.repower.contact.phone')}
-                        </span>
-                      </div>
-                      <div className='flex gap-4 text-left'>
-                        <span className='mb-1 font-semibold'>
-                          {t('companies.repower.contact.websiteLabel')}:
-                        </span>
-                        <span className='text-blue-600'>
-                          {t('companies.repower.contact.website')}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  {/* QR Code */}
-                  <div className='flex items-center justify-center'>
-                    <div className='rounded-lg bg-white p-4 shadow-md'>
-                      <img
-                        src='/images/repower/qr.png'
-                        alt='Repower QR code'
-                        className='h-full w-full object-contain'
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Column 2: Logos */}
-                <div className='mx-auto flex flex-col items-center justify-center space-y-8 px-10'>
-                  <div className='flex items-center justify-center'>
-                    <img
-                      src={t('companies.repower.contact.logos.repower')}
-                      alt={t('companies.repower.contact.logos.repowerAlt')}
-                      className='h-full w-full object-contain'
-                    />
-                  </div>
-                  <div className='flex items-center justify-center'>
-                    <img
-                      src={t('companies.repower.contact.logos.gentec')}
-                      alt={t('companies.repower.contact.logos.gentecAlt')}
-                      className='h-full w-full object-contain'
-                    />
-                  </div>
-                </div>
-
-                {/* Column 3: CTA + Image */}
-                <div className='flex flex-col items-center space-y-6 text-center'>
-                  <div>
-                    <h3 className='mb-4 text-2xl font-bold text-gray-900'>
-                      {t('companies.repower.contact.cta.title')}
-                    </h3>
-                    <p className='mb-6 text-xl leading-relaxed text-gray-700'>
-                      {t('companies.repower.contact.cta.description')}
-                    </p>
-                  </div>
-                  <div className='flex justify-center'>
-                    <img
-                      src={t('companies.repower.contact.cta.image')}
-                      alt={t('companies.repower.contact.cta.title')}
-                      className='w-full max-w-md rounded-lg object-cover shadow-md'
-                    />
-                  </div>
-                </div>
-              </div>
+            <div className='flex flex-col border-t border-white/40'>
+              <ContactRow
+                href={`mailto:${contact.email}`}
+                label={c.contact.email}
+                value={contact.email}
+              />
+              <ContactRow
+                href={contact.webHref}
+                label={c.contact.web}
+                value={contact.web}
+              />
             </div>
+            <PillLink
+              href={`mailto:${contact.email}`}
+              className='bg-white text-[#b90426] hover:bg-[#2c2a29] hover:text-white'
+            >
+              {c.contact.cta}
+            </PillLink>
           </div>
-        </AnimatedSection>
-      </div>
-    </SimplePageWrapper>
+        </Container>
+      </Section>
+    </CompanyShell>
   )
 }

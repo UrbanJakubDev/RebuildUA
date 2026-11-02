@@ -82,517 +82,793 @@
       }
     },
     "company": {
-      "hero": {
-        "description": "Innovative solutions for modern energy. We connect tradition with the future, creating sustainable energy systems for future generations."
-      },
-      "statistics": {
-        "projectsCompleted": "Projects completed",
-        "totalCapacity": "Total capacity",
-        "yearsExperience": "Years of experience"
-      },
-      "sections": {
-        "mission": {
-          "number": "01",
-          "title": "Our Mission",
-          "description1": "We are pioneers in the field of renewable energy sources. Our mission is to create a sustainable energy future through innovative technologies and intelligent solutions.",
-          "description2": "We combine years of experience with the most modern technologies to provide our clients with the best possible solutions for their energy needs."
-        },
-        "sustainability": {
-          "number": "02",
-          "title": "Sustainability",
-          "description1": "We believe in the power of renewable energy sources. Our solutions are designed to minimize environmental impact and maximize energy efficiency.",
-          "description2": "We implement every project with regard to long-term sustainability and positive impact on the community and environment."
-        },
-        "innovation": {
-          "number": "03",
-          "title": "Innovation",
-          "description1": "We constantly invest in research and development of new technologies. Our teams work on solutions that push the boundaries of what is possible in energy.",
-          "description2": "We use the most modern technologies including artificial intelligence and machine learning to optimize energy systems."
-        },
-        "partnership": {
-          "number": "04",
-          "title": "Partnership",
-          "description1": "We believe in the power of cooperation. Our clients are partners for us, with whom we build long-term relationships based on trust and mutual benefit.",
-          "description2": "We provide comprehensive support from initial planning to long-term operation and maintenance of energy systems."
-        }
-      },
-      "services": {
-        "title": "Our Services",
-        "subtitle": "We provide comprehensive energy solutions for various types of projects",
-        "installation": {
-          "title": "System Installation",
-          "description": "Complete installation of energy systems with guarantee of quality and reliability."
-        },
-        "monitoring": {
-          "title": "Monitoring",
-          "description": "Continuous performance monitoring and optimization of energy systems."
-        },
-        "maintenance": {
-          "title": "Maintenance",
-          "description": "Preventive and repair maintenance for maximum system lifespan."
-        }
-      },
-      "contact": {
-        "title": "Are you interested?",
-        "subtitle": "Contact us and together we will find the best solution for your energy needs",
-        "phone": "Phone",
-        "email": "Email",
-        "address": "Address",
-        "location": "Prague, Czech Republic"
+      "layout": {
+        "videos": "Videos",
+        "allCompanies": "All companies",
+        "backToTop": "Back to top ↑"
       },
       "companies": {
-        "common": {
-          "contact": {
-            "phone": "Tel",
-            "email": "E-mail",
-            "web": "Web"
-          }
-        },
         "gentec": {
+          "nav": [
+            {
+              "id": "about",
+              "label": "About"
+            },
+            {
+              "id": "products",
+              "label": "Products"
+            },
+            {
+              "id": "strengths",
+              "label": "Strengths"
+            },
+            {
+              "id": "rnd",
+              "label": "R&D"
+            },
+            {
+              "id": "references",
+              "label": "References"
+            },
+            {
+              "id": "partners",
+              "label": "Partners"
+            },
+            {
+              "id": "contact",
+              "label": "Contact"
+            }
+          ],
           "hero": {
-            "title": "Gentec CHP",
-            "slogan": "We change power to energy",
-            "description": "Advanced technology solutions for industrial automation and smart manufacturing processes."
+            "title": "Power\nwhen",
+            "highlight": "you\nneed it.",
+            "cta": "Partner with us",
+            "ctaSecondary": "See references"
           },
-          "groupFormation": {
-            "title": "WE ARE FORMING A GROUP DEDICATED TO",
-            "subtitle": "ENHANCING THE FLEXIBILITY",
-            "description": "OF THE EUROPEAN ENERGY SECTOR BY LEVERAGING DECENTRALIZED SOURCES."
+          "about": {
+            "eyebrow": "We are forming a group dedicated to",
+            "title": "Enhancing the flexibility of the European energy sector by leveraging decentralized sources.",
+            "groupLabel": "Part of AKURAT GROUP:"
           },
-          "companyIntroduction": {
-            "title": "COMPANY INTRODUCTION",
-            "subtitle": "MAJOR EUROPEAN MANUFACTURER",
-            "description": "We are expanding to Europe and North America as the fastest growing manufacturer of CHP in Central Europe. Active in several European countries and expanding to new markets."
+          "intro": {
+            "eyebrow": "Company introduction",
+            "title": "Major global\nmanufacturer",
+            "text": "We are expanding to Europe and North America as the fastest growing manufacturer of CHP in Central Europe. Active in several European countries and expanding to new markets.",
+            "active": "Active markets",
+            "other": "Other"
           },
-          "customersPartners": {
-            "title": "MAJOR CUSTOMERS AND PARTNERS",
-            "subtitle": "We do our best for our customers and partners.",
-            "points": {
-              "point1": "Long-term supplier for corporates such as Innogy and Veolia.",
-              "point2": "Partners with many medium and small energy companies across Europe.",
-              "point3": "Strong relationships with major manufacturers such as MAN and MTU.",
-              "point4": "THE FASTEST GROWING MANUFACTURER OF CHP IN CENTRAL EUROPE",
-              "point5": "ACTIVE IN MORE THAN 10 COUNTRIES"
-            }
-          },
-          "productRange": {
-            "title": "WIDE PRODUCT RANGE",
-            "range": "30 kWe – 12,000 kWe",
-            "description": "Thanks to our wide power range, we meet diverse customer needs:",
-            "points": {
-              "point1": "50–700 kWe with MAN",
-              "point2": "800–2,500 kWe with MTU",
-              "point3": "Available in frame, canopy, or container versions.",
-              "point4": "Compatible with natural gas, biogas, or other special gases."
-            }
+          "products": {
+            "eyebrow": "Wide product range",
+            "title": "30 kWe – 12,000 kWe",
+            "text": "Thanks to our wide power range, we meet diverse customer needs. Compatible with natural gas, biogas, or other special gases.",
+            "manRange": "50–700 kWe",
+            "mtuRange": "800–2,500 kWe",
+            "multiUnit": "Up to 12,000 kWe in multi-unit installations",
+            "scaleMin": "30 kWe",
+            "scaleMax": "12,000 kWe",
+            "version": "Version",
+            "forms": [
+              "Frame",
+              "Canopy",
+              "Container"
+            ]
           },
           "strengths": {
-            "title": "WHERE WE SEE OUR STRENGTHS",
-            "subtitle": "These features are in our company's DNA.",
-            "items": {
-              "serviceSupport": {
-                "title": "Service Support",
-                "description": "Tailored solutions ensuring performance and customer satisfaction."
-              },
-              "partnership": {
-                "title": "Partnership",
-                "description": "Tailored solutions ensuring performance and customer satisfaction."
-              },
-              "productFlexibility": {
-                "title": "Product Flexibility",
-                "description": "Tailored solutions ensuring performance and customer satisfaction."
-              },
-              "proCustomerApproach": {
-                "title": "Pro-customer Approach",
-                "description": "Tailored solutions ensuring performance and customer satisfaction."
-              },
-              "focusOnQuality": {
-                "title": "Focus on Quality",
-                "description": "Tailored solutions ensuring performance and customer satisfaction."
-              },
-              "serviceNetwork": {
-                "title": "Service Network",
-                "description": "Tailored solutions ensuring performance and customer satisfaction."
-              }
-            }
+            "eyebrow": "Where we see our strengths",
+            "title": "These features are in our company's DNA.",
+            "text": "Tailored solutions ensuring performance and customer satisfaction.",
+            "items": [
+              "Service Support",
+              "Partnership",
+              "Product Flexibility",
+              "Pro-customer Approach",
+              "Focus on Quality",
+              "Service Network"
+            ]
           },
-          "researchDevelopment": {
-            "title": "RESEARCH AND DEVELOPMENT",
-            "subtitle": "We invest to be ready for the future.",
-            "items": {
-              "lowEmission": {
+          "rnd": {
+            "eyebrow": "Research and development",
+            "title": "We invest to be ready for the future.",
+            "items": [
+              {
+                "mark": "CO₂",
                 "title": "Low-emission Solutions",
-                "description": "Developing eco-friendly CHP with industry leaders."
+                "text": "Developing eco-friendly CHP with industry leaders."
               },
-              "artificialIntelligence": {
+              {
+                "mark": "AI",
                 "title": "Artificial Intelligence",
-                "description": "AI-driven systems collect and process CHP data for predictive maintenance."
+                "text": "AI-driven systems collect and process CHP data for predictive maintenance."
               },
-              "hydrogenReady": {
+              {
+                "mark": "H₂",
                 "title": "Hydrogen Ready",
-                "description": "Developing CHP units combusting hydrogen in combination with natural gas."
+                "text": "Developing CHP units combusting hydrogen in combination with natural gas."
               }
-            }
+            ]
           },
           "references": {
-            "title": "REFERENCES",
-            "subtitle": "Our successful projects and partnerships worldwide",
-            "items": {
-              "uaProject": {
-                "title": "UA Project (Ukraine)",
-                "description": "Supply of technical assistance | 70–2500 kW | 10/23–02/24"
-              },
-              "amperGeneration": {
+            "eyebrow": "References",
+            "title": "Our successful projects and partnerships worldwide",
+            "featuredLabel": "Ukraine",
+            "filters": [
+              "All",
+              "Container",
+              "Canopy",
+              "Frame"
+            ],
+            "items": [
+              {
                 "title": "Amper Generation s.r.o.",
-                "description": "KE-MTUNG 1000 | Canopy | Low-emission solution | Turn-key solution"
+                "specs": "KE-MTUNG 1000 | Canopy | Low-emission solution | Turn-key solution",
+                "type": "Canopy",
+                "id": "amp",
+                "typeKey": "Canopy"
               },
-              "brewdog": {
-                "title": "BREWDOG (Scotland)",
-                "description": "KE-MNG 500-BL | Container | Unique design | 2023"
-              },
-              "envirogy": {
-                "title": "ENVIROGY (UK)",
-                "description": "2 CHP units | KE-MNG 140 eco BE + KE-MNG 350 BL | 2023"
-              },
-              "innogy": {
+              {
                 "title": "Innogy | Central Heating system in Náchod",
-                "description": "KE-MTUNG 1000 | Canopy | Low-emission solution | Turn-key solution"
+                "specs": "KE-MTUNG 1000 | Canopy | Low-emission solution | Turn-key solution",
+                "type": "Canopy",
+                "id": "inn",
+                "typeKey": "Canopy"
               },
-              "pittsburg": {
-                "title": "PITTSBURG (Pennsylvania, USA)",
-                "description": "KE-MNG 500-BL | Container | Realization 05/2024"
-              },
-              "mutenice": {
-                "title": "Greenhous Mutěnice | Greenhouse installation",
-                "description": "2x KE-MTUNG 1000 | Container | Low-emission solution | Turn-key solution"
-              },
-              "olbena": {
+              {
                 "title": "PBS Olbena | Olomouc, Czech Republic",
-                "description": "KE-MBG 300 | Frame | Low-emission solution"
+                "specs": "KE-MBG 300 | Frame | Low-emission solution",
+                "type": "Frame",
+                "id": "olb",
+                "typeKey": "Frame"
+              },
+              {
+                "title": "ENVIROGY (UK)",
+                "specs": "2 CHP units | KE-MNG 140 eco BE + KE-MNG 350 BL",
+                "type": "Multi-unit",
+                "id": "env",
+                "typeKey": "Multi-unit"
+              },
+              {
+                "title": "BREWDOG (Scotland)",
+                "specs": "KE-MNG 500-BL | Container | Unique design",
+                "type": "Container",
+                "id": "brew",
+                "typeKey": "Container"
+              },
+              {
+                "title": "PITTSBURG (Pennsylvania, USA)",
+                "specs": "KE-MNG 500-BL | Container",
+                "type": "Container",
+                "id": "pit",
+                "typeKey": "Container"
+              },
+              {
+                "title": "VEOLIA | District Heating System, Prague",
+                "specs": "KE-MTUNG 1000 | Canopy",
+                "type": "Canopy",
+                "id": "mut",
+                "typeKey": "Canopy"
               }
+            ],
+            "featured": {
+              "title": "UNDP Project",
+              "specs": [
+                "Municipal power and heating networks",
+                "52 MW"
+              ]
             }
           },
+          "partners": {
+            "eyebrow": "Major customers and partners",
+            "title": "We do our best for our customers and partners.",
+            "items": [
+              "Long-term supplier for corporates such as Innogy and Veolia.",
+              "Partners with many medium and small energy companies across Europe.",
+              "Strong relationships with major manufacturers such as MAN, MTU and BERGEN."
+            ]
+          },
           "contact": {
-            "title": "CONTACT",
-            "emailLabel": "Email:",
-            "email": "gentec@gentec.cz",
-            "websiteLabel": "Website:",
-            "website": "www.gentec.cz/en",
-            "qrUrl": "https://www.gentec.cz/en",
-            "partnerTitle": "READY TO PARTNER WITH US?",
-            "partnerDescription": "Join us in enhancing the flexibility of the European energy sector through decentralized sources."
+            "title": "Ready to partner with us?",
+            "text": "Join us in enhancing the flexibility of the European energy sector through decentralized sources.",
+            "label": "Contact",
+            "tel": "Tel",
+            "email": "E-mail",
+            "web": "Web",
+            "cta": "Write to us"
           },
-          "statistics": {
-            "projects": "300+",
-            "capacity": "100 MW",
-            "experience": "25 years"
-          },
-          "mission": {
-            "title": "Industrial Innovation",
-            "description1": "We develop cutting-edge automation solutions that transform traditional manufacturing into smart, efficient operations.",
-            "description2": "Our expertise spans from robotics to AI-driven process optimization, delivering measurable improvements in productivity."
-          },
-          "sustainability": {
-            "title": "Smart Manufacturing",
-            "description1": "Our solutions reduce waste, optimize energy consumption, and improve overall operational efficiency.",
-            "description2": "We help manufacturers achieve their sustainability goals while maintaining competitive advantage."
+          "facts": {
+            "items": [
+              {
+                "value": "30–12,000",
+                "unit": "kWe",
+                "label": "Power range across all units"
+              },
+              {
+                "value": "10+",
+                "unit": "",
+                "label": "Countries where we are active"
+              },
+              {
+                "value": "MAN, MTU\n& BERGEN",
+                "unit": "",
+                "label": "Engine partners"
+              },
+              {
+                "value": "#1",
+                "unit": "",
+                "label": "The fastest growing manufacturer of CHP in Central Europe"
+              }
+            ]
           }
         },
         "repower": {
+          "nav": [
+            {
+              "id": "about",
+              "label": "About"
+            },
+            {
+              "id": "locations",
+              "label": "Locations"
+            },
+            {
+              "id": "pilot",
+              "label": "Pilot project"
+            },
+            {
+              "id": "economics",
+              "label": "Economics"
+            },
+            {
+              "id": "jv",
+              "label": "Joint venture"
+            },
+            {
+              "id": "timeline",
+              "label": "Timeline"
+            },
+            {
+              "id": "partners",
+              "label": "Partners"
+            },
+            {
+              "id": "contact",
+              "label": "Contact"
+            }
+          ],
           "hero": {
-            "title": "GENTEC CHP Investment Project",
-            "description": "Pioneering decentralized energy solutions for Ukraine's sustainable future through advanced cogeneration technology and strategic partnerships."
+            "eyebrow": "GENTEC RePOWER Ukraine · Investment Project",
+            "title": "Investment\nin Ukrainian",
+            "highlight": "Energy.",
+            "text": "This investment project will contribute to Ukraine's energy stability while ensuring cost-effective delivery of heat and electricity through advanced cogeneration technology.",
+            "cta": "Partner with us",
+            "ctaSecondary": "Pilot project Vinice"
           },
-          "agenda": {
-            "title": "Agenda",
-            "items": {
-              "item1": {
-                "number": "01",
-                "title": "Investment in Ukrainian Energy",
-                "description": "Strategic opportunities in decentralized power generation and the critical role of cogeneration in Ukraine's energy independence"
+          "about": {
+            "title": "The project focuses on developing and operating a network of decentralized electricity and heat generation sources using cogeneration units from GENTEC CHP Czech Republic.",
+            "text": "The presented business model for cogeneration unit networks represents an attractive investment opportunity with a payback period of 2.6–3.2 years and strong long-term returns."
+          },
+          "locations": {
+            "eyebrow": "Location Schema for CHP Units",
+            "title": "20 identified locations",
+            "capacity": "100–200",
+            "unit": "MW",
+            "text1": "Current Pool of projects: 20 identified locations with total capacity of 100–200 MW across strategically selected sites in Ukraine.",
+            "text2": "Sites have been carefully evaluated based on access to infrastructure, security considerations, and economic viability to ensure optimal project performance."
+          },
+          "pilot": {
+            "eyebrow": "Pilot project",
+            "title": "Vinice",
+            "goalTitle": "Project Goal",
+            "goalText": "Installation of 5–10 MW cogeneration units for high-efficiency electrical energy production from natural gas. Electricity will be sold to the grid; heat will not be utilized due to absence of local consumers.",
+            "techTitle": "Location & Technology",
+            "techText": "Strategic site with access to gas pipeline and electrical grid, ensuring continuous operation with security measures. MTU (MWM) -based GENTEC CHP technology with 2 x 2.5 MW capacity, expandable up to 4 x 2.5 MW.",
+            "initial": "2 × 2.5",
+            "unit": "MW",
+            "initialLabel": "Initial configuration",
+            "expand": "4 × 2.5",
+            "expandLabel": "Expandable up to",
+            "auditEyebrow": "Technical Audit Results, Vinice project",
+            "auditTitle": "Site recommended for 10 MW",
+            "auditText1": "Based on survey results, the site has been deemed suitable and recommended for placement of cogeneration units with total capacity of 10 MW. The commission acknowledges technical readiness for project implementation at this location, ensuring efficient utilization of local resources for electricity production and regional infrastructure development.",
+            "auditText2": "This site meets requirements of the GENTEC RePOWER Ukraine business project, part of the national program for creating a network of decentralized electricity generation sources."
+          },
+          "economics": {
+            "eyebrow": "Pilot project economics",
+            "title": "Investment Costs and Returns, Vinice project",
+            "financingTitle": "Financing Structure",
+            "equity": "Investor equity: 30%",
+            "loan": "Bank loan or leasing: 70% (16% interest rate)",
+            "grants": "Possible EU grants or subsidized loans",
+            "conclusionTitle": "Investment Conclusion",
+            "conclusion": "The Vinice project represents an economically attractive and environmentally sustainable investment with stable electricity revenue, technological reliability, and scalability potential.",
+            "returns": [
+              {
+                "value": "€3.6M",
+                "title": "5 MW Investment",
+                "sub": "€7.2M for 10 MW configuration"
               },
-              "item2": {
-                "number": "02",
-                "title": "Main Project Parameters",
-                "description": "Technical specifications, capacity details, and comprehensive infrastructure requirements for successful deployment"
+              {
+                "value": "126.7%",
+                "title": "IRR (5 years)",
+                "sub": "123.1% over 10-year period"
               },
-              "item3": {
-                "number": "03",
-                "title": "Location Schema",
-                "description": "Geographic distribution analysis, site selection methodology, and strategic positioning across Ukrainian territory"
+              {
+                "value": "1.0",
+                "title": "Equity Payback",
+                "sub": "Years to recover equity investment"
+              },
+              {
+                "value": "3.2",
+                "title": "Total Payback",
+                "sub": "Years for full capital recovery"
               }
-            }
+            ]
           },
-          "investment": {
-            "title": "Investment in Ukrainian Energy",
-            "point1": "Addresses critical energy infrastructure needs with sustainable, cost-effective solutions.",
-            "point2": "Deploys state-of-the-art GENTEC CHP cogeneration units (Czech-made) for decentralized electricity and heat generation.",
-            "point3": "Enhances energy security, reduces transmission losses, and ensures resilient power supply.",
-            "point4": "Presents an exceptional investment opportunity with a rapid payback period of just 3-4.5 years and attractive long-term returns."
+          "evaluation": {
+            "eyebrow": "Economic Project Evaluation",
+            "title": "Technical Solution: 2 x 2.5 MW",
+            "subtitle": "Day market + balancing without heat utilization",
+            "text": "Financial modeling demonstrates strong revenue potential through day-ahead market participation and balancing services, with consistent cash flows supporting rapid payback periods."
           },
-          "parameters": {
-            "title": "Main Project Parameters",
-            "pilotCapacity": {
-              "title": "Pilot Capacity",
-              "value": "30 MW",
-              "description": "30 MW total installed capacity planned across initial deployment phase",
-              "point1": "5-10 MW per strategic location",
-              "point2": "Modular design for flexible scaling",
-              "point3": "Proven MTU-based technology platform"
-            },
-            "expansion": {
-              "title": "Expansion Phase",
-              "value": "100-150 MW",
-              "description": "100-150 MW anticipated growth following successful pilot validation",
-              "point1": "20 identified locations nationwide",
-              "point2": "Replicable deployment model",
-              "point3": "Portfolio diversification strategy"
-            },
-            "lease": {
-              "title": "Lease Terms",
-              "value": "10 years",
-              "description": "10 years initial term with landowner partnership structure",
-              "point1": "5-year extension option available",
-              "point2": "Flexible commercial arrangements",
-              "point3": "Long-term stability assured"
-            },
-            "siteSelection": {
-              "title": "Site Selection",
-              "value": "ROI 3-4.5 years",
-              "description": "ROI 3-4.5 years with comprehensive risk mitigation",
-              "point1": "Broad territorial coverage optimization",
-              "point2": "Advanced security measures implemented",
-              "point3": "Infrastructure access prioritized"
-            }
+          "jv": {
+            "eyebrow": "GENTEC Ukraine · Operational Structure",
+            "title": "Czech-Ukrainian Joint Venture",
+            "items": [
+              "The Czech-Ukrainian joint venture SPV will supply GENTEC cogeneration units at its own expense and cover all project costs including technical design, grid connection, and gas infrastructure integration.",
+              "The SPV will manage operational expenses for maintenance, service, and fuel (natural gas), obtain necessary licenses, and sell generated electricity and heat to the grid.",
+              "This integrated approach ensures efficient project delivery and streamlined operations across all locations."
+            ]
           },
-          "location": {
-            "title": "Location Schema for CHP Units",
-            "description1": "Current Pool of Projects: 20 carefully identified locations representing total capacity of 100-200 MW distributed across strategically selected sites throughout Ukraine.",
-            "description2": "Each location has undergone rigorous evaluation encompassing infrastructure accessibility, grid connection capacity, natural gas pipeline proximity, security risk assessment, and economic viability analysis. This methodical approach ensures optimal project performance and minimizes operational risks.",
-            "description3": "Our site selection methodology prioritizes locations with existing utility infrastructure, favorable regulatory environments, and proximity to demand centers, enabling rapid deployment and immediate revenue generation upon commissioning."
-          },
-          "financial": {
-            "title": "Vinice Project Financial Analysis",
-            "description": "Comprehensive financial overview of the investment project with detailed metrics and return analysis.",
-            "investment": {
-              "title": "10 MW Investment",
-              "value": "€6.0M",
-              "subtitle": "€3,2M for 5 MW configuration with complete installation and commissioning"
-            },
-            "irr": {
-              "title": "IRR (5 years)",
-              "value": "72.9%",
-              "subtitle": "82.1% Internal Rate of Return over extended 10-year operational period"
-            },
-            "equityPayback": {
-              "title": "Equity Payback",
-              "value": "1.5",
-              "subtitle": "Years to fully recover initial equity investment from operational cash flows"
-            },
-            "totalPayback": {
-              "title": "Total Payback",
-              "value": "4.0",
-              "subtitle": "Years for complete capital recovery including all debt service obligations"
-            }
-          },
-          "financing": {
-            "title": "Financing Structure",
-            "point1": "Investor equity: 30% - Reduced capital requirements through leverage",
-            "point2": "Bank loan or leasing: 70% - 16% interest rate based on current market conditions",
-            "point3": "EU grants or subsidized loans - Potential additional funding sources available"
-          },
-          "conclusion": {
-            "title": "Investment Conclusion",
-            "description": "The Vinice project represents an economically attractive and environmentally sustainable investment opportunity featuring stable long-term electricity revenue streams, proven technological reliability from GENTEC's established track record, and significant scalability potential for portfolio expansion across additional Ukrainian locations."
+          "timeline": {
+            "eyebrow": "Project Timeline",
+            "title": "Five phases to commercial launch",
+            "items": [
+              {
+                "title": "Phase 1: Preparation & Financing",
+                "dur": "1 month",
+                "text": "Post-MOU site survey and due diligence of VMG PODILLJA (IKNET). Document collection, technical/legal audit, feasibility assessment, CAPEX/OPEX definition, and business plan preparation for MND and GENTEC investor approval."
+              },
+              {
+                "title": "Phase 2: Ukrainian Entity Formation",
+                "dur": "2 months",
+                "text": "Establishment of Ukrainian SPV or JV (OOO) to obtain operational permits and serve as purchaser of cogeneration units (20% customs duty exemption through end of 2025)."
+              },
+              {
+                "title": "Phase 3: Contracts & Permits",
+                "dur": "4 months",
+                "text": "Land lease agreement with VMG PODILLJA, designer and general contractor contracts, technical conditions for gas/electricity connection, project work completion, land use change (code 14.01), municipal permits, and grid connection agreement with TARGET trader."
+              },
+              {
+                "title": "Phase 4: Construction & Inspection",
+                "dur": "6 months",
+                "text": "Post-project completion, unit ordering and manufacturing, engineering-geodetic and geological surveys, construction commencement, site preparation, utility connections, technical inspection, and construction completion."
+              },
+              {
+                "title": "Phase 5: Delivery & Commissioning",
+                "dur": "7–8 months",
+                "text": "Cogeneration unit delivery, installation and commissioning. Connection to public network via ASKOJA automatic control system (using VIRTUEL/AGGREGATT software) and commercial launch on RDN, BR, DP markets. Service agreement signing with local partner (MADEK)."
+              }
+            ]
           },
           "partners": {
-            "seeking": {
-              "title": "Seeking Strategic Partners",
-              "subtitle": "Key Collaboration Opportunities",
-              "investors": {
-                "title": "Investors",
-                "description": "Individuals or institutions interested in funding the project and participating in its financial success and long-term benefits."
-              },
-              "landOwners": {
-                "title": "Land Owners",
-                "description": "Property owners willing to lease suitable land for the development and operation of renewable energy facilities on a long-term basis."
-              },
-              "implementation": {
-                "title": "Implementation Partners",
-                "description": "Companies or experts with proven experience in renewable energy construction, technical installation, and efficient operational management."
-              }
-            },
-            "key": {
-              "title": "Key Partners",
-              "subtitle": "Strategic Alliances for Success",
-              "description": "Our commitment to operational excellence and technological innovation is reflected in strategic partnerships with leading industry organizations, equipment manufacturers, and service providers.",
-              "mainImage": "/images/repower/key-partner.jpg",
-              "mainImageAlt": "Key Partner",
-              "image1": "/images/repower/image8.png",
-              "image1Alt": "Key Partner",
-              "finalDescription": "These partnerships provide access to MTU engine technology, advanced control systems, comprehensive maintenance support, and established supply chains. Collaboration with local Ukrainian partners ensures regulatory compliance, cultural understanding, and efficient project execution within the local business environment.",
-              "partner1": {
-                "name": "Partner 1",
-                "image": "/images/repower/partner1.png"
-              },
-              "partner2": {
-                "name": "Partner 2",
-                "image": "/images/repower/partner2.png"
-              },
-              "partner3": {
-                "name": "Partner 3",
-                "image": "/images/repower/partner3.png"
-              },
-              "partner4": {
-                "name": "Partner 4",
-                "image": "/images/repower/partner4.png"
-              },
-              "partner5": {
-                "name": "Partner 5",
-                "image": "/images/repower/image8.png"
-              }
-            }
+            "eyebrow": "Key Partners",
+            "title": "Strategic partnerships with leading industry organizations",
+            "text": "Our commitment to excellence is reflected in our strategic partnerships with leading industry organizations."
           },
           "contact": {
-            "title": "Contact Us",
-            "emailLabel": "Email",
-            "phoneLabel": "Phone",
-            "websiteLabel": "Website",
-            "website": "WWW.GENTEC.CZ/EN",
-            "email": "serge.knizhin@gentec.cz",
-            "phone": "+420723040212",
-            "logos": {
-              "repower": "/images/repower/image8.png",
-              "repowerAlt": "Repower Logo",
-              "gentec": "/images/repower/image3.png",
-              "gentecAlt": "GENTEC Logo"
-            },
-            "cta": {
-              "title": "Ready to Invest in Ukraine's Energy Future?",
-              "description": "Connect with our investment team to explore opportunities in decentralized power generation. We provide comprehensive support throughout the investment process, from initial feasibility assessment through commercial operation and beyond.",
-              "image": "/images/repower/company-contactus.png"
-            }
-          }
-        },
-        "multicont": {
-          "hero": {
-            "title": "Technological containers turnkey",
-            "description": "Technological containers that we manufacture to measure for the diverse needs of our customers."
+            "eyebrow": "GENTEC RePOWER Ukraine Team",
+            "title": "Thank You",
+            "text": "We look forward to partnering with you to build Ukraine's energy future through innovative cogeneration solutions.",
+            "label": "Contact",
+            "email": "E-mail",
+            "web": "Web",
+            "cta": "Write to us"
           },
-          "statistics": {
-            "projects": "500+",
-            "capacity": "Global Network",
-            "experience": "30 years"
-          },
-          "company": {
-            "title": "Introduction of MULTICONT CONTAINERS s.r.o.",
-            "description": {
-              "p1": "Our company was founded due to increased demand for technological containers, including but not limited to the energy industry.",
-              "p2": "We manufacture technological containers tailored to customer needs for a wide range of applications with focus on quality and design throughout the entire production cycle.",
-              "p3": "We additionally offer packaging of customer-required technologies."
-            }
-          },
-          "specifications": {
-            "title": "Technological possibilities of our containers",
-            "maxDimensions": {
-              "title": "Maximum dimensions",
-              "value": "12 m x 3.5 m x 3.5 m (lxwxh)"
-            },
-            "weightAssembled": {
-              "title": "Weight after assembly",
-              "value": "20 t"
-            },
-            "weightEmpty": {
-              "title": "Weight of empty container",
-              "value": "8 t"
-            },
-            "capabilities1": "We have a welding shop, paint shop and we are able to ensure final assembly of technologies.",
-            "capabilities2": "We have our own design and technology department."
-          },
-          "projects": {
-            "twinPack": {
-              "title": "Twin pack 14 meters long",
-              "description": "For a customer in the UK, we manufactured a custom twin pack - two containers connected into one. This is a container with a unique length of more than 14 meters, in which cogeneration units for natural gas are installed: KE-MNG 140 eco and KE-MNG 450 from GENTEC."
-            },
-            "biogas": {
-              "title": "Container for biogas plant",
-              "description": "As part of one of our orders, we manufactured a container for placing a biogas cogeneration unit for a biogas plant in the Czech Republic. Compact dimensions ensure trouble-free placement in the BPS area."
-            }
-          },
-          "referenceGallery": {
-            "title": "Reference Gallery"
-          }
-        },
-        "aggregaat": {
-          "hero": {
-            "title": "We aggregate flexibility",
-            "description": "We connect energy with digitalization. Knowledge of market functioning with knowledge of source operation. We connect decentralized sources into virtual power plants."
-          },
-          "statistics": {
-            "projects": "200+",
-            "capacity": "50 MW",
-            "experience": "20 years"
-          },
-          "sections": {
-            "title": "What do we do?",
-            "flexibility": {
-              "title": "Flexibility aggregation",
-              "description": "A modern solution that connects decentralized sources and energy consumers into one system. This reduces dependence on traditional energy sources and increases the stability of the energy grid. It also allows our partners to maximize revenue from energy production and participate in building modern energy."
-            },
-            "operation": {
-              "title": "Operation of aggregated blocks and virtual power plants",
-              "description": "To control aggregated blocks, we use the Virtuel system, which uses elements of artificial intelligence and machine learning. Thanks to the combination of our experience with a smart control system, we are able to perfectly optimize the operation of aggregation blocks and maximize their yield. We specialize in aggregated blocks that mainly combine sources with cogeneration units. Within the group, we deal with their production and service and have long-term experience with their operation in energy systems."
-            },
-            "management": {
-              "title": "Management of our own sources and sources of our partners",
-              "description": "We add both our partners' and customers' sources, as well as our own production facilities, to aggregation blocks. From the outset, we have built the system to be as sophisticated as possible, enabling us to optimally manage our source portfolio. This also serves as a guarantee of quality for our partners and customers.\n\nWe manage your sources as carefully as our own."
-            },
-            "investment": {
-              "title": "Investment in the construction of flexible energy sources",
-              "description": "We therefore invest in the construction of sources that provide flexibility. We focus on the markets of the Czech Republic and Western Europe. Demand for flexibility will grow together with the increasing capacity of renewable energy sources. This is already happening in Western Europe and North America.\n\nThis trend is slowly coming to the Czech Republic."
-            }
-          },
-            "stats": {
-            "title": "65 MW: we aggregate over 40 sources we operate",
-            "description": "Our group aggregates the flexibility of our partners and customers. We connect their sources into virtual power plants and optimize their operation."
-          },
-          "services": {
-            "title": "Our services and solutions",
-            "description1": "We provide comprehensive services in the field of flexibility aggregation and energy source management. Our solutions combine modern technologies with many years of experience in energy.",
-            "description2": "We specialize in optimizing the operation of decentralized energy sources and their integration into energy markets.",
-            "accordion": {
-              "flexibility": {
-                "title": "Flexibility aggregation",
-                "content": "We connect decentralized energy sources into virtual power plants and optimize their operation on energy markets."
+          "facts": {
+            "items": [
+              {
+                "title": "Pilot Capacity",
+                "value": "30",
+                "unit": "MW",
+                "label": "planned total installed capacity (5–10 MW per location)"
               },
-              "management": {
-                "title": "Source management",
-                "content": "We use advanced algorithms and artificial intelligence for optimal management of your energy sources."
+              {
+                "title": "Expansion Phase",
+                "value": "100",
+                "unit": "MW",
+                "label": "expansion following successful pilot results (up to 150 MW)"
               },
-              "monitoring": {
-                "title": "Monitoring and analysis",
-                "content": "We provide continuous monitoring of source performance and detailed analyses to maximize yields."
+              {
+                "title": "Lease Terms",
+                "value": "10",
+                "unit": "years",
+                "label": "with landowner, option to extend for additional 5 years"
               },
-              "investment": {
-                "title": "Investment and development",
-                "content": "We invest in the construction of new flexible energy sources and support the development of sustainable energy."
+              {
+                "title": "ROI",
+                "value": "2.6–3.2",
+                "unit": "years",
+                "label": "broad territorial coverage, security measures"
               }
-            }
-          },
-          "projects": {
-            "title": "Our projects in action"
-          },
-          "company": {
-            "title": "Introduction of aggregaat s.r.o.",
-            "description": {
-              "p1": "We connect energy with digitalization. We combine market knowledge with operational expertise in energy resources. Operational optimization and flexible energy delivery represent a modern solution that integrates decentralized energy sources and consumers into a unified system.",
-              "p2": "We are an electricity trader, a settlement entity, and a service provider for the Transmission System Operator (TSO).We operate not only flexible and regulatory sources but also district heating facilities.",
-              "p3": "Our services enable our partners to maximize revenues while contributing to the resilience of the power grid against performance fluctuations, thereby enhancing the safety and reliability of electricity and heat supply."
-            }
+            ]
           }
         },
-        "referenceGallery": {
-          "title": "Reference Gallery"
+        "ukrhold": {
+          "nav": [
+            {
+              "id": "about",
+              "label": "About"
+            },
+            {
+              "id": "directions",
+              "label": "Directions"
+            },
+            {
+              "id": "process",
+              "label": "How we work"
+            },
+            {
+              "id": "solutions",
+              "label": "Solutions"
+            },
+            {
+              "id": "models",
+              "label": "Cooperation"
+            },
+            {
+              "id": "contact",
+              "label": "Contact"
+            }
+          ],
+          "hero": {
+            "eyebrow": "Energy for development",
+            "title": "EPC contractor\nin energy",
+            "subtitle": "power and heat generation",
+            "text": "Design, equipment supply, construction and commissioning of turnkey energy facilities — from feasibility study to service.",
+            "cta": "Send a request",
+            "ctaSecondary": "EPC directions",
+            "stages": "ENGINEERING · PROCUREMENT · CONSTRUCTION · COMMISSIONING · SERVICE",
+            "scope": "CHP · Turbines · Boiler houses · Heating networks · BESS"
+          },
+          "about": {
+            "eyebrow": "About the company",
+            "title": "One contractor — full responsibility for the result",
+            "text": "UKRHOLD Energy Group delivers energy projects under the EPC model: we take on engineering, equipment supply, construction and installation works and commissioning, and hand over a finished facility with guaranteed parameters to the client.",
+            "clientsTitle": "Who we work for",
+            "clients": [
+              "Industrial enterprises and agricultural holdings",
+              "District heating utilities and municipalities",
+              "Commercial real estate, hospitals, data centres",
+              "Investors and developers of energy projects"
+            ]
+          },
+          "directions": {
+            "eyebrow": "What we do",
+            "title": "EPC directions",
+            "items": [
+              {
+                "title": "Cogeneration units",
+                "text": "Gas-piston CHP and trigeneration 0.5–10+ MW, containerised or stationary design"
+              },
+              {
+                "title": "Steam turbines",
+                "text": "Installation, overhaul, modernisation and efficiency restoration of turbine units"
+              },
+              {
+                "title": "Gas turbines",
+                "text": "Simple and combined cycle, auxiliary systems, integration into operating plants"
+              },
+              {
+                "title": "Boiler equipment",
+                "text": "New and modular boiler houses, reconstruction, burners, water treatment, process control systems"
+              },
+              {
+                "title": "Heating networks",
+                "text": "Construction and reconstruction of pre-insulated pipe networks, individual heating substations"
+              },
+              {
+                "title": "Energy storage (BESS)",
+                "text": "Containerised LFP systems: PCS, EMS, peak balancing, reserve, hybrid with CHP and PV"
+              }
+            ]
+          },
+          "process": {
+            "eyebrow": "How we work",
+            "title": "Full EPC cycle — from idea to operation",
+            "resultLabel": "Result:",
+            "result": "fixed timeline and budget, one contract and a single point of responsibility for the entire facility",
+            "items": [
+              {
+                "title": "Feasibility & engineering",
+                "text": "Energy audit, feasibility study, basic and detailed design, permitting documentation"
+              },
+              {
+                "title": "Procurement",
+                "text": "Selection and purchase of equipment from leading European manufacturers, logistics, customs clearance"
+              },
+              {
+                "title": "Construction",
+                "text": "Civil works, mechanical installation, electrical installation, piping, process control systems"
+              },
+              {
+                "title": "Commissioning",
+                "text": "Start-up, grid synchronisation, guaranteed-performance testing, staff training"
+              },
+              {
+                "title": "Service & O&M",
+                "text": "Maintenance, spare parts, remote monitoring, long-term support"
+              }
+            ]
+          },
+          "solutions": {
+            "eyebrow": "Solutions for clients",
+            "title": "Energy independence and lower energy costs",
+            "taskLabel": "TASK",
+            "solutionLabel": "UKRHOLD SOLUTION",
+            "items": [
+              {
+                "title": "Industry",
+                "task": "High energy costs and outage risks",
+                "sol": "Own CHP or gas turbine with heat recovery + BESS for backup"
+              },
+              {
+                "title": "District heating",
+                "task": "Worn-out boiler houses and networks, heat losses",
+                "sol": "Modernisation of boiler houses, cogeneration, new heating networks and substations"
+              },
+              {
+                "title": "Agriculture & food",
+                "task": "Need for heat, cooling and CO₂",
+                "sol": "Trigeneration, biogas, absorption cooling"
+              },
+              {
+                "title": "Hospitals, data centres, real estate",
+                "task": "Critical 24/7 power supply",
+                "sol": "CHP + BESS in hybrid mode, island operation"
+              }
+            ]
+          },
+          "models": {
+            "eyebrow": "Cooperation models",
+            "title": "Flexible formats for every project",
+            "whyTitle": "Why UKRHOLD",
+            "items": [
+              {
+                "title": "EPC turnkey",
+                "text": "Full cycle under one contract: fixed price, timeline and guaranteed facility parameters"
+              },
+              {
+                "title": "EPCM / supervision",
+                "text": "Engineering, project management, installation supervision and commissioning of the client's equipment"
+              },
+              {
+                "title": "ESCO / energy service",
+                "text": "Construction with no capital expenditure by the client: payment from savings or per energy supplied"
+              }
+            ],
+            "why": [
+              "Single point of responsibility — from design to handover",
+              "Experienced engineers in power and heat generation",
+              "Projects to EU and Ukrainian standards",
+              "Partnership with leading European manufacturers",
+              "Local presence and fast service response"
+            ]
+          },
+          "contact": {
+            "eyebrow": "Next step",
+            "title": "We deliver your energy project turnkey",
+            "text": "Send us your site's initial data — we will prepare a technical concept and a preliminary commercial offer.",
+            "name": "Yevhenii Kolisnyk",
+            "role": "Director, UKRHOLD Energy Group",
+            "cta": "Send a request"
+          },
+          "facts": {
+            "items": [
+              {
+                "value": "6",
+                "title": "EPC directions",
+                "label": "from cogeneration to energy storage systems"
+              },
+              {
+                "value": "5",
+                "title": "turnkey stages",
+                "label": "Feasibility → design → supply → installation → service"
+              },
+              {
+                "value": "0.5–10+",
+                "title": "MW per unit",
+                "label": "gas-piston and turbine power units"
+              },
+              {
+                "value": "EU + UA",
+                "title": "standards",
+                "label": "equipment from European manufacturers"
+              }
+            ]
+          }
+        },
+        "turbex": {
+          "nav": [
+            {
+              "id": "mission",
+              "label": "Mission"
+            },
+            {
+              "id": "goals",
+              "label": "Goals"
+            },
+            {
+              "id": "competences",
+              "label": "Competences"
+            },
+            {
+              "id": "team",
+              "label": "Team"
+            },
+            {
+              "id": "parts",
+              "label": "Spare parts"
+            },
+            {
+              "id": "market",
+              "label": "Market"
+            },
+            {
+              "id": "contact",
+              "label": "Contact"
+            }
+          ],
+          "hero": {
+            "eyebrow": "Service and spare parts",
+            "title": "A new level\nof service",
+            "highlight": "in Ukraine",
+            "cta": "Contact us",
+            "ctaSecondary": "Our competences"
+          },
+          "mission": {
+            "eyebrow": "Our mission",
+            "title": "GENTEC CHP s.r.o. is expanding its own network of certified service centres for cogeneration units in Europe.",
+            "text": "We are investing in building our own cogeneration unit service network in Ukraine."
+          },
+          "goals": {
+            "eyebrow": "Our goals",
+            "title": "What we build towards",
+            "items": [
+              {
+                "title": "Service network and support",
+                "text": "We are constantly expanding our service network and investing in training our technical specialists."
+              },
+              {
+                "title": "Focus on quality",
+                "text": "We can cover everything: from the initial assessment to daily monitoring of the cogeneration unit."
+              },
+              {
+                "title": "Certified spare parts",
+                "text": "We build our CHP plants and service systems using high-quality spare parts and components from renowned global manufacturers."
+              },
+              {
+                "title": "Comprehensive solutions",
+                "text": "Remote support, online training, troubleshooting and consultations."
+              }
+            ]
+          },
+          "competences": {
+            "eyebrow": "Our competences",
+            "title": "From inspection to full overhaul",
+            "items": [
+              {
+                "title": "Maintenance",
+                "text": "Proper maintenance of your high-quality engines is crucial to ensuring their performance and durability."
+              },
+              {
+                "title": "Engine diagnostics",
+                "text": "We assess the condition of the engine during inspection. We use oil analysis, endoscopy and engine measurements."
+              },
+              {
+                "title": "Repair and reconstruction",
+                "text": "We identify the cause of the fault, repair components and assemblies, and restore the equipment’s performance before returning it to operation."
+              },
+              {
+                "title": "Engine overhaul",
+                "text": "We have all the equipment needed for a professional overhaul of your engine. After the overhaul, your engine will be fully restored to factory specifications."
+              }
+            ]
+          },
+          "team": {
+            "eyebrow": "Our team",
+            "title": "Experienced engineers for the full equipment life cycle",
+            "items": [
+              "Turbex is a team of experienced engineers specialising in component selection, as well as the repair and maintenance of power equipment.",
+              "We help businesses implement reliable solutions for a stable energy supply — from equipment selection to service support.",
+              "We cover the full equipment life cycle, including scheduled maintenance, diagnostics, repair and spare parts supply.",
+              "Each site is assigned a dedicated engineer who knows the equipment history and ensures response times are met."
+            ]
+          },
+          "parts": {
+            "eyebrow": "Spare parts",
+            "title": "Certified spare parts",
+            "items": [
+              "Direct supply from manufacturers",
+              "Own spare parts warehouse in Ukraine",
+              "Consolidated database",
+              "Coverage of the service operations market",
+              "Fast stock replenishment"
+            ]
+          },
+          "market": {
+            "eyebrow": "Market",
+            "title": "Who we serve",
+            "items": [
+              {
+                "title": "Industrial facilities",
+                "items": [
+                  "Maintenance of main and backup equipment",
+                  "Monitoring of parameters under load",
+                  "Repair schedule aligned with planned shutdowns"
+                ]
+              },
+              {
+                "title": "Agricultural enterprises",
+                "items": [
+                  "Early preparation of equipment ahead of the season",
+                  "Support for power generation at remote sites",
+                  "Checks after peak load"
+                ]
+              },
+              {
+                "title": "Commercial real estate",
+                "items": [
+                  "Regular backup power checks",
+                  "Maintenance of building systems",
+                  "Work planning for tenant convenience"
+                ]
+              },
+              {
+                "title": "Utilities",
+                "items": [
+                  "Boiler houses (before the heating season)",
+                  "Backup power supply for critical infrastructure",
+                  "Pumping stations for water supply"
+                ]
+              }
+            ]
+          },
+          "growth": {
+            "eyebrow": "Growth strategy",
+            "title": "Expand, improve, explore",
+            "items": [
+              {
+                "title": "Expansion",
+                "items": [
+                  "Extended market coverage through strategic partnerships",
+                  "Building the team: growing a group of strong players in the service market"
+                ]
+              },
+              {
+                "title": "Improvement",
+                "items": [
+                  "Improving service quality based on customer feedback",
+                  "Providing an individual approach and a customer-focused experience"
+                ]
+              },
+              {
+                "title": "Exploration",
+                "items": [
+                  "Additional market expansion opportunities",
+                  "Seizing opportunities arising from an extended range of services"
+                ]
+              }
+            ]
+          },
+          "contact": {
+            "title": "Thank you for your attention!",
+            "name": "Oleksandr Hulia",
+            "role": "Director, TURBEX",
+            "label": "Contact",
+            "tel": "Tel",
+            "email": "E-mail",
+            "web": "Web",
+            "cta": "Write to us"
+          }
         }
       }
     }

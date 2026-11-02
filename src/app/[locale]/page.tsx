@@ -12,22 +12,6 @@ export async function generateMetadata({
 }
 
 export default function DashboardPage() {
-  // Aggr a Multicont zůstávají skryté (nemazat), dokud se nerozhodne o jejich návratu
-  // const hiddenCompanies = [
-  //   {
-  //     slug: 'Aggr',
-  //     name: 'Aggr',
-  //     logoUrl: '/images/aggr_logo.svg',
-  //     description: 'Popis firmy A'
-  //   },
-  //   {
-  //     slug: 'Multicont',
-  //     name: 'Multicont',
-  //     logoUrl: '/images/multicont.svg',
-  //     description: 'Popis firmy C'
-  //   }
-  // ]
-
   const companies = [
     {
       slug: 'Gentec',
@@ -43,13 +27,13 @@ export default function DashboardPage() {
     },
     {
       slug: 'UKRHOLD',
-      name: 'UKRHOLD'
-      // logoUrl zatím chybí - dočasně zobrazen textový placeholder
+      name: 'UKRHOLD',
+      logoUrl: '/images/ukrhold/image5.png'
     },
     {
       slug: 'Turbex',
-      name: 'Turbex'
-      // logoUrl zatím chybí - dočasně zobrazen textový placeholder
+      name: 'Turbex',
+      logoUrl: '/images/turbex/image3.png'
     }
   ]
 

@@ -3,14 +3,9 @@ import type { Metadata } from 'next'
 import { AbstractIntlMessages, NextIntlClientProvider } from 'next-intl'
 import { Rubik, Space_Grotesk, Montserrat } from 'next/font/google'
 import NextTopLoader from 'nextjs-toploader'
-import { Header } from '@/src/components/Header'
-
-import { Footer } from '@/src/components/Footer'
-import { BackToTop } from '@/src/components/BackToTop'
 import { CustomScrollbar } from '@/src/components/CustomScrollbar'
 import './globals.css'
-import { Suspense } from 'react'
-import { BackgroundSlideshow } from '../../components/BackgroundSlideshow'
+import { SiteChrome } from '@/src/components/SiteChrome'
 import enMessages from '../../../messages/en.json'
 import uaMessages from '../../../messages/ua.json'
 
@@ -91,34 +86,7 @@ export default async function LocaleLayout({
               showSpinner={false}
             />
             <CustomScrollbar thumbWidth={50} enabled={ENABLE_CUSTOM_SCROLLBAR}>
-              <div className='flex min-h-screen flex-col'>
-                {/* NavBar */}
-                <Header locale={locale} />
-
-                {/* Main - vyplní zbývající místo */}
-                <main className='relative flex-1'>
-                  {/* Background slideshow */}
-                  <BackgroundSlideshow />
-
-                  {/* Content */}
-                  <div className='relative z-10 h-full'>
-                    <Suspense
-                      fallback={
-                        <div className='flex h-full items-center justify-center'>
-                          Loading...
-                        </div>
-                      }
-                    >
-                      {children}
-                    </Suspense>
-                  </div>
-                </main>
-
-                {/* Footer */}
-                <Footer />
-
-                <BackToTop />
-              </div>
+              <SiteChrome locale={locale}>{children}</SiteChrome>
             </CustomScrollbar>
           </NextIntlClientProvider>
         </ThemeProvider>

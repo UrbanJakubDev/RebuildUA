@@ -2,6 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Avenir LT Pro – font nového designu podstránek firem */
+@font-face {
+  font-family: 'Avenir LT Pro';
+  src: url('/fonts/avenir/AvenirLTProLight.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Avenir LT Pro';
+  src: url('/fonts/avenir/AvenirLTProBook.otf') format('opentype');
+  font-weight: 350;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Avenir LT Pro';
+  src: url('/fonts/avenir/AvenirLTProRoman.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Avenir LT Pro';
+  src: url('/fonts/avenir/AvenirLTProMedium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Avenir LT Pro';
+  src: url('/fonts/avenir/AvenirLTProHeavy.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Avenir LT Pro';
+  src: url('/fonts/avenir/AvenirLTProBlack.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   :root {
     /* Dark theme as default - Professional neutral dark with red accent and softer colors */
