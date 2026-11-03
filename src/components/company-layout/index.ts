@@ -1,6 +1,4 @@
 export { CompanyShell } from './CompanyShell'
-export { CompanyFooter } from './CompanyFooter'
-export { CompanyTopBar } from './CompanyTopBar'
 export { SectionNav } from './SectionNav'
 export type { SectionNavItem } from './SectionNav'
 export { AnchorLink } from './AnchorLink'

@@ -60,8 +60,7 @@ interface UkrholdContent {
 const theme: CompanyTheme = {
   text: '#1b2147',
   accent: '#f2c230',
-  border: '#e3e7f0',
-  tabBg: '#f2f5fb'
+  border: '#e3e7f0'
 }
 
 const img = (n: number) => `/images/ukrhold/image${n}.png`
@@ -91,7 +90,7 @@ export function UkrholdCompany({ t }: CompanyPageProps): JSX.Element {
   ]
 
   return (
-    <CompanyShell slug='ukrhold' theme={theme} topSectionId='about'>
+    <CompanyShell theme={theme}>
       {/* Hero */}
       <section className='relative min-h-[640px] overflow-hidden bg-[#1b2147] text-white'>
         <img

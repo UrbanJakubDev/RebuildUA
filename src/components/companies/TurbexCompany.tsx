@@ -55,8 +55,7 @@ interface TurbexContent {
 const theme: CompanyTheme = {
   text: '#0f2a17',
   accent: '#12bf23',
-  border: '#e3ebe4',
-  tabBg: '#eff5ef'
+  border: '#e3ebe4'
 }
 
 const img = (n: number, ext = 'png') => `/images/turbex/image${n}.${ext}`
@@ -78,7 +77,7 @@ export function TurbexCompany({ t }: CompanyPageProps): JSX.Element {
   const c = t.raw('companies.turbex') as TurbexContent
 
   return (
-    <CompanyShell slug='turbex' theme={theme} topSectionId='mission'>
+    <CompanyShell theme={theme}>
       {/* Hero */}
       <section
         className='relative min-h-[620px] overflow-hidden bg-[#0f2a17] bg-cover bg-center bg-no-repeat text-white'

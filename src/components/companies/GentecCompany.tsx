@@ -71,8 +71,7 @@ interface GentecContent {
 const theme: CompanyTheme = {
   text: '#2c2a29',
   accent: '#b90426',
-  border: '#ebebeb',
-  tabBg: '#f5f5f5'
+  border: '#ebebeb'
 }
 
 const shared = (file: string) => `/images/shared/${file}`
@@ -148,7 +147,7 @@ export function GentecCompany({ t }: CompanyPageProps): JSX.Element {
       : c.references.items.filter(r => matchesFilter(r.typeKey, f)).length
 
   return (
-    <CompanyShell slug='gentec' theme={theme} topSectionId='about'>
+    <CompanyShell theme={theme}>
       {/* Hero */}
       <section className='relative h-[640px] overflow-hidden bg-[#2c2a29]'>
         <img
@@ -382,7 +381,7 @@ export function GentecCompany({ t }: CompanyPageProps): JSX.Element {
             </div>
           </div>
 
-          <div id='rnd' className='flex scroll-mt-[110px] flex-col gap-10'>
+          <div id='rnd' className='flex scroll-mt-[176px] flex-col gap-10'>
             <div className='flex flex-col gap-4'>
               <Eyebrow color='#b90426'>{c.rnd.eyebrow}</Eyebrow>
               <Heading className='text-[40px] leading-[1.1] tracking-[-0.02em] text-white'>

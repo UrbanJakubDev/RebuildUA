@@ -29,7 +29,7 @@ export function Section({
   children: React.ReactNode
 }) {
   return (
-    <section id={id} className={`scroll-mt-[110px] ${className}`} style={style}>
+    <section id={id} className={`scroll-mt-[176px] ${className}`} style={style}>
       {children}
     </section>
   )

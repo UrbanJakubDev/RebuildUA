@@ -77,8 +77,7 @@ interface RepowerContent {
 const theme: CompanyTheme = {
   text: '#2c2a29',
   accent: '#b90426',
-  border: '#ebebeb',
-  tabBg: '#f5f5f5'
+  border: '#ebebeb'
 }
 
 const img = (file: string) => `/images/repower/${file}`
@@ -112,7 +111,7 @@ export function RepowerCompany({ t }: CompanyPageProps): JSX.Element {
   const c = t.raw('companies.repower') as RepowerContent
 
   return (
-    <CompanyShell slug='repower' theme={theme} topSectionId='about'>
+    <CompanyShell theme={theme}>
       {/* Hero */}
       <section className='relative h-[640px] overflow-hidden bg-[#2c2a29]'>
         <img

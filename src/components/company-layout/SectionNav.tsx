@@ -27,7 +27,7 @@ export function SectionNav({
           if (entry.isIntersecting) setActive(entry.target.id)
         })
       },
-      { rootMargin: '-120px 0px -60% 0px' }
+      { rootMargin: '-190px 0px -60% 0px' }
     )
     ids.split(',').forEach(id => {
       const el = document.getElementById(id)
@@ -38,7 +38,7 @@ export function SectionNav({
 
   return (
     <nav
-      className='sticky top-14 z-[15] border-b bg-white/95 backdrop-blur-md'
+      className='sticky top-[124px] z-[15] border-b bg-white/95 backdrop-blur-md'
       style={{ borderColor: theme.border }}
     >
       <div className='mx-auto flex h-[52px] max-w-[1280px] items-stretch gap-8 px-12'>

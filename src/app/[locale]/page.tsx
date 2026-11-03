@@ -16,13 +16,13 @@ export default function DashboardPage() {
     {
       slug: 'Gentec',
       name: 'Gentec',
-      logoUrl: '/images/gentec_logo.svg',
+      logoUrl: '/images/gentec/gentec-logo-claim.png',
       description: 'Popis firmy B'
     },
     {
       slug: 'Repower',
       name: 'Repower',
-      logoUrl: '/images/Group_5-removebg-preview.png',
+      logoUrl: '/images/repower/repower-logo.png',
       description: 'Popis firmy D'
     },
     {

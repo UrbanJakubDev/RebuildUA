@@ -45,10 +45,7 @@
       "copyright": "Rebuild Ukraine",
       "author": "Created by",
       "about": "About",
-      "support": "Support",
-      "view": "View",
-      "viewClassic": "Original",
-      "viewNew": "New"
+      "support": "Support"
     },
     "ui": {
       "theme": "Theme",
@@ -85,11 +82,6 @@
       }
     },
     "company": {
-      "layout": {
-        "videos": "Videos",
-        "allCompanies": "All companies",
-        "backToTop": "Back to top ↑"
-      },
       "companies": {
         "gentec": {
           "nav": [
