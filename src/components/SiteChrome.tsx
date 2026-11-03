@@ -54,12 +54,12 @@ export function SiteChrome({
 
   const isHome = homePagePattern.test(pathname)
   const main = (
-    <main className='relative flex-1'>
+    <main className='relative flex flex-1 flex-col'>
       {/* Background slideshow */}
       <BackgroundSlideshow />
 
       {/* Content */}
-      <div className='relative z-10 h-full'>{content}</div>
+      <div className='relative z-10 flex flex-1 flex-col'>{content}</div>
     </main>
   )
 
